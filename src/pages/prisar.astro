@@ -3,6 +3,8 @@ import PageHeader from '../components/PageHeader.astro';
 import Prisliste from '../components/Prisliste.astro';
 import Layout from '../layouts/Layout.astro';
 
+export const currentPath = "/prisar";
+
 const items = [
 	{ name: 'Leilegheit', price: 7900 },
 	{ name: 'Leilegheit i loft eller i u.etg/kjeller', price: 8500 },
@@ -12,7 +14,7 @@ const items = [
 	{ name: 'Tillegg pr. ekstra bueining/utleigedel/hybel', price: 2000 },
 ]
 ---
-<Layout>
+<Layout currentPath={currentPath} >
 	<PageHeader pageTitle="Prisliste" />
 	<div class="h-72 content-center text-center">
 		<h1>Her kjem prislista til Langli Takst</h1>

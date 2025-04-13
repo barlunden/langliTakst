@@ -1,9 +1,11 @@
 ---
 import PageHeader from "../components/PageHeader.astro";
 import Layout from "../layouts/Layout.astro";
+
+export const currentPath = "/bestill-takst";
 ---
 
-<Layout>
+<Layout currentPath={currentPath}>
   <PageHeader pageTitle="Bestill takst" />
   <div class="content-center">
     <h1 class="text-center">Her kjem bestillingsskjema til Langli Takst</h1>
