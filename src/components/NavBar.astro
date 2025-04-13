@@ -1,41 +1,89 @@
 ---
-import { getImage } from "astro:assets";
-import logo from "../images/LogoPlaceholder.webp";
+import { Astronav, MenuItems, Dropdown, DropdownItems } from "astro-navbar";
 
 const { currentPath } = Astro.props;
-const optimizedLogo = await getImage({ src: logo });
 ---
 
-<nav class="w-full h-60 flex flex-row pr-20 text-xl">
-    <div class="my-auto w-1/4">
-        <a class={currentPath === "/" ? "active" : ""} 
-            href="/"><img
-            src={optimizedLogo.src}
-            alt="Langli Takst Temporary Logo"
-            class="max-h-60"
-          /></a>
-    </div>
-    <div class="flex flex-row gap-6 my-auto w-3/4 justify-end">
-        <ul class="flex flex-row gap-4">
-            <li><a class={currentPath === "/bestill-takst" ? "active" : ""} href="/bestill-takst">Bestill takst</a></li>
-            <li><a class={currentPath === "/prisar" ? "active" : ""} href="/prisar">Prisar</a></li>
-            <li><a class={currentPath === "/tjenester" ? "active" : ""} href="/tjenester">Tenester</a></li>
-            <li><a class={currentPath === "/om-langli-takst" ? "active" : ""} href="/om-langli-takst">Om Langli Takst</a></li>
+<nav class="w-full h-52 flex flex-row px-20 text-xl">
+  <div class="my-auto w-1/4">
+    <a id="home" class={currentPath === "/" ? "active" : ""} href="/"
+      >Langli Takst AS</a
+    >
+  </div>
+  <div class="flex flex-row gap-6 my-auto w-3/4 justify-end">
+    <ul class="flex flex-row gap-4">
+      <li>
+        <a
+          class={currentPath === "/bestill-takst" ? "active" : ""}
+          href="/bestill-takst">Bestill takst</a>
+      </li>
+      <li>
+        <a class={currentPath === "/prisar" ? "active" : ""} href="/prisar"
+          >Prisar</a>
+      </li>
+      <li class="dropdown">
+        <button class="dropdown-toggle"><a
+            class={currentPath === "/tjenester" ? "active" : ""}
+            href="/tjenester">Tenester</a></button>
+        <ul class="dropdown-menu">
+          <li><a href="/tenester/tilstandsrapport">Tilstandsrapport</a></li>
+          <li><a href="/services/verditakst">Verdi-/lånetakst</a></li>
+          <li><a href="/services/reklamasjon">Reklamasjon/skadetakst</a></li>
+          <li><p class="fotnote">Eksempel på enkel dropdow-funksjon. Må stylast</p></li>
         </ul>
-    </div>
+      </li>
+      <li>
+        <a
+          class={currentPath === "/om-langli-takst" ? "active" : ""}
+          href="/om-langli-takst">Om Langli Takst</a>
+      </li>
+    </ul>
+  </div>
 </nav>
 
+
+
 <style>
-    nav {
-        background-color: hsl(71deg 6% 77%);
-    }
-    a {
-        color: hsl(175deg 28% 11%);
-    }
-    a:hover {
-        color: hsl(175deg 38% 21%);
-    }
-    a.active {
-        color: hsl(165deg 38% 41%);
-    }
+  nav {
+    background-color: hsl(71deg 6% 77%);
+  }
+  a {
+    color: hsl(175deg 28% 11%);
+  }
+  a:hover {
+    color: hsl(175deg 38% 21%);
+  }
+  a.active {
+    color: hsl(165deg 38% 41%);
+  }
+  a#home {
+    font-size: xx-large;
+  }
+
+  .dropdown {
+    position: relative;
+  }
+
+  .dropdown-menu {
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    background-color: white;
+    list-style: none;
+    padding: 0.5rem;
+    border: 1px solid #ddd;
+  }
+
+  .dropdown:hover .dropdown-menu {
+    display: block; /* Show dropdown on hover */
+  }
+
+  .dropdown-menu li {
+    margin-bottom: 0.5rem;
+  }
+
+  .dropdown-menu li:last-child {
+    margin-bottom: 0;
+  }
 </style>
