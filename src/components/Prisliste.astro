@@ -1,0 +1,33 @@
+---
+const { items } = Astro.props; // Accept data as props
+---
+<div class="price-list">
+  <h2>Prisliste</h2>
+  <ul>
+    {items.map((item: { name: unknown; price: unknown; }) => (
+      <li>
+        <span>{item.name}</span>
+        <span>{item.price} NOK</span>
+      </li>
+    ))}
+  </ul>
+</div>
+
+<style>
+  .price-list {
+    font-family: Arial, sans-serif;
+    border: 1px solid #ddd;
+    padding: 16px;
+    max-width: 500px;
+    margin: 10px auto
+  }
+  .price-list ul {
+    list-style: none;
+    padding: 0;
+  }
+  .price-list li {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 8px;
+  }
+</style>

@@ -1,0 +1,21 @@
+---
+const { pageTitle } = Astro.props;
+---
+
+<section>
+  <h1>{pageTitle}</h1>
+</section>
+
+<style>
+  section {
+    height: 5rem;
+    align-content: center;
+    background-color: hsl(225deg 100% 34%);
+  }
+  h1 {
+    font-size: xx-large;
+    font-weight: 600;
+    color: white;
+    text-align: center;
+  }
+</style>
