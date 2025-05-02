@@ -1,0 +1,12 @@
+---
+import PageHeader from '../components/PageHeader.astro';
+import Layout from '../layouts/Layout.astro';
+
+export const currentPath = "/verditakst";
+---
+<Layout currentPath={currentPath}>
+	<PageHeader pageTitle="Verditakst" />
+	<div class="h-72 content-center text-center">
+		<h1>Her kjem verditakst</h1>
+	</div>
+</Layout>
