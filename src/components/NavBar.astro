@@ -4,7 +4,7 @@ import { Astronav, MenuItems, MenuIcon } from "astro-navbar";
 const { currentPath } = Astro.props;
 ---
 
-<div class="lg:flex justify-between p-5 gap-5 mx-auto container">
+<div class="navbar lg:flex justify-between p-5 gap-5 mx-auto container">
   <Astronav>
     <div class="flex w-full lg:w-auto justify-between">
       <a id="home" class={currentPath === "/" ? "active" : ""} href="/"
@@ -17,7 +17,7 @@ const { currentPath } = Astro.props;
     <MenuItems class="astronav-items astronav-toggle lg:flex hidden">
       <ul class="flex flex-col lg:flex-row lg:gap-5">
         <li>
-          <a class={currentPath === "/prisar" ? "active" : ""} href="/prisar"
+          <a class={currentPath === "/priser" ? "active" : ""} href="/priser"
             >Priser</a
           >
         </li>
@@ -29,12 +29,29 @@ const { currentPath } = Astro.props;
             ></button
           >
           <ul class="dropdown-menu">
-            <li><a href="/tjenester/takst">Taksering og verdivurdering</a></li>
             <li>
-              <a href="/tjenester/byggkontroll">Byggeprosjekt og kontroll</a>
+              <a
+                class={currentPath === "/tjenester/takst" ? "active" : ""}
+                href="/tjenester/takst">Taksering og verdivurdering</a>
             </li>
-            <li><a href="/tjenester/kjopogsalg">Kjøp og salg av bolig</a></li>
-            <li><a href="/tjenester/energi">Energi og rådgivning</a></li>
+            <li>
+              <a
+                class={currentPath === "/tjenester/byggkontroll"
+                  ? "active"
+                  : ""}
+                href="/tjenester/byggkontroll">Byggeprosjekt og kontroll</a
+              >
+            </li>
+            <li>
+              <a
+                class={currentPath === "/tjenester/kjopogsalg" ? "active" : ""}
+                href="/tjenester/kjopogsalg">Kjøp og salg av bolig</a>
+            </li>
+            <li>
+              <a
+                class={currentPath === "/tjenester/energi" ? "active" : ""}
+                href="/tjenester/energi">Energi og rådgivning</a>
+            </li>
             <li>
               <p class="fotnote">
                 Eksempel på enkel dropdown-funksjon. Må stylast
@@ -60,7 +77,26 @@ const { currentPath } = Astro.props;
 </div>
 
 <style>
-  
+  .navbar {
+    background-color: hsl(210 20% 95%);
+  }
+  a {
+  color: hsl(210, 60%, 50%);
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+a:hover {
+  color: hsl(210, 60%, 40%); /* mørkare blå */
+}
+
+a:active {
+  color: hsl(44, 74%, 48%); /* mørkare gul fra logo */
+} 
+  a#home {
+    font-size: xx-large;
+  }
+
   .dropdown {
     position: relative;
   }

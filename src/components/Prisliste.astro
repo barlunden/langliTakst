@@ -1,8 +1,8 @@
 ---
-const { items } = Astro.props; // Accept data as props
+const { items, category } = Astro.props; // Accept data as props
 ---
 <div class="price-list">
-  <h2>Prisliste</h2>
+  <h2>{category}</h2>
   <ul>
     {items.map((item: { name: unknown; price: unknown; }) => (
       <li>
@@ -18,7 +18,7 @@ const { items } = Astro.props; // Accept data as props
     font-family: Arial, sans-serif;
     border: 1px solid #ddd;
     padding: 16px;
-    max-width: 500px;
+    max-width: 600px;
     margin: 10px auto
   }
   .price-list ul {
