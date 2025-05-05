@@ -24,7 +24,7 @@ export const currentPath = "/";
   </section>
 </Layout>
 
-<style>
+<style is:global>
   section {
     width: 100%;
     position: relative;
@@ -45,4 +45,78 @@ export const currentPath = "/";
 	text-align: center;
 	border-radius: 16px;
   }
+  :root {
+  /* Logo-gule fargar */
+  --yellow-light: hsl(44, 59%, 62%);
+  --yellow-medium: hsl(41, 74%, 48%);
+  --yellow-dark: hsl(46, 77%, 48%);
+
+  /* Blå hovudfargar */
+  --blue-primary: hsl(210, 60%, 50%);
+  --blue-dark: hsl(210, 30%, 25%);
+
+  /* Bakgrunn */
+  --background-light: hsl(210, 20%, 95%);
+
+  /* Tekst */
+  --text-primary: var(--blue-dark);
+  --text-secondary: var(--blue-primary);
+}
+
+/* Basestil */
+body {
+  background-color: var(--background-light);
+  color: var(--text-primary);
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  margin: 0;
+  padding: 1rem;
+}
+
+/* Overskrifter */
+h1, h2, h3 {
+  color: var(--blue-primary);
+}
+
+/* Lenker */
+a {
+  color: var(--blue-primary);
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+a:hover,
+a:focus {
+  color: var(--yellow-medium);
+  outline: none;
+}
+
+/* Knappar */
+button {
+  background-color: var(--blue-primary);
+  color: white;
+  border: none;
+  padding: 0.6rem 1.2rem;
+  border-radius: 4px;
+  cursor: pointer;
+  font-weight: 600;
+  transition: background-color 0.3s ease;
+}
+
+button:hover,
+button:focus {
+  background-color: var(--yellow-medium);
+  color: var(--blue-dark);
+  outline: none;
+}
+
+/* Eksempel på aksentboks */
+.accent-box {
+  background-color: var(--yellow-light);
+  color: var(--blue-dark);
+  padding: 1rem;
+  border-radius: 6px;
+  margin: 1rem 0;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+}
+
 </style>

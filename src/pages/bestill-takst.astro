@@ -3,19 +3,18 @@ import PageHeader from "../components/PageHeader.astro";
 import Layout from "../layouts/Layout.astro";
 
 export const currentPath = "/bestill-takst";
+
+const services = [
+  { label: 'Boligtaksering', options: ['Tilstandsrapport', 'Verditakst', 'Forhåndstakst', 'Verdivurdering', 'Tomtetakst', 'Skadetakst', 'Reklamasjonsrapport', 'Kjøpe bolig'] },
+  { label: 'Næringstaksering', options: ['Næringstakst'] },
+  { label: 'Byggeprosjekt og Kontroll', options: ['Byggelånsoppfølging', 'Uavhengig kontroll'] },
+  { label: 'Energi og Rådgivning', options: ['Energirådgivning for bolig', 'Enovatilskuddet'] }
+];
 ---
 
 <Layout currentPath={currentPath}>
-  <PageHeader pageTitle="Bestill takst" />
+  <PageHeader pageTitle="Bestill tenester" />
   <div class="content-center">
-    <h1 class="text-center">Her kjem bestillingsskjema til Langli Takst</h1>
-    <!-- 
-    This is a working contact form. To receive email, 
-    Replace YOUR_ACCESS_KEY_HERE with your actual Access Key.
-
-    Create Access Key here 👉 https://web3forms.com/
- -->
-
     <section class="contact-section">
       <div class="contact-intro">
         <h2 class="contact-title">Ta kontakt</h2>
@@ -24,61 +23,28 @@ export const currentPath = "/bestill-takst";
         </p>
       </div>
 
-      <form
-        class="contact-form"
-        action="https://api.web3forms.com/submit"
-        method="POST"
-      >
-        <input type="hidden" name="access_key" value="YOUR_ACCESS_KEY_HERE" />
-        <input
-          type="hidden"
-          name="subject"
-          value="New Contact Form Submission from Web3Forms"
-        />
-        <input type="hidden" name="from_name" value="My Website" />
-        <!-- More custom ization options available in the docs: https://docs.web3forms.com -->
-
-        <div class="form-group-container">
-          <div class="form-group">
-            <label for="name" class="form-label">Namn</label>
-            <input
-              id="name"
-              name="name"
-              class="form-input"
-              placeholder="Ditt namn"
-              type="text"
-            />
-          </div>
-          <div class="form-group">
-            <label for="email" class="form-label">E-post</label>
-            <input
-              id="email"
-              name="email"
-              class="form-input"
-              placeholder="Din e-post"
-              type="email"
-            />
-          </div>
-          <div class="form-group">
-            <label for="phone" class="form-label">Telefon</label>
-            <input
-              id="phone"
-              name="phone"
-              class="form-input"
-              placeholder="+47 987 65 432"
-              type="text"
-            />
-          </div>
-          <div class="form-group">
-            <label for="message" class="form-label">Melding</label>
-            <textarea
-              class="form-textarea"
-              id="message"
-              name="message"
-              placeholder="Kva henvendinga gjeld"></textarea>
-          </div>
-        </div>
-        <button class="form-submit" type="submit">Send melding</button>
+      <form class="flex flex-col text-lg" method="POST" action="/api/contact">
+        <label for="name">Navn:</label>
+        <input class="w-full border-1 border-gray-200 rounded-lg" type="text" id="name" name="name" required />
+      
+        <label for="email">E-post:</label>
+        <input class="w-full border-1 border-gray-200 rounded-lg"  type="email" id="email" name="email" required />
+      
+        <label for="service">Velg tenestetype:</label>
+        <select id="service" name="service" required>
+          {services.map(group => (
+            <optgroup label={group.label}>
+              {group.options.map(option => (
+                <option value={option}>{option}</option>
+              ))}
+            </optgroup>
+          ))}
+        </select>
+      
+        <label for="message">Melding:</label>
+        <textarea id="message" name="message" required></textarea>
+      
+        <button class="button" type="submit">Send</button>
       </form>
     </section>
   </div>

@@ -1,60 +1,87 @@
 ---
-import { Astronav, MenuItems, Dropdown, DropdownItems } from "astro-navbar";
+import {
+  Astronav,
+  MenuIcon,
+  MenuItems,
+  Dropdown,
+  DropdownItems,
+} from "astro-navbar";
 
 const { currentPath } = Astro.props;
 ---
 
-<nav class="w-full h-52 flex flex-row px-20 text-xl">
-  <div class="my-auto w-1/4">
+<Astronav>
+  <div class="flex justify-between">
     <a id="home" class={currentPath === "/" ? "active" : ""} href="/"
       >Langli Takst AS</a
     >
+    <MenuIcon class="w-6 h-6 text-gray-800" />
   </div>
-  <div class="flex flex-row gap-6 my-auto w-3/4 justify-end">
-    <ul class="flex flex-row gap-4">
+  <MenuItems class="hidden md:flex">
+    <ul class="">
       <li>
         <a class={currentPath === "/prisar" ? "active" : ""} href="/prisar"
-          >Prisar</a>
+          >Priser</a
+        >
       </li>
-      <li class="dropdown">
-        <button class="dropdown-toggle"><a
-            class={currentPath === "/tjenester" ? "active" : ""}
-            href="/tjenester">Tenester</a></button>
-        <ul class="dropdown-menu">
-          <li><a href="/tilstandsrapport">Tilstandsrapport</a></li>
-          <li><a href="/verditakst">Verdi-/lånetakst</a></li>
-          <li><a href="/reklamasjon">Reklamasjon/skadetakst</a></li>
-          <li><p class="fotnote">Eksempel på enkel dropdown-funksjon. Må stylast</p></li>
-        </ul>
-      </li>
+      <Dropdown class="group">
+        <li class="dropdown">
+          <button class="dropdown-toggle"
+            ><a
+              class={currentPath === "/tjenester" ? "active" : ""}
+              href="/tjenester">Tjenester</a
+            ></button
+          >
+          <DropdownItems>
+            <ul class="dropdown-menu">
+              <li>
+                <a href="/tjenester/takst">Taksering og verdivurdering</a>
+              </li>
+              <li>
+                <a href="/tjenester/byggkontroll">Byggeprosjekt og kontroll</a>
+              </li>
+              <li>
+                <a href="/tjenester/kjopogsalg">Kjøp og salg av bolig</a>
+              </li>
+              <li><a href="/tjenester/energi">Energi og rådgivning</a></li>
+              <li>
+                <p class="fotnote">
+                  Eksempel på enkel dropdown-funksjon. Må stylast
+                </p>
+              </li>
+            </ul>
+          </DropdownItems>
+        </li>
+      </Dropdown>
       <li>
         <a
           class={currentPath === "/om-langli-takst" ? "active" : ""}
-          href="/om-langli-takst">Om Langli Takst</a>
+          href="/om-langli-takst">Om Langli Takst</a
+        >
       </li>
       <li>
         <a
           class={currentPath === "/bestill-takst" ? "active" : ""}
-          href="/bestill-takst">Bestill takst</a>
+          href="/bestill-takst">Bestill tjenester</a
+        >
       </li>
     </ul>
-  </div>
-</nav>
-
-
+  </MenuItems>
+</Astronav>
 
 <style>
-  nav {
-    background-color: hsl(71deg 6% 77%);
+  .hidden {
+    display: none;
   }
+
   a {
     color: hsl(175deg 28% 11%);
   }
   a:hover {
-    color: hsl(175deg 38% 21%);
+    color: hsl(175deg 38% 41%);
   }
   a.active {
-    color: hsl(165deg 38% 41%);
+    color: hsl(165deg 38% 61%);
   }
   a#home {
     font-size: xx-large;
@@ -73,6 +100,8 @@ const { currentPath } = Astro.props;
     list-style: none;
     padding: 0.5rem;
     border: 1px solid #ddd;
+    width: 300px;
+    z-index: 100;
   }
 
   .dropdown:hover .dropdown-menu {
