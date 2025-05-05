@@ -1,30 +1,26 @@
 ---
-import {
-  Astronav,
-  MenuIcon,
-  MenuItems,
-  Dropdown,
-  DropdownItems,
-} from "astro-navbar";
+import { Astronav, MenuItems, MenuIcon } from "astro-navbar";
 
 const { currentPath } = Astro.props;
 ---
 
-<Astronav>
-  <div class="flex justify-between">
-    <a id="home" class={currentPath === "/" ? "active" : ""} href="/"
-      >Langli Takst AS</a
-    >
-    <MenuIcon class="w-6 h-6 text-gray-800" />
-  </div>
-  <MenuItems class="hidden md:flex">
-    <ul class="">
-      <li>
-        <a class={currentPath === "/prisar" ? "active" : ""} href="/prisar"
-          >Priser</a
-        >
-      </li>
-      <Dropdown class="group">
+<div class="lg:flex justify-between p-5 gap-5 mx-auto container">
+  <Astronav>
+    <div class="flex w-full lg:w-auto justify-between">
+      <a id="home" class={currentPath === "/" ? "active" : ""} href="/"
+        >Langli Takst AS</a
+      >
+      <div class="block lg:hidden">
+        <MenuIcon class="w-4 h-4 text-gray-800" />
+      </div>
+    </div>
+    <MenuItems class="astronav-items astronav-toggle lg:flex hidden">
+      <ul class="flex flex-col lg:flex-row lg:gap-5">
+        <li>
+          <a class={currentPath === "/prisar" ? "active" : ""} href="/prisar"
+            >Priser</a
+          >
+        </li>
         <li class="dropdown">
           <button class="dropdown-toggle"
             ><a
@@ -32,61 +28,39 @@ const { currentPath } = Astro.props;
               href="/tjenester">Tjenester</a
             ></button
           >
-          <DropdownItems>
-            <ul class="dropdown-menu">
-              <li>
-                <a href="/tjenester/takst">Taksering og verdivurdering</a>
-              </li>
-              <li>
-                <a href="/tjenester/byggkontroll">Byggeprosjekt og kontroll</a>
-              </li>
-              <li>
-                <a href="/tjenester/kjopogsalg">Kjøp og salg av bolig</a>
-              </li>
-              <li><a href="/tjenester/energi">Energi og rådgivning</a></li>
-              <li>
-                <p class="fotnote">
-                  Eksempel på enkel dropdown-funksjon. Må stylast
-                </p>
-              </li>
-            </ul>
-          </DropdownItems>
+          <ul class="dropdown-menu">
+            <li><a href="/tjenester/takst">Taksering og verdivurdering</a></li>
+            <li>
+              <a href="/tjenester/byggkontroll">Byggeprosjekt og kontroll</a>
+            </li>
+            <li><a href="/tjenester/kjopogsalg">Kjøp og salg av bolig</a></li>
+            <li><a href="/tjenester/energi">Energi og rådgivning</a></li>
+            <li>
+              <p class="fotnote">
+                Eksempel på enkel dropdown-funksjon. Må stylast
+              </p>
+            </li>
+          </ul>
         </li>
-      </Dropdown>
-      <li>
-        <a
-          class={currentPath === "/om-langli-takst" ? "active" : ""}
-          href="/om-langli-takst">Om Langli Takst</a
-        >
-      </li>
-      <li>
-        <a
-          class={currentPath === "/bestill-takst" ? "active" : ""}
-          href="/bestill-takst">Bestill tjenester</a
-        >
-      </li>
-    </ul>
-  </MenuItems>
-</Astronav>
+        <li>
+          <a
+            class={currentPath === "/om-langli-takst" ? "active" : ""}
+            href="/om-langli-takst">Om Langli Takst</a
+          >
+        </li>
+        <li>
+          <a
+            class={currentPath === "/bestill-takst" ? "active" : ""}
+            href="/bestill-takst">Bestill tjenester</a
+          >
+        </li>
+      </ul>
+    </MenuItems>
+  </Astronav>
+</div>
 
 <style>
-  .hidden {
-    display: none;
-  }
-
-  a {
-    color: hsl(175deg 28% 11%);
-  }
-  a:hover {
-    color: hsl(175deg 38% 41%);
-  }
-  a.active {
-    color: hsl(165deg 38% 61%);
-  }
-  a#home {
-    font-size: xx-large;
-  }
-
+  
   .dropdown {
     position: relative;
   }
