@@ -25,13 +25,13 @@ const services = [
 
       <form class="flex flex-col text-lg" method="POST" action="/api/contact">
         <label for="name">Navn:</label>
-        <input class="w-full border-1 border-gray-200 rounded-lg mb-4" type="text" id="name" name="name" required />
+        <input class="w-full border-1 border-gray-200 bg-white rounded-lg mb-4" type="text" id="name" name="name" required />
       
         <label for="email">E-post:</label>
-        <input class="w-full border-1 border-gray-200 rounded-lg mb-4" type="email" id="email" name="email" required />
+        <input class="w-full border-1 border-gray-200 bg-white rounded-lg mb-4" type="email" id="email" name="email" required />
       
         <label for="service">Velg tenestetype:</label>
-        <select  class="w-full border-1 border-gray-200 rounded-lg mb-4 bg-blue-100" id="service" name="service" required>
+        <select  class="w-full border-1 border-gray-200 rounded-lg mb-4 bg-gray-50 p-1" id="service" name="service" required>
           {services.map(group => (
             <optgroup label={group.label}>
               {group.options.map(option => (
@@ -42,7 +42,7 @@ const services = [
         </select>
       
         <label for="message">Melding:</label>
-        <textarea  class="w-full border-1 border-gray-200 rounded-lg mb-4" id="message" name="message" required></textarea>
+        <textarea  class="w-full border-1 border-gray-200 bg-white rounded-lg mb-4" id="message" name="message" required></textarea>
       
         <button class="button" type="submit">Send</button>
       </form>

@@ -1,5 +1,9 @@
 ---
+import { getImage } from "astro:assets";
 import { Astronav, MenuItems, MenuIcon } from "astro-navbar";
+import logo from "../logos/image001.png";
+
+const optimizedLogo = await getImage({ src: logo });
 
 const { currentPath } = Astro.props;
 ---
@@ -8,7 +12,11 @@ const { currentPath } = Astro.props;
   <Astronav>
     <div class="flex w-full lg:w-auto justify-between">
       <a id="home" class={currentPath === "/" ? "active" : ""} href="/"
-        >Langli Takst AS</a
+        ><img
+        src={optimizedLogo.src}
+        alt="Langli Takst AS"
+        class="max-h-13"
+      /></a
       >
       <div class="block lg:hidden">
         <MenuIcon class="w-4 h-4 text-gray-800" />
@@ -55,11 +63,6 @@ const { currentPath } = Astro.props;
                 href="/tjenester/energi">Energi og rådgivning</a
               >
             </li>
-            <li>
-              <p class="fotnote">
-                Eksempel på enkel dropdown-funksjon. Må stylast
-              </p>
-            </li>
           </ul>
         </li>
         <li>
@@ -86,19 +89,25 @@ const { currentPath } = Astro.props;
   }
 
   a {
-    color: hsl(210, 60%, 50%);
+    color: hsl(240, 5%, 10%);
     text-decoration: none;
-    transition: color 0.3s ease;
+    transition: color 0.3s ease-in;
     font-size: large;
   }
 
-  a:hover {
-    color: hsl(210, 60%, 40%); /* mørkare blå */
+  a:hover,
+  a:focus {
+    color: hsl(44, 74%, 48%);
   }
 
   a:active {
-    color: hsl(44, 74%, 48%); /* mørkare gul fra logo */
+    color: hsl(41, 74%, 38%);
   }
+
+  a.active {
+    color: hsl(41, 74%, 33%);
+  }
+
   a#home {
     font-size: xx-large;
   }
