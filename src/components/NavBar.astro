@@ -8,15 +8,17 @@ const optimizedLogo = await getImage({ src: logo });
 const { currentPath } = Astro.props;
 ---
 
-<div class="navbar lg:flex justify-between h-24 px-12 gap-5 mx-auto items-center">
+<div
+  class="navbar lg:flex justify-between h-24 px-12 gap-5 mx-auto items-center"
+>
   <Astronav>
     <div class="flex w-full lg:w-auto justify-between">
       <a id="home" class={currentPath === "/" ? "active" : ""} href="/"
         ><img
-        src={optimizedLogo.src}
-        alt="Langli Takst AS"
-        class="max-h-13"
-      /></a
+          src={optimizedLogo.src}
+          alt="Langli Takst AS"
+          class="max-h-13"
+        /></a
       >
       <div class="block lg:hidden">
         <MenuIcon class="w-4 h-4 text-gray-800" />
@@ -30,11 +32,11 @@ const { currentPath } = Astro.props;
           >
         </li>
         <li class="dropdown">
-          <button class="dropdown-toggle"
-            ><a
-              class={currentPath === "/tjenester" ? "active" : ""}
-              href="/tjenester">Tjenester</a
-            ></button
+          <a
+            class={`dropdown-toggle ${currentPath.startsWith("/tjenester") ? "active" : ""}`}
+            href="/tjenester"
+            aria-haspopup="true"
+            aria-expanded="false">Tjenester</a
           >
           <ul class="dropdown-menu">
             <li>
@@ -65,6 +67,7 @@ const { currentPath } = Astro.props;
             </li>
           </ul>
         </li>
+
         <li>
           <a
             class={currentPath === "/om-langli-takst" ? "active" : ""}
@@ -131,6 +134,11 @@ const { currentPath } = Astro.props;
 
   .dropdown:hover .dropdown-menu {
     display: block; /* Show dropdown on hover */
+  }
+
+  .dropdown:hover > .dropdown-toggle,
+  .dropdown:focus-within > .dropdown-toggle {
+    color: hsl(41, 74%, 33%);
   }
 
   .dropdown-menu li {
