@@ -1,43 +1,50 @@
 ---
-import PageHeader from '../components/PageHeader.astro';
-import Prisliste from '../components/Prisliste.astro';
-import Layout from '../layouts/Layout.astro';
+import PageHeader from "../components/PageHeader.astro";
+import Prisliste from "../components/Prisliste.astro";
+import Layout from "../layouts/Layout.astro";
 
 export const currentPath = "/priser";
 
-const takster = [
-	{ name: 'Enebolig, rekkehus, tomannsbolig, leilighet opp til 250 m² BRA', price: 6000 },
-	{ name: 'Enebolig, rekkehus, tomannsbolig, leilighet fra 250 m² BRA', price: 7000 },
-	{ name: 'Tomt fra', price: 5000 },
-	{ name: 'Næring fra', price: 18000 },
-]
+const tilstand = [
+  { name: "Leilighet opp til 99 m2 BRA", price: 8500 },
+  { name: "Leilighet fra 100 til 200 m2 BRA", price: 10500 },
+  { name: "Bolig opp til 149 m2 BRA", price: 13000 },
+  { name: "Bolig fra 150 til 249 m2 BRA", price: 14500 },
+  { name: "Bolig fra 250 m2 BRA", price: 17500 },
+];
 
 const tillegg = [
-	{ name: 'Hybel/leilighet m/våtrom', price: 3500 },
-	{ name: 'Ved mer enn 3 stk. våtrom, pris pr. våtrom', price: 1500 },
-	{ name: 'Verditakst sammen med tilstandsrapport', price: 2500 }
-]
+  { name: "Hybel/leilighet m/våtrom", price: 3500 },
+  { name: "Ved mer enn 3 stk. våtrom, pris pr. våtrom", price: 1500 },
+  { name: "Verditakst sammen med tilstandsrapport", price: 2500 },
+];
 
-const tilstand = [
-	{ name: 'Leilighet opp til 99 m2 BRA', price: 8500 },
-	{ name: 'Leilighet fra 100 til 200 m2 BRA', price: 10500 },
-	{ name: 'Bolig opp til 149 m2 BRA', price: 13000 },
-	{ name: 'Bolig fra 150 til 249 m2 BRA', price: 14500 },
-	{ name: 'Bolig fra 250 m2 BRA', price: 17500 }
-]
+const takster = [
+  {
+    name: "Enebolig, rekkehus, tomannsbolig, leilighet opp til 250 m² BRA",
+    price: 6000,
+  },
+  {
+    name: "Enebolig, rekkehus, tomannsbolig, leilighet fra 250 m² BRA",
+    price: 7000,
+  },
+  { name: "Tomt fra", price: 5000 },
+  { name: "Næring fra", price: 18000 },
+];
 ---
-<Layout currentPath={currentPath} >
-	<PageHeader pageTitle="Prisliste" />
-	<div class="content-center text-center">
-		<Prisliste category="Tilstandsrapporter ny forskrift" items={tilstand}/>
-		<Prisliste category="Pristillegg for:" items={tillegg}/>
-		<Prisliste category="Takster" items={takster}/>
-		<h1 class="font-bold">TODO: Legge inn div fotnotar og tillegg</h1>
-	</div>
+
+<Layout currentPath={currentPath}>
+  <PageHeader pageTitle="Prisliste" />
+  <div class="content-center text-center">
+    <Prisliste category="Tilstandsrapporter ny forskrift" items={tilstand} />
+    <Prisliste category="Pristillegg for:" items={tillegg} />
+    <Prisliste category="Takster" items={takster} />
+    <h1 class="font-bold">TODO: Legge inn div fotnotar og tillegg</h1>
+  </div>
 </Layout>
 
 <style>
-	p {
-		font-style: italic;
-	}
+  p {
+    font-style: italic;
+  }
 </style>

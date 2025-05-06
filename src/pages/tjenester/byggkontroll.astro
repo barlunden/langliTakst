@@ -1,12 +1,22 @@
 ---
 import PageHeader from '../../components/PageHeader.astro';
 import Layout from '../../layouts/Layout.astro';
+import Tjeneste from '../../components/Tjeneste.astro';
+import tjenester from '../../data/tjenester.js';
+
+const kategori = "byggOgKontroll";
+const filtrerteTjenester = tjenester.filter(tjeneste =>
+tjeneste.kategori.includes(kategori)
+);
 
 export const currentPath = "/tjenester/byggkontroll";
 ---
 <Layout currentPath={currentPath}>
 	<PageHeader pageTitle="Byggeprosjekt og kontroll" />
-	<div class="h-72 content-center text-center">
-		<h1>Her kommer litt om byggeprosjekt og kontroll</h1>
-	</div>
+
+<section class="grid md:grid-cols-2">
+  {filtrerteTjenester.map(tjeneste => (
+    <Tjeneste {...tjeneste} />
+  ))}
+</section>
 </Layout>
