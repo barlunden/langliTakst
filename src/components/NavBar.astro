@@ -1,151 +1,176 @@
 ---
 import { getImage } from "astro:assets";
-import { Astronav, MenuItems, MenuIcon } from "astro-navbar";
-import logo from "../logos/image001.png";
-
-const optimizedLogo = await getImage({ src: logo });
-
 const { currentPath } = Astro.props;
+
+import logo from "../logos/image001.png";
+const optimizedLogo = await getImage({ src: logo });
 ---
 
-<div
-  class="navbar lg:flex justify-between h-24 px-12 gap-5 mx-auto items-center"
->
-  <Astronav>
-    <div class="flex w-full lg:w-auto justify-between">
-      <a id="home" class={currentPath === "/" ? "active" : ""} href="/"
+<nav class="navbar lg:flex justify-between gap-4 mx-auto items-center">
+        <a id="home" class={currentPath === "/" ? "active" : ""} href="/"
         ><img
-          src={optimizedLogo.src}
-          alt="Langli Takst AS"
-          class="max-h-13"
+        src={optimizedLogo.src}
+        alt="Langli Takst AS"
+        class="max-h-13"
         /></a
+        >
+    
+    <ul class="nav-list">
+    <li>
+      <a class={currentPath === "/priser" ? "active" : ""} href="/priser">Priser</a>
+    </li>
+    <li class="dropdown" id="dropdown-tjenester">
+        <button
+        class={`dropdown-toggle ${currentPath.startsWith("/tjenester") ? "active" : ""}`}
+        aria-haspopup="true"
+        aria-expanded="false"
+        type="button"
+        id="tjenester-btn"
       >
-      <div class="block lg:hidden">
-        <MenuIcon class="w-4 h-4 text-gray-800" />
-      </div>
-    </div>
-    <MenuItems class="astronav-items astronav-toggle lg:flex hidden">
-      <ul class="flex flex-col lg:flex-row lg:gap-5">
+        Tjenester
+        <span class="dropdown-arrow" aria-hidden="true">▼</span>
+      </button>
+      <ul class="dropdown-menu" id="tjenester-menu">
         <li>
-          <a class={currentPath === "/priser" ? "active" : ""} href="/priser"
-            >Priser</a
-          >
-        </li>
-        <li class="dropdown">
-          <a
-            class={`dropdown-toggle ${currentPath.startsWith("/tjenester") ? "active" : ""}`}
-            href="/tjenester"
-            aria-haspopup="true"
-            aria-expanded="false">Tjenester</a
-          >
-          <ul class="dropdown-menu">
-            <li>
-              <a
-                class={currentPath === "/tjenester/takst" ? "active" : ""}
-                href="/tjenester/takst">Taksering og verdivurdering</a
-              >
-            </li>
-            <li>
-              <a
-                class={currentPath === "/tjenester/byggkontroll"
-                  ? "active"
-                  : ""}
-                href="/tjenester/byggkontroll">Byggeprosjekt og kontroll</a
-              >
-            </li>
-            <li>
-              <a
-                class={currentPath === "/tjenester/kjopogsalg" ? "active" : ""}
-                href="/tjenester/kjopogsalg">Kjøp og salg av bolig</a
-              >
-            </li>
-            <li>
-              <a
-                class={currentPath === "/tjenester/energi" ? "active" : ""}
-                href="/tjenester/energi">Energi og rådgivning</a
-              >
-            </li>
-          </ul>
-        </li>
-
-        <li>
-          <a
-            class={currentPath === "/om-langli-takst" ? "active" : ""}
-            href="/om-langli-takst">Om Langli Takst</a
-          >
+          <a class={currentPath === "/tjenester/takst" ? "active" : ""} href="/tjenester/takst">Taksering og verdivurdering</a>
         </li>
         <li>
-          <a
-            class={currentPath === "/bestill-takst" ? "active" : ""}
-            href="/bestill-takst">Bestill tjenester</a
-          >
+          <a class={currentPath === "/tjenester/byggkontroll" ? "active" : ""} href="/tjenester/byggkontroll">Byggeprosjekt og kontroll</a>
+        </li>
+        <li>
+          <a class={currentPath === "/tjenester/kjopogsalg" ? "active" : ""} href="/tjenester/kjopogsalg">Kjøp og salg av bolig</a>
+        </li>
+        <li>
+          <a class={currentPath === "/tjenester/energi" ? "active" : ""} href="/tjenester/energi">Energi og rådgivning</a>
         </li>
       </ul>
-    </MenuItems>
-  </Astronav>
-</div>
+    </li>
+    <li>
+      <a class={currentPath === "/om-langli-takst" ? "active" : ""} href="/om-langli-takst">Om Langli Takst</a>
+    </li>
+    <li>
+      <a class={currentPath === "/bestill-takst" ? "active" : ""} href="/bestill-takst">Bestill tjenester</a>
+    </li>
+  </ul>
+</nav>
+
+<script type="module" is:inline>
+  // Enkel JS for å åpne/lukke dropdown på klikk og lukke på klikk utenfor
+  const btn = document.getElementById('tjenester-btn');
+  const menu = document.getElementById('tjenester-menu');
+  const dropdown = document.getElementById('dropdown-tjenester');
+
+  function closeDropdown() {
+    menu.classList.remove('open');
+    btn.setAttribute('aria-expanded', 'false');
+    btn.classList.remove('dropdown-open');
+  }
+
+  btn.addEventListener('click', (e) => {
+    e.stopPropagation();
+    const isOpen = menu.classList.toggle('open');
+    btn.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
+    btn.classList.toggle('dropdown-open', isOpen);
+  });
+
+  // Lukk dropdown hvis du klikker utenfor
+  document.addEventListener('click', (e) => {
+    if (!dropdown.contains(e.target)) {
+      closeDropdown();
+    }
+  });
+
+  // Lukk dropdown med Escape
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape') {
+      closeDropdown();
+    }
+  });
+</script>
 
 <style>
   .navbar {
-    background-color: hsl(210 20% 98%);
+    background: hsl(210, 20%, 98%);
+    padding: 2rem 3rem;
     width: 100%;
   }
-
-  a {
+  .nav-list {
+    display: flex;
+    gap: 2rem;
+    align-items: center;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+  }
+  a, .dropdown-toggle {
     color: hsl(240, 5%, 10%);
     text-decoration: none;
-    transition: color 0.3s ease-in;
     font-size: large;
+    background: none;
+    border: none;
+    cursor: pointer;
+    transition: color 0.2s;
+    padding: 0.5rem 1rem;
+    font-family: inherit;
   }
-
-  a:hover,
-  a:focus {
+  a:hover, .dropdown-toggle:hover,
+  a:focus, .dropdown-toggle:focus {
     color: hsl(44, 74%, 48%);
+    outline: none;
   }
-
-  a:active {
+  a:active, .dropdown-toggle:active {
     color: hsl(41, 74%, 38%);
   }
-
-  a.active {
+  a.active, .dropdown-toggle.active, .dropdown-toggle.dropdown-open {
     color: hsl(41, 74%, 33%);
   }
-
-  a#home {
-    font-size: xx-large;
-  }
-
   .dropdown {
     position: relative;
   }
 
+  .dropdown-toggle .dropdown-arrow {
+  display: inline-block;
+  transition: transform 0.2s;
+}
+.dropdown-toggle.dropdown-open .dropdown-arrow {
+  transform: rotate(180deg);
+}
+
   .dropdown-menu {
     display: none;
     position: absolute;
-    top: 100%;
+    top: 110%;
     left: 0;
-    background-color: white;
-    list-style: none;
-    padding: 0.5rem;
+    background: #fff;
     border: 1px solid #ddd;
-    width: 300px;
+    min-width: 255px;
     z-index: 100;
+    box-shadow: 0 4px 16px 0 rgba(0,0,0,0.03);
+    padding: 0.5rem 0;
   }
-
-  .dropdown:hover .dropdown-menu {
-    display: block; /* Show dropdown on hover */
+  .dropdown-menu.open {
+    display: block;
+    animation: fadeIn 0.2s;
   }
-
-  .dropdown:hover > .dropdown-toggle,
-  .dropdown:focus-within > .dropdown-toggle {
-    color: hsl(41, 74%, 33%);
-  }
-
   .dropdown-menu li {
-    margin-bottom: 0.5rem;
+    margin: 0;
   }
-
-  .dropdown-menu li:last-child {
-    margin-bottom: 0;
+  .dropdown-menu a {
+    display: block;
+    padding: 0.5rem 1.5rem;
+    font-size: 1rem;
+    color: hsl(240, 5%, 10%);
+    background: none;
+    border: none;
+    text-align: left;
+    width: 100%;
+  }
+  .dropdown-menu a.active {
+    color: hsl(41, 74%, 33%);
+    background: hsl(44, 59%, 92%);
+  }
+  @keyframes fadeIn {
+    from { opacity: 0; transform: translateY(8px);}
+    to { opacity: 1; transform: translateY(0);}
   }
 </style>
