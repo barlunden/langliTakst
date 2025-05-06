@@ -9,6 +9,7 @@ export default [
       "Tilstandsrapport er det som er foretrukket i forbindelse med kjøp og salg av eiendom, både av kjøper, selger og meglere.",
     ikon: "clipboard-check",
     bilde: "/images/tilstandsrapport.jpg",
+    bakgrunn: "hsl(210, 20%, 95%)",
   },
   {
     kategori: "taksering",
@@ -18,6 +19,7 @@ export default [
     avsnitt2: "",
     ikon: "clipboard-check",
     bilde: "/images/tilstandsrapport.jpg",
+    bakgrunn: "hsl(44, 59%, 85%)"
   },
   {
     kategori: "taksering",
@@ -28,6 +30,7 @@ export default [
       "Forhåndstakst av eiendom gjøres etter de samme prinsipper som ved en verditakst, men vurderingene av bygget gjøres bare på grunnlag av tegninger og teknisk beskrivelse.",
     ikon: "",
     bilde: "",
+    bakgrunn: "hsl(44, 59%, 85%)"
   },
   {
     kategori: "taksering",
@@ -37,6 +40,7 @@ export default [
     avsnitt2: "",
     ikon: "",
     bilde: "",
+    bakgrunn: "hsl(210, 20%, 95%)",
   },
   {
     kategori: "taksering",
@@ -47,6 +51,7 @@ export default [
       "Lokal infrastruktur sier noe om hvordan forholdene rundt tomten er organisert, om tomten ligger i regulert område, om adkomstvei er offentlig med offentlig vann- og kloakkledninger, avstander til butikker, skoler, barnehager og så videre.",
     ikon: "",
     bilde: "",
+    bakgrunn: "hsl(210, 20%, 95%)",
   },
   {
     kategori: "taksering",
@@ -57,6 +62,7 @@ export default [
       "Ved verditaksering av næringseiendom er det vanligvis leieinntektene som legges til grunn. Det utarbeides en omfattende rapport der de enkelte leiekontrakter nevnes. Områdets generelle leienivå for næringsbygg blir vurdert, samt hensyn til byggets kvalitet og beliggenhet.",
     ikon: "",
     bilde: "",
+    bakgrunn: "hsl(44, 59%, 85%)"
   },
   {
     kategori: "taksering",
@@ -67,6 +73,7 @@ export default [
       "I mange tilfeller er det forsikringsselskapet som tar kontakt med oss for å innhente et faglig grunnlag for senere erstatningsutmåling. I noen tilfeller, spesielt ved kompliserte skader, får takstmannen også i oppdrag å styre arbeidene med istandsetting.",
     ikon: "",
     bilde: "",
+    bakgrunn: "hsl(44, 59%, 85%)"
   },
   {
     kategori: ["taksering", "kjopOgSalg"],
@@ -77,6 +84,7 @@ export default [
       "Reklamasjonsrapporten omfatter ikke vurdering av de juridiske sidene i saken og vurderer kun de forhold som det er reklamert på. De økonomiske konsekvenser av reklamasjonen beregnes med utbedring til referansenivået dersom det konstateres et negativt avvik. Det gjøres fradrag for eventuelle forbedringer som følge av at levetid på bygningsdeler forlenges eller at tilstanden på bygningsdeler blir fornyet.",
     ikon: "",
     bilde: "",
+    bakgrunn: "hsl(210, 20%, 95%)",
   },
   {
     kategori: "byggOgKontroll",

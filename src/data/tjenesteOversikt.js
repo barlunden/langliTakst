@@ -6,7 +6,7 @@ export default [
     avsnitt1:
       "Få en profesjonell og grundig vurdering av bolig, tomt eller næringseiendom. Vi tilbyr ulike former for taksering og verdivurdering som gir deg trygghet og dokumentasjon ved kjøp, salg, finansiering eller forsikringsoppgjør.",
     avsnitt2: "",
-    ikon: "",
+    ikon: { navn: "HomeModern"},
     bilde: "",
   },
   {

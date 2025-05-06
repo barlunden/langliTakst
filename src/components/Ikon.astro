@@ -1,0 +1,16 @@
+---
+const { stil = "outline", navn = "home", class: className = "" } = Astro.props;
+
+let IkonKomponent;
+
+if (stil === "outline") {
+    IkonKomponent = (await import(`astro-heroicons/outline/${navn}.astro`)).default;
+} else if (stil === "solid") {
+    IkonKomponent = (await import(`astro-heroicons/solid/${navn}.astro`)).default;
+} else if (stil === "mini") {
+    IkonKomponent = (await import(`astro-heroicons/mini/${navn}.astro`)).default;
+} else if (stil === "micro") {
+    IkonKomponent = (await import(`astro-heroicons/micro/${navn}.astro`)).default;
+}
+---
+{IkonKomponent && <IkonKomponent class={className} aria-label={navn} />}

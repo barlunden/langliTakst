@@ -1,11 +1,13 @@
 ---
 // Props: title, description, icon, image
-const { tittel, avsnitt1, avsnitt2, ikon, bilde } = Astro.props;
+const { tittel, avsnitt1, avsnitt2, ikon, bilde, bakgrunn } = Astro.props;
 ---
-<div class="service-card w-5/6 mx-auto my-8">
-  {ikon && <img src={`/icons/${ikon}.svg`} alt="" />}
-  <h3 class="text-2xl">{tittel}</h3>
-  <p>{avsnitt1}</p>
-  <p>{avsnitt2}</p>
-  {bilde && <img src={bilde} alt={tittel} />}
-</div>
+<section class="service-card" style={`background:${bakgrunn}`}>
+  <div class="w-2/3 mx-auto py-8">
+    {ikon && <img src={`/icons/${ikon}.svg`} alt="" />}
+    <h3 class="text-2xl pb-4">{tittel}</h3>
+    <p class="pb-2">{avsnitt1}</p>
+    <p>{avsnitt2}</p>
+    {bilde && <img src={bilde} alt={tittel} />}
+  </div>
+</section>

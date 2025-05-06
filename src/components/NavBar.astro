@@ -4,7 +4,7 @@ import { Astronav, MenuItems, MenuIcon } from "astro-navbar";
 const { currentPath } = Astro.props;
 ---
 
-<div class="navbar lg:flex justify-between p-5 gap-5 mx-auto container">
+<div class="navbar lg:flex justify-between h-24 px-12 gap-5 mx-auto items-center">
   <Astronav>
     <div class="flex w-full lg:w-auto justify-between">
       <a id="home" class={currentPath === "/" ? "active" : ""} href="/"
@@ -32,7 +32,8 @@ const { currentPath } = Astro.props;
             <li>
               <a
                 class={currentPath === "/tjenester/takst" ? "active" : ""}
-                href="/tjenester/takst">Taksering og verdivurdering</a>
+                href="/tjenester/takst">Taksering og verdivurdering</a
+              >
             </li>
             <li>
               <a
@@ -45,12 +46,14 @@ const { currentPath } = Astro.props;
             <li>
               <a
                 class={currentPath === "/tjenester/kjopogsalg" ? "active" : ""}
-                href="/tjenester/kjopogsalg">Kjøp og salg av bolig</a>
+                href="/tjenester/kjopogsalg">Kjøp og salg av bolig</a
+              >
             </li>
             <li>
               <a
                 class={currentPath === "/tjenester/energi" ? "active" : ""}
-                href="/tjenester/energi">Energi og rådgivning</a>
+                href="/tjenester/energi">Energi og rådgivning</a
+              >
             </li>
             <li>
               <p class="fotnote">
@@ -78,21 +81,24 @@ const { currentPath } = Astro.props;
 
 <style>
   .navbar {
-    background-color: hsl(210 20% 95%);
+    background-color: hsl(210 20% 98%);
+    width: 100%;
   }
+
   a {
-  color: hsl(210, 60%, 50%);
-  text-decoration: none;
-  transition: color 0.3s ease;
-}
+    color: hsl(210, 60%, 50%);
+    text-decoration: none;
+    transition: color 0.3s ease;
+    font-size: large;
+  }
 
-a:hover {
-  color: hsl(210, 60%, 40%); /* mørkare blå */
-}
+  a:hover {
+    color: hsl(210, 60%, 40%); /* mørkare blå */
+  }
 
-a:active {
-  color: hsl(44, 74%, 48%); /* mørkare gul fra logo */
-} 
+  a:active {
+    color: hsl(44, 74%, 48%); /* mørkare gul fra logo */
+  }
   a#home {
     font-size: xx-large;
   }

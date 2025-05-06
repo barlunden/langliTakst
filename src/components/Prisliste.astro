@@ -2,12 +2,12 @@
 const { items, category } = Astro.props; // Accept data as props
 ---
 <div class="price-list">
-  <h2>{category}</h2>
+  <h2 class="text-lg font-semibold pb-2">{category}</h2>
   <ul>
     {items.map((item: { name: unknown; price: unknown; }) => (
       <li>
         <span>{item.name}</span>
-        <span>{item.price} NOK</span>
+        <span>{item.price}</span>
       </li>
     ))}
   </ul>
@@ -15,9 +15,12 @@ const { items, category } = Astro.props; // Accept data as props
 
 <style>
   .price-list {
+    background-color: hsl(210 50% 100%);
     font-family: Arial, sans-serif;
     border: 1px solid #ddd;
-    padding: 16px;
+    box-shadow: 1px 1px 1px #bbb, 2px 2px 2px #ccc, inset 1px 1px #eee;
+    border-radius: 12px;
+    padding: 20px;
     max-width: 600px;
     margin: 10px auto
   }
