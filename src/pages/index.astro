@@ -3,7 +3,7 @@ import PageHeader from "../components/PageHeader.astro";
 import Layout from "../layouts/Layout.astro";
 import Images from "../components/Images.astro";
 import mobileImage from "../assets/Background360x640.png";
-import desktopImage from "../assets/Background2560x1400.png";
+import desktopImage from "../images/hus.jpg";
 
 export const currentPath = "/";
 ---
@@ -13,13 +13,10 @@ export const currentPath = "/";
     <Images
       mobileImgUrl={mobileImage}
       desktopImgUrl={desktopImage}
-      alt="Placeholder image"
+      alt="Falleferdig hus"
     />
-    <div class="pageheader">
-      <PageHeader pageTitle="Langli Takst AS" />
-    </div>
-    <div class="hero-text">
-      <h1>Her kjem hovudsida til Langli Takst</h1>
+    <div class="hero-text content-center text-white">
+      <h1 class="text-4xl">Langli Takst AS</h1>
     </div>
   </section>
 </Layout>
@@ -39,10 +36,12 @@ export const currentPath = "/";
     position: absolute;
     inset: 0;
     margin: auto;
-    max-width: 300px;
-    height: 100px;
+    padding: 1rem 2rem;
+    width: fit-content;
+    height: fit-content;
     backdrop-filter: blur(4px) invert(10%);
     text-align: center;
     border-radius: 16px;
+    border: solid 1px white;
   }
 </style>
