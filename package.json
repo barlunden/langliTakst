@@ -9,6 +9,7 @@
     "astro": "astro"
   },
   "dependencies": {
+    "@fontsource-variable/open-sans": "^5.2.5",
     "@tailwindcss/vite": "^4.1.1",
     "astro": "^5.5.6",
     "astro-heroicons": "^2.1.5-1",
