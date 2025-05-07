@@ -35,21 +35,19 @@ const takster = [
 const andreTillegg = [
   { name: "Tillegg for kjøring utenfor Stord kommune." },
   { name: "Rapportavgift kommer alltid i tillegg.", price: "500,- pr. rapport"},
-  { name: "Alle priser er inkl mva." }
+  { name: "Alle priser er inkl mva." },
+  { name: "Gjeldende pris for tilstandsrapport er for inntil tre våtrom, dvs. bad og vaskerom. Toalett regnes ikke som våtrom." },
+  { name: "Alle andre tjenester etter medgått tid og etter gjeldende timerate kr 1.750,- inkl. mva." }
 ]
 ---
 
 <Layout currentPath={currentPath}>
   <PageHeader pageTitle="Prisliste" />
-  <div class="content-center text-center pb-12 w-1/2 mx-auto">
+  <div class="content-center text-left pb-12 w-2/5 mx-auto">
     <Prisliste category="Tilstandsrapporter ny forskrift" items={tilstand} />
     <Prisliste category="Pristillegg for:" items={tillegg} />
     <Prisliste category="Takster" items={takster} />
-    <Prisliste category="Diverse tillegg" items={andreTillegg} />
-    <h3 class="text-lg font-semibold">Merknader</h3>
-    <p>Gjeldende pris for tilstandsrapport er for inntil tre våtrom, dvs. bad og vaskerom.</p>
-    <p>Toalett regnes ikke som våtrom.</p>
-    <p>Alle andre tjenester etter medgått tid og etter gjeldende timerate kr 1.750,- inkl. mva.</p>
+    <Prisliste category="Diverse tillegg / merknader" items={andreTillegg} />
   </div>
 </Layout>
 

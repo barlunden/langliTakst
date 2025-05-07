@@ -8,7 +8,7 @@ export default [
     avsnitt2:
       "Tilstandsrapport er det som er foretrukket i forbindelse med kjøp og salg av eiendom, både av kjøper, selger og meglere.",
     ikon: "clipboard-check",
-    bilde: "/images/tilstandsrapport.jpg",
+    bilde: "/images/inngang2.jpg",
     bakgrunn: "hsl(210, 20%, 95%)",
   },
   {
