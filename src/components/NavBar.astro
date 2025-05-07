@@ -1,48 +1,38 @@
 ---
 import { getImage } from "astro:assets";
 const { currentPath } = Astro.props;
-
 import logo from "../logos/image001.png";
 const optimizedLogo = await getImage({ src: logo });
 ---
 
-<nav class="navbar lg:flex justify-between gap-4 mx-auto items-center">
-        <a id="home" class={currentPath === "/" ? "active" : ""} href="/"
-        ><img
-        src={optimizedLogo.src}
-        alt="Langli Takst AS"
-        class="max-h-13"
-        /></a
-        >
-    
-    <ul class="nav-list">
+<nav class="navbar">
+  <a id="home" class={currentPath === "/" ? "active" : ""} href="/">
+    <img src={optimizedLogo.src} alt="Langli Takst AS" class="logo" />
+  </a>
+  <ul class="nav-list">
     <li>
       <a class={currentPath === "/priser" ? "active" : ""} href="/priser">PRISER</a>
     </li>
     <li class="dropdown" id="dropdown-tjenester">
-        <button
-        class={`dropdown-toggle ${currentPath.startsWith("/tjenester") ? "active" : ""}`}
+      <button
+        class={`dropdown-toggle${currentPath.startsWith("/tjenester") ? " active" : ""}`}
         aria-haspopup="true"
         aria-expanded="false"
         type="button"
         id="tjenester-btn"
       >
         TJENESTER
-        <span class="dropdown-arrow" aria-hidden="true">▲</span>
+        <span class="icon-wrapper" aria-hidden="true">
+          <svg class="nav-roof" width="20" height="12" viewBox="0 0 20 12" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <polyline points="2,10 10,2 18,10" stroke="currentColor" stroke-width="2" fill="none" />
+          </svg>
+        </span>
       </button>
       <ul class="dropdown-menu" id="tjenester-menu">
-        <li>
-          <a class={currentPath === "/tjenester/kjopogsalg" ? "active" : ""} href="/tjenester/kjopogsalg">KJØP OG SALG AV BOLIG</a>
-        </li>
-        <li>
-          <a class={currentPath === "/tjenester/takst" ? "active" : ""} href="/tjenester/takst">TAKSERING OG VERDIVURDERING</a>
-        </li>
-        <li>
-          <a class={currentPath === "/tjenester/byggkontroll" ? "active" : ""} href="/tjenester/byggkontroll">BYGGEPROSJEKT OG KONTROLL</a>
-        </li>
-        <li>
-          <a class={currentPath === "/tjenester/energi" ? "active" : ""} href="/tjenester/energi">ENERGI OG RÅDGIVNING</a>
-        </li>
+        <li><a class={currentPath === "/tjenester/kjopogsalg" ? "active" : ""} href="/tjenester/kjopogsalg">KJØP OG SALG AV BOLIG</a></li>
+        <li><a class={currentPath === "/tjenester/takst" ? "active" : ""} href="/tjenester/takst">TAKSERING OG VERDIVURDERING</a></li>
+        <li><a class={currentPath === "/tjenester/byggkontroll" ? "active" : ""} href="/tjenester/byggkontroll">BYGGEPROSJEKT OG KONTROLL</a></li>
+        <li><a class={currentPath === "/tjenester/energi" ? "active" : ""} href="/tjenester/energi">ENERGI OG RÅDGIVNING</a></li>
       </ul>
     </li>
     <li>
@@ -55,7 +45,7 @@ const optimizedLogo = await getImage({ src: logo });
 </nav>
 
 <script type="module" is:inline>
-  // Enkel JS for å åpne/lukke dropdown på klikk og lukke på klikk utenfor
+  // Enkel JS for dropdown
   const btn = document.getElementById('tjenester-btn');
   const menu = document.getElementById('tjenester-menu');
   const dropdown = document.getElementById('dropdown-tjenester');
@@ -73,14 +63,12 @@ const optimizedLogo = await getImage({ src: logo });
     btn.classList.toggle('dropdown-open', isOpen);
   });
 
-  // Lukk dropdown hvis du klikker utenfor
   document.addEventListener('click', (e) => {
     if (!dropdown.contains(e.target)) {
       closeDropdown();
     }
   });
 
-  // Lukk dropdown med Escape
   document.addEventListener('keydown', (e) => {
     if (e.key === 'Escape') {
       closeDropdown();
@@ -89,88 +77,103 @@ const optimizedLogo = await getImage({ src: logo });
 </script>
 
 <style>
-  .navbar {
-    background: hsl(210, 20%, 98%);
-    padding: 2rem 3rem;
-    width: 100%;
-  }
-  .nav-list {
-    display: flex;
-    gap: 2rem;
-    align-items: center;
-    list-style: none;
-    margin: 0;
-    padding: 0;
-  }
-  a, .dropdown-toggle {
-    color: hsl(240, 5%, 10%);
-    text-decoration: none;
-    font-size: large;
-    background: none;
-    border: none;
-    cursor: pointer;
-    transition: color 0.2s;
-    padding: 0.5rem 1rem;
-    font-family: inherit;
-  }
-  a:hover, .dropdown-toggle:hover,
-  a:focus, .dropdown-toggle:focus {
-    color: hsl(44, 74%, 48%);
-    outline: none;
-  }
-  a:active, .dropdown-toggle:active {
-    color: hsl(41, 74%, 38%);
-  }
-  a.active, .dropdown-toggle.active, .dropdown-toggle.dropdown-open {
-    color: hsl(41, 74%, 33%);
-  }
-  .dropdown {
-    position: relative;
-  }
-
-  .dropdown-toggle .dropdown-arrow {
-  display: inline-block;
-  transition: transform 0.2s;
+/* Navbar og logo */
+.navbar {
+  background: hsl(210, 20%, 98%);
+  padding: 2rem 3rem;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 }
-.dropdown-toggle.dropdown-open .dropdown-arrow {
+.logo {
+  max-height: 52px;
+}
+
+/* Navigasjonsliste */
+.nav-list {
+  display: flex;
+  gap: 2rem;
+  align-items: center;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+/* Lenker og knapper */
+a, .dropdown-toggle {
+  color: hsl(240, 5%, 10%);
+  text-decoration: none;
+  font-size: large;
+  background: none;
+  border: none;
+  cursor: pointer;
+  transition: color 0.2s;
+  padding: 0.5rem 1rem;
+  font-family: inherit;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5em;
+}
+
+a:hover, .dropdown-toggle:hover,
+a:focus, .dropdown-toggle:focus {
+  color: hsl(44, 74%, 48%);
+  outline: none;
+}
+a:active, .dropdown-toggle:active {
+  color: hsl(41, 74%, 38%);
+}
+a.active, .dropdown-toggle.active, .dropdown-toggle.dropdown-open {
+  color: hsl(41, 74%, 33%);
+}
+
+/* Dropdown */
+.dropdown {
+  position: relative;
+}
+.icon-wrapper .nav-roof {
+  transition: transform 0.2s;
+  vertical-align: middle;
+}
+.dropdown-toggle.dropdown-open .icon-wrapper .nav-roof {
   transform: rotate(180deg);
 }
-
-  .dropdown-menu {
-    display: none;
-    position: absolute;
-    top: 110%;
-    left: 0;
-    background: #fff;
-    border: 1px solid #ddd;
-    min-width: 305px;
-    z-index: 100;
-    box-shadow: 0 4px 16px 0 rgba(0,0,0,0.03);
-    padding: 0.5rem 0;
-  }
-  .dropdown-menu.open {
-    display: block;
-    animation: fadeIn 0.2s;
-  }
-  .dropdown-menu li {
-    margin: 0;
-  }
-  .dropdown-menu a {
-    display: block;
-    padding: 0.5rem 1.5rem;
-    font-size: 1rem;
-    color: hsl(240, 5%, 10%);
-    background: none;
-    border: none;
-    text-align: left;
-    width: 100%;
-  }
-  .dropdown-menu a.active {
-    color: hsl(41, 74%, 33%);
-    background: hsl(44, 59%, 92%);
-  }
-  @keyframes fadeIn {
-    from { opacity: 0; transform: translateY(8px);}
-    to { opacity: 1; transform: translateY(0);}
-  }
+.dropdown-menu {
+  display: none;
+  position: absolute;
+  top: 110%;
+  left: 0;
+  background: #fff;
+  border: 1px solid #ddd;
+  min-width: 305px;
+  z-index: 100;
+  box-shadow: 0 4px 16px 0 rgba(0,0,0,0.03);
+  padding: 0.5rem 0;
+}
+.dropdown-menu.open {
+  display: block;
+  animation: fadeIn 0.2s;
+}
+.dropdown-menu li {
+  margin: 0;
+}
+.dropdown-menu a {
+  display: block;
+  padding: 0.5rem 1.5rem;
+  font-size: 1rem;
+  color: hsl(240, 5%, 10%);
+  background: none;
+  border: none;
+  text-align: left;
+  width: 100%;
+}
+.dropdown-menu a.active {
+  color: hsl(41, 74%, 33%);
+  background: hsl(44, 59%, 92%);
+}
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(8px);}
+  to { opacity: 1; transform: translateY(0);}
+}
 </style>
