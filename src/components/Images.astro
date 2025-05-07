@@ -6,30 +6,51 @@ interface Props {
   mobileImgUrl: string | ImageMetadata;
   desktopImgUrl: string | ImageMetadata;
   alt: string;
+  mobileWidth?: number;
+  mobileHeight?: number;
+  desktopWidth?: number;
+  desktopHeight?: number;
+  format?: "png" | "jpg" | "webp" | "awif";
 }
 
-const { mobileImgUrl, desktopImgUrl, alt } = Astro.props;
+const {
+  mobileImgUrl,
+  desktopImgUrl,
+  alt,
+  mobileWidth = 360,
+  mobileHeight = 640,
+  desktopWidth = 2560,
+  desktopHeight = 1400,
+  format = "png",
+} = Astro.props;
 
 const mobileImg = await getImage({
   src: mobileImgUrl,
-  format: "png",
-  width: 360,
-  height: 640,
+  format,
+  width: mobileWidth,
+  height: mobileHeight,
 });
 
 const desktopImg = await getImage({
   src: desktopImgUrl,
-  format: "png",
-  width: 2560,
-  height: 1400,
+  format,
+  width: desktopWidth,
+  height: desktopHeight,
 });
 ---
+
 <div class="container">
-    <picture>
-      <source media="(max-width: 799px)" srcset={mobileImg.src} />
-      <source media="(min-width: 800px)" srcset={desktopImg.src} />
-      <img src={mobileImg.src} alt={alt} /> 
-    </picture>
+  <picture>
+    <source media="(max-width: 799px)" srcset={mobileImg.src} />
+    <source media="(min-width: 800px)" srcset={desktopImg.src} />
+    <img
+      src={mobileImg.src}
+      alt={alt}
+      class="w-full h-auto object-cover"
+      loading="lazy"
+      decoding="async"
+    />
+  </picture>
 </div>
 
 <style>

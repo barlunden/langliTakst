@@ -1,5 +1,4 @@
 ---
-import PageHeader from "../components/PageHeader.astro";
 import Layout from "../layouts/Layout.astro";
 import Images from "../components/Images.astro";
 import mobileImage from "../assets/Background360x640.png";
@@ -13,7 +12,12 @@ export const currentPath = "/";
     <Images
       mobileImgUrl={mobileImage}
       desktopImgUrl={desktopImage}
-      alt="Falleferdig hus"
+      alt="Norsk villa"
+      mobileWidth={360}
+      mobileHeight={640}
+      desktopWidth={2560}
+      desktopHeight={1400}
+      format="jpg"
     />
     <div class="hero-text content-center text-white">
       <h1 class="text-4xl">Langli Takst AS</h1>
