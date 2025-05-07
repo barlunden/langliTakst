@@ -5,8 +5,8 @@ import Layout from "../layouts/Layout.astro";
 export const currentPath = "/bestill-takst";
 
 const services = [
-  { label: 'Boligtaksering', options: ['Tilstandsrapport', 'Verditakst', 'Forhåndstakst', 'Verdivurdering', 'Tomtetakst', 'Skadetakst', 'Reklamasjonsrapport', 'Kjøpe bolig'] },
-  { label: 'Næringstaksering', options: ['Næringstakst'] },
+  { label: 'Kjøp og salg av bolig', options: ['Kjøpe bolig', 'Verdivurdering', 'Reklamasjonsrapport'] },
+  { label: 'Taksering og verdivurdering', options: ['Næringstakst', 'Tilstandsrapport', 'Verditakst', 'Forhåndstakst', 'Verdivurdering', 'Tomtetakst', 'Skadetakst', 'Reklamasjonsrapport'] },
   { label: 'Byggeprosjekt og Kontroll', options: ['Byggelånsoppfølging', 'Uavhengig kontroll'] },
   { label: 'Energi og Rådgivning', options: ['Energirådgivning for bolig', 'Enovatilskuddet'] }
 ];
@@ -19,7 +19,7 @@ const services = [
       <div class="contact-intro">
         <h2 class="contact-title">Ta kontakt</h2>
         <p class="contact-description">
-          Gi en beskrivelse av oppdraget og jeg tar kontakt ved første anledning.
+          Gi en beskrivelse av oppdraget, så tar jeg kontakt ved første anledning.
         </p>
       </div>
 
@@ -44,7 +44,7 @@ const services = [
         <label for="message">Melding:</label>
         <textarea  class="w-full border-1 border-gray-200 bg-white rounded-lg mb-4" id="message" name="message" required></textarea>
       
-        <button class="button" type="submit">Send</button>
+        <button class="button bg-blue text-white py-2 rounded-lg" type="submit">Send skjema</button>
       </form>
     </section>
   </div>
@@ -123,5 +123,4 @@ const services = [
   padding: 13px 5px;
   border-radius: 0.375rem;
 }
-
 </style>

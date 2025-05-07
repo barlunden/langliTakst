@@ -32,13 +32,13 @@ const optimizedLogo = await getImage({ src: logo });
       </button>
       <ul class="dropdown-menu" id="tjenester-menu">
         <li>
+          <a class={currentPath === "/tjenester/kjopogsalg" ? "active" : ""} href="/tjenester/kjopogsalg">KJØP OG SALG AV BOLIG</a>
+        </li>
+        <li>
           <a class={currentPath === "/tjenester/takst" ? "active" : ""} href="/tjenester/takst">TAKSERING OG VERDIVURDERING</a>
         </li>
         <li>
           <a class={currentPath === "/tjenester/byggkontroll" ? "active" : ""} href="/tjenester/byggkontroll">BYGGEPROSJEKT OG KONTROLL</a>
-        </li>
-        <li>
-          <a class={currentPath === "/tjenester/kjopogsalg" ? "active" : ""} href="/tjenester/kjopogsalg">KJØP OG SALG AV BOLIG</a>
         </li>
         <li>
           <a class={currentPath === "/tjenester/energi" ? "active" : ""} href="/tjenester/energi">ENERGI OG RÅDGIVNING</a>
