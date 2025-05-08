@@ -3,13 +3,6 @@ import PageHeader from "../components/PageHeader.astro";
 import Layout from "../layouts/Layout.astro";
 
 export const currentPath = "/bestill-takst";
-
-const services = [
-  { label: 'Kjøp og salg av bolig', options: ['Kjøpe bolig', 'Verdivurdering', 'Reklamasjonsrapport'] },
-  { label: 'Taksering og verdivurdering', options: ['Næringstakst', 'Tilstandsrapport', 'Verditakst', 'Forhåndstakst', 'Verdivurdering', 'Tomtetakst', 'Skadetakst', 'Reklamasjonsrapport'] },
-  { label: 'Byggeprosjekt og Kontroll', options: ['Byggelånsoppfølging', 'Uavhengig kontroll'] },
-  { label: 'Energi og Rådgivning', options: ['Energirådgivning for bolig', 'Enovatilskuddet'] }
-];
 ---
 
 <Layout currentPath={currentPath}>
@@ -30,21 +23,13 @@ const services = [
         <label for="email">E-post:</label>
         <input class="w-full border-1 border-gray-200 bg-white rounded-lg mb-4 py-1 pl-2" type="email" id="email" name="email" required />
       
-        <label for="service">Velg tjenestetype:</label>
-        <select  class="w-full border-1 border-gray-200 rounded-lg mb-4 bg-blue-light py-1 pl-2" id="service" name="service" required>
-          {services.map(group => (
-            <optgroup label={group.label}>
-              {group.options.map(option => (
-                <option value={option}>{option}</option>
-              ))}
-            </optgroup>
-          ))}
-        </select>
+        <label for="service">Emne:</label>
+        <input class="w-full border-1 border-gray-200 bg-white rounded-lg mb-4 py-1 pl-2" type="text" id="subject" name="subject" required />
       
         <label for="message">Melding:</label>
         <textarea  class="w-full border-1 border-gray-200 bg-white rounded-lg mb-4 py-1 pl-2" id="message" name="message" required></textarea>
       
-        <button class="button bg-blue text-white py-2 rounded-lg" type="submit">Send skjema</button>
+        <button class="button bg-blue-mid border-1 border-blue-dark text-white py-2 rounded-lg" type="submit">Send skjema</button>
       </form>
     </section>
   </div>
