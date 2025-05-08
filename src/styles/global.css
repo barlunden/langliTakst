@@ -5,6 +5,7 @@
     --color-blue-light: hsl(206, 42%, 96%);
     --color-blue-mid: hsl(206, 42%, 54%);
     --color-blue-dark: hsl(206, 42%, 26%);
-    --color-yellow: hsl(44, 74%, 48%);
-    --color-yellow-light: hsl(44, 74%, 92%);
+    --color-yellow-light: hsl(44, 100%, 72%);
+    --color-yellow-mid: hsl(47, 100%, 52%);
+    --color-yellow-dark: hsl(43, 99%, 53%);
 }
