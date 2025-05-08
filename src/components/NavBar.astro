@@ -11,6 +11,9 @@ const optimizedLogo = await getImage({ src: logo });
   </a>
   <ul class="nav-list">
     <li>
+      <a class={currentPath === "/" ? "active" : ""} href="/">HOVEDSIDE</a>
+    </li>
+    <li>
       <a class={currentPath === "/priser" ? "active" : ""} href="/priser">PRISER</a>
     </li>
     <li class="dropdown" id="dropdown-tjenester">
@@ -36,10 +39,7 @@ const optimizedLogo = await getImage({ src: logo });
       </ul>
     </li>
     <li>
-      <a class={currentPath === "/om-langli-takst" ? "active" : ""} href="/om-langli-takst">OM OSS</a>
-    </li>
-    <li>
-      <a class={currentPath === "/bestill-takst" ? "active" : ""} href="/bestill-takst">BESTILL TJENESTER</a>
+      <a class={currentPath === "/bestill-takst" ? "active" : ""} href="/bestill-takst">KONTAKT</a>
     </li>
   </ul>
 </nav>
@@ -80,7 +80,7 @@ const optimizedLogo = await getImage({ src: logo });
 /* Navbar og logo */
 .navbar {
   background: hsl(210, 20%, 98%);
-  padding: 2rem 3rem;
+  padding: 2.5rem 3rem;
   width: 100%;
   display: flex;
   justify-content: space-between;

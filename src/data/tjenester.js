@@ -18,7 +18,7 @@ export default [
       "En verditakst av din bolig gir deg en vurdering av markedsverdien på boligen/eiendommen på befaringstidspunktet. Det legges da vekt på boligens størrelse, standard og beliggenhet. Denne benyttes i forbindelse med boliglån eller boligkreditt på eiendommen din der bankene ber deg om å dokumentere verdien på boligen.",
     avsnitt2: "",
     ikon: "clipboard-check",
-    bilde: "/images/tilstandsrapport.jpg",
+    bilde: "taksering",
     bakgrunn: "hsl(44, 59%, 85%)"
   },
   {
@@ -70,7 +70,7 @@ export default [
     avsnitt1:
       "Ved skade møter vi kunder i situasjoner som ofte oppleves dramatisk og hvor store verdier står på spill. Når en eiendom får skade kan vi sikre et profesjonelt grunnlag for erstatningen. Takstmannens rolle som uavhengig tredjepart er i denne sammenhengen en viktig faktor for å sikre at skadelidte får riktig oppgjør og reparasjon.",
     avsnitt2:
-      "I mange tilfeller er det forsikringsselskapet som tar kontakt med oss for å innhente et faglig grunnlag for senere erstatningsutmåling. I noen tilfeller, spesielt ved kompliserte skader, får takstmannen også i oppdrag å styre arbeidene med istandsetting.",
+      "I mange tilfeller er det forsikringsselskapet som tar kontakt med oss for å innhente et faglig grunnlag for senere erstatningsutmåling. I noen tilfeller, spesielt ved kompliserte skader, får takstmannen også i oppdrag å styre arbeidene med istandsetting. Langli Takst utfører også naturskadetaksering i hele landet og er godkjent i Norsk Naturskadepool.",
     ikon: "",
     bilde: "",
     bakgrunn: "hsl(44, 59%, 85%)"

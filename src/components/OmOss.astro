@@ -1,19 +1,16 @@
 ---
 import { getImage } from "astro:assets";
 import PageHeader from "../components/PageHeader.astro";
-import Layout from "../layouts/Layout.astro";
 import Images from "../components/Images.astro";
 
-import desktopImage from "../images/inngang.jpg"
-import mobileImage from "../images/inngang.jpg"
+import desktopImage from "../images/inngang2.jpg"
+import mobileImage from "../images/inngang2.jpg"
 import logo from "../logos/bmtf100.png"
 const optimizedLogo = await getImage({ src: logo });
 
 
 export const currentPath = "/om-langli-takst";
 ---
-
-<Layout currentPath={currentPath}>
   <div class="grid grid-cols-2">
     <div>
       <Images
@@ -44,4 +41,3 @@ export const currentPath = "/om-langli-takst";
       <img src={optimizedLogo.src} alt="BMTF Logo" class="mx-auto"/>
     </div>
   </div>
-</Layout>

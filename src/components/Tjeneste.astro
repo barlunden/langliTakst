@@ -1,9 +1,11 @@
 ---
-
-
 // Props: title, description, icon, image
 const { tittel, avsnitt1, avsnitt2, ikon, bilde, bakgrunn } = Astro.props;
+import husBilde from "../images/hus.jpg"
 
+const bildeKart = {
+  verditakst: husBilde,
+}
 ---
 <section class="service-card" style={`background:${bakgrunn}`}>
   <div class="w-2/3 mx-auto py-8">
