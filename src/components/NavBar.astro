@@ -80,24 +80,53 @@ const optimizedLogo = await getImage({ src: logo });
 /* Navbar og logo */
 .navbar {
   background: hsl(210, 20%, 98%);
-  padding: 2.5rem 3rem;
+  padding: 1rem;
   width: 100%;
   display: flex;
   justify-content: space-between;
   align-items: center;
+  flex-wrap: wrap;
 }
 .logo {
   max-height: 52px;
+  max-width: 80vw;
+  height: auto;
+  width: auto;
 }
-
-/* Navigasjonsliste */
 .nav-list {
   display: flex;
-  gap: 2rem;
+  gap: 1rem;
   align-items: center;
   list-style: none;
   margin: 0;
   padding: 0;
+  flex-wrap: wrap;
+}
+@media (min-width: 800px) {
+  .navbar {
+    padding: 2.5rem 3rem;
+    flex-direction: row;
+    align-items: center;
+  }
+  .nav-list {
+    flex-direction: row;
+    gap: 2rem;
+    align-items: center;
+    width: auto;
+    margin-top: 0;
+  }
+}
+@media (max-width: 799px) {
+  .navbar {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  .nav-list {
+    flex-direction: column;
+    align-items: flex-start;
+    width: 100%;
+    margin-top: 1rem;
+  }
 }
 
 /* Lenker og knapper */
