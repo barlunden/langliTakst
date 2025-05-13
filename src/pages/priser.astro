@@ -42,11 +42,19 @@ const andreTillegg = [
 ---
 
 <Layout currentPath={currentPath}>
-  <PageHeader pageTitle="Prisliste" />
-  <div class="content-center text-left pb-12 w-2/5 mx-auto">
-    <Prisliste category="Tilstandsrapporter ny forskrift" items={tilstand} />
-    <Prisliste category="Pristillegg for:" items={tillegg} />
-    <Prisliste category="Takster" items={takster} />
-    <Prisliste category="Diverse tillegg / merknader" items={andreTillegg} />
+  <div class="">
+    <PageHeader pageTitle="Prisliste" />
+
+    <div class="content-center text-left pb-12 w-2/5 mx-auto">
+      <Prisliste category="Tilstandsrapporter ny forskrift" items={tilstand} />
+      <Prisliste category="Pristillegg for:" items={tillegg} />
+      <Prisliste category="Takster" items={takster} />
+      <Prisliste category="Diverse tillegg / merknader" items={andreTillegg} />
+    </div>
   </div>
 </Layout>
+
+
+<style>
+  
+</style>

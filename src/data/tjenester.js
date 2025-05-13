@@ -1,6 +1,16 @@
 // src/data/tjenester.js
 export default [
   {
+    kategori: "kjopOgSalg",
+    tittel: "Kjøpe bolig",
+    avsnitt1:
+      "Skal du kjøpe bolig? Det er mest sannsynlig den største investeringen du noen gang gjør. Mange føler seg usikker og du som kjøper vil jo unngå fallgruver. Kommer store utgifter på boligen i fremtiden? Og hvilke utgifter?",
+    avsnitt2:
+      "I følge avhendingsloven, som regulerer kjøp og salg av fast eiendom, kan ikke kjøper gjøre gjeldende mangler han kjente eller måtte kjenne til ved avtaleinngåelse. I ettertid kan det være vanskelig å få erstatning om man oppdager feil eller mangler med boligen som er opplyst i salgsprospektet. Våre medarbeidere har lang erfaring med å vurdere boligens tilstand, tekniske verdi og markedsverdi. Vi kan hjelpe deg med gjennomlesning av dokumenter, og gir deg konkrete tilbakemeldinger på hva som bør undersøkes nærmere, samt gode råd og tips.",
+    ikon: "",
+    bilde: "",
+  },
+  {
     kategori: ["taksering", "kjopOgSalg"],
     tittel: "Tilstandsrapport",
     avsnitt1:
@@ -102,16 +112,6 @@ export default [
       "Ved en uavhengig kontroll skal takstmannen påse at det er gjennomført kvalitetssikring av byggearbeidene, at prosjekteringen av tiltaket oppfyller kravene i byggeteknisk forskrift (TEK17) og at byggearbeidene er utført i henhold til tegninger og arbeidsbeskrivelser. Dette for å kontrollere at det benyttes riktig kvalitet og redusere byggefeil.",
     avsnitt2:
       "Tiltaksklasse 1: Her kreves det uavhengig kontroll av søknadspliktige våtrom samt lufttetthet i nybygg.",
-    ikon: "",
-    bilde: "",
-  },
-  {
-    kategori: "kjopOgSalg",
-    tittel: "Kjøpe bolig",
-    avsnitt1:
-      "Skal du kjøpe bolig? Det er mest sannsynlig den største investeringen du noen gang gjør. Mange føler seg usikker og du som kjøper vil jo unngå fallgruver. Kommer store utgifter på boligen i fremtiden? Og hvilke utgifter?",
-    avsnitt2:
-      "I følge avhendingsloven, som regulerer kjøp og salg av fast eiendom, kan ikke kjøper gjøre gjeldende mangler han kjente eller måtte kjenne til ved avtaleinngåelse. I ettertid kan det være vanskelig å få erstatning om man oppdager feil eller mangler med boligen som er opplyst i salgsprospektet. Våre medarbeidere har lang erfaring med å vurdere boligens tilstand, tekniske verdi og markedsverdi. Vi kan hjelpe deg med gjennomlesning av dokumenter, og gir deg konkrete tilbakemeldinger på hva som bør undersøkes nærmere, samt gode råd og tips.",
     ikon: "",
     bilde: "",
   },
