@@ -7,7 +7,7 @@ const tjenesterCollection = defineCollection({
     title: z.string(),
     category: z.array(z.string()),
     categorySlug: z.array(z.string()),
-    description: z.string();
+    description: z.string()
   })
 
     
