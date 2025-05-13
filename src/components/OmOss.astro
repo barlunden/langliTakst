@@ -3,17 +3,17 @@ import { getImage } from "astro:assets";
 import PageHeader from "../components/PageHeader.astro";
 import Images from "../components/Images.astro";
 
-import desktopImage from "../images/inngang2.jpg"
-import mobileImage from "../images/inngang2.jpg"
-import logo from "../logos/bmtf100.png"
+import desktopImage from "../images/inngang2.jpg";
+import mobileImage from "../images/inngang2.jpg";
+import logo from "../logos/bmtf100.png";
 const optimizedLogo = await getImage({ src: logo });
-
 
 export const currentPath = "/om-langli-takst";
 ---
-  <div class="grid md:grid-cols-2">
-    <div>
-      <Images
+
+<div class="grid md:grid-cols-2">
+  <div>
+    <Images
       mobileImgUrl={mobileImage}
       desktopImgUrl={desktopImage}
       alt="Norsk villa"
@@ -22,22 +22,28 @@ export const currentPath = "/om-langli-takst";
       desktopWidth={640}
       desktopHeight={480}
       format="jpg"
-      />
-    </div>
-    <div class="h-fit w-7/8 mx-auto content-center text-left py-8">
-      <PageHeader pageTitle="Om Oss" />
-      <p class="pb-4">
-        Langli Takst AS ble opprettet av Thomas Angel Langli i 2018. Thomas er
-        utdannet byggmester og takstmann med 27 års erfaring med bolig og bygg.
-        Med seg på laget har han Mathias Angel Langli som også er godkjent
-        takstmann. Vi er begge medlemmer av Byggmestrenes Takseringsforbund (BMTF)
-      </p>
-      <p class="pb-4">
-        Vi holder til på Stord på Vestlandet, og utfører taksering i områdene
-        Haugesund, Sveio, Stord, Bømlo, Fitjar, Austevoll, Tysnes, Kvinnherad og
-        Bjørnefjorden. Vi kan også utføre takst og kontroll i resten av landet ved
-        behov. Vi utfører rapporter gjennom rapportsystemene til BMTF og Ivit.
-      </p>
-      <img src={optimizedLogo.src} alt="BMTF Logo" class="mx-auto"/>
-    </div>
+    />
   </div>
+  <div class="h-fit w-7/8 mx-auto content-center text-left py-8">
+    <PageHeader pageTitle="Om Oss" />
+    <p class="pb-4">
+      Langli Takst AS ble opprettet av Thomas Angel Langli i 2018. Thomas er
+      utdannet byggmester og takstmann med 27 års erfaring med bolig og bygg.
+      Med seg på laget har han Mathias Angel Langli som også er godkjent
+      takstmann. Vi er begge medlemmer av Byggmestrenes Takseringsforbund (BMTF)
+    </p>
+    <p class="pb-4">
+      Vi holder til på Stord på Vestlandet, og utfører taksering i områdene
+      Haugesund, Sveio, Stord, Bømlo, Fitjar, Austevoll, Tysnes, Kvinnherad og
+      Bjørnefjorden. Vi kan også utføre takst og kontroll i resten av landet ved
+      behov. Vi utfører rapporter gjennom rapportsystemene til BMTF og Ivit.
+    </p>
+    <img src={optimizedLogo.src} alt="BMTF Logo" class="mx-auto" />
+  </div>
+</div>
+
+<style>
+  p {
+    
+  }
+</style>

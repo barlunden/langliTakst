@@ -16,6 +16,12 @@ const optimizedLogo = await getImage({ src: logo });
     <li>
       <a class={currentPath === "/priser" ? "active" : ""} href="/priser">PRISER</a>
     </li>
+    <!-- <li>
+      <a class={currentPath === "/tjenester-test" ? "active" : ""} href="/tjenester-test">Test</a>
+    </li>
+    <li>
+      <a href="/tjenester/taksering">Taksering</a>
+    </li> -->
     <li class="dropdown" id="dropdown-tjenester">
       <button
         class={`dropdown-toggle${currentPath.startsWith("/tjenester") ? " active" : ""}`}

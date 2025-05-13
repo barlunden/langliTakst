@@ -1,22 +1,30 @@
 ---
 import PageHeader from '../components/PageHeader.astro';
+import Prisliste from '../components/Prisliste.astro';
 import Layout from '../layouts/Layout.astro';
-import Tjeneste from '../components/Tjeneste.astro';
-import tjenester from '../data/tjenesteOversikt';
 
-const kategori = "ingress";
-const filtrerteTjenester = tjenester.filter(tjeneste =>
-tjeneste.kategori.includes(kategori)
-);
+export const currentPath = "/prisar";
 
-export const currentPath = "/tjenester/takst";
+const items = [
+	{ name: 'Leilegheit', price: 7900 },
+	{ name: 'Leilegheit i loft eller i u.etg/kjeller', price: 8500 },
+	{ name: 'Leilegheit i Fleirmannsbustad', price: 11000 },
+	{ name: 'Einebustad/Fritidsbustad', price: 16500 },
+	{ name: 'Rekkehus/Tomannsbustad', price: 15000 },
+	{ name: 'Tillegg pr. ekstra bueining/utleigedel/hybel', price: 2000 },
+]
 ---
-<Layout currentPath={currentPath}>
-	<PageHeader pageTitle="Tjenester" />
-
-<section class="grid md:grid-cols-2">
-  {filtrerteTjenester.map(tjeneste => (
-    <Tjeneste {...tjeneste} />
-  ))}
-</section>
+<Layout currentPath={currentPath} >
+	<PageHeader pageTitle="Prisliste" />
+	<div class="h-72 content-center text-center">
+		<h1>Her kjem prislista til Langli Takst</h1>
+		<p>Prisane på dette skjemaet er for eksempelet si skuld og representerer ikkje prisane til Langli Takst.</p>
+		<Prisliste items={items}/>
+	</div>
 </Layout>
+
+<style>
+	p {
+		font-style: italic;
+	}
+</style>

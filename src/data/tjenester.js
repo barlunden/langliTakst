@@ -7,9 +7,9 @@ export default [
       "En tilstandsrapport er en grundig og detaljert beskrivelse av boligens status med hensyn til teknisk tilstand og vedlikehold. I en tilstandsrapport fokuseres det spesielt på områder som er viktig i forbindelse med salg av eiendom. Tilstandsrapporten beskriver avvik, der vi tar med bestemte referansenivåer som byggeforskrifter, eiendommens tilstand etter slitasje og aldring – kort og godt boligens tilstand på nåværende tidspunkt.",
     avsnitt2:
       "Tilstandsrapport er det som er foretrukket i forbindelse med kjøp og salg av eiendom, både av kjøper, selger og meglere.",
-    ikon: "clipboard-check",
-    bilde: "/images/inngang2.jpg",
-    bakgrunn: "hsl(210, 20%, 95%)",
+    ikon: "",
+    bilde: "",
+    bakgrunn: "",
   },
   {
     kategori: "taksering",
@@ -17,9 +17,9 @@ export default [
     avsnitt1:
       "En verditakst av din bolig gir deg en vurdering av markedsverdien på boligen/eiendommen på befaringstidspunktet. Det legges da vekt på boligens størrelse, standard og beliggenhet. Denne benyttes i forbindelse med boliglån eller boligkreditt på eiendommen din der bankene ber deg om å dokumentere verdien på boligen.",
     avsnitt2: "",
-    ikon: "clipboard-check",
-    bilde: "taksering",
-    bakgrunn: "hsl(44, 59%, 85%)"
+    ikon: "",
+    bilde: "",
+    bakgrunn: ""
   },
   {
     kategori: "taksering",
@@ -30,7 +30,7 @@ export default [
       "Forhåndstakst av eiendom gjøres etter de samme prinsipper som ved en verditakst, men vurderingene av bygget gjøres bare på grunnlag av tegninger og teknisk beskrivelse.",
     ikon: "",
     bilde: "",
-    bakgrunn: "hsl(44, 59%, 85%)"
+    bakgrunn: ""
   },
   {
     kategori: "taksering",
@@ -40,7 +40,7 @@ export default [
     avsnitt2: "",
     ikon: "",
     bilde: "",
-    bakgrunn: "hsl(210, 20%, 95%)",
+    bakgrunn: "",
   },
   {
     kategori: "taksering",
@@ -51,7 +51,7 @@ export default [
       "Lokal infrastruktur sier noe om hvordan forholdene rundt tomten er organisert, om tomten ligger i regulert område, om adkomstvei er offentlig med offentlig vann- og kloakkledninger, avstander til butikker, skoler, barnehager og så videre.",
     ikon: "",
     bilde: "",
-    bakgrunn: "hsl(210, 20%, 95%)",
+    bakgrunn: "",
   },
   {
     kategori: "taksering",
@@ -62,7 +62,7 @@ export default [
       "Ved verditaksering av næringseiendom er det vanligvis leieinntektene som legges til grunn. Det utarbeides en omfattende rapport der de enkelte leiekontrakter nevnes. Områdets generelle leienivå for næringsbygg blir vurdert, samt hensyn til byggets kvalitet og beliggenhet.",
     ikon: "",
     bilde: "",
-    bakgrunn: "hsl(44, 59%, 85%)"
+    bakgrunn: ""
   },
   {
     kategori: "taksering",
@@ -73,7 +73,7 @@ export default [
       "I mange tilfeller er det forsikringsselskapet som tar kontakt med oss for å innhente et faglig grunnlag for senere erstatningsutmåling. I noen tilfeller, spesielt ved kompliserte skader, får takstmannen også i oppdrag å styre arbeidene med istandsetting. Langli Takst utfører også naturskadetaksering i hele landet og er godkjent i Norsk Naturskadepool.",
     ikon: "",
     bilde: "",
-    bakgrunn: "hsl(44, 59%, 85%)"
+    bakgrunn: ""
   },
   {
     kategori: ["taksering", "kjopOgSalg"],
@@ -84,7 +84,7 @@ export default [
       "Reklamasjonsrapporten omfatter ikke vurdering av de juridiske sidene i saken og vurderer kun de forhold som det er reklamert på. De økonomiske konsekvenser av reklamasjonen beregnes med utbedring til referansenivået dersom det konstateres et negativt avvik. Det gjøres fradrag for eventuelle forbedringer som følge av at levetid på bygningsdeler forlenges eller at tilstanden på bygningsdeler blir fornyet.",
     ikon: "",
     bilde: "",
-    bakgrunn: "hsl(210, 20%, 95%)",
+    bakgrunn: "",
   },
   {
     kategori: "byggOgKontroll",

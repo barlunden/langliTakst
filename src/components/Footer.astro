@@ -1,27 +1,38 @@
-<footer class="pt-10 bg-yellow-mid">
-    <address class="pl-8 pb-4 content-center">
-        <h1>Langli Takst AS</h1>
-        <p>Langelandshaugen 12</p>
-        <p>5412 Stord</p>
-        <p class="pt-2">Telefon: <a href="tel:+4793262288">932 62 288</a></p>
-        <p class="pb-2">E-post: <a href="mailto:post@langlitakst.no">post@langlitakst.no</a></p>
-    </address>
-    <div class="py-4 text-center text-white bg-yellow-dark"><p>© 2025 Langli Takst AS</p></div>
+<footer class="tak">
+  <address class="px-16 py-16 text-center md:text-right">
+    <h1>Langli Takst AS</h1>
+    <p>Langelandshaugen 12</p>
+    <p>5412 Stord</p>
+    <p class="pt-2">Telefon: <a href="tel:+4793262288">932 62 288</a></p>
+    <p class="pb-2">
+      E-post: <a href="mailto:post@langlitakst.no">post@langlitakst.no</a>
+    </p>
+    <p>© 2025 Langli Takst AS</p>
+  </address>
 </footer>
 
 <style>
-   /*  footer {
-        background-color: hsl(206deg 42% 36%);
-    } */
-    
-    address,
-    div {
-        font-style: normal;
-        color: black;
-    }
-    
-    h1 {
-        font-size: larger;
-        font-weight: bold;
-    }
+  address,
+  div {
+    font-style: normal;
+    color: black;
+  }
+
+  h1 {
+    font-size: larger;
+    font-weight: bold;
+  }
+
+  :root {
+    --roof-left: #ffe066;
+    --roof-ridge: #ffd700;
+    --roof-right: #ffc300;
+  }
+  .tak {
+    width: 100vw;
+    background:
+      linear-gradient(140deg, hsl(47deg 100% 60%) 13%, hsl(47deg 91% 46%) 17%, transparent 17%),
+      linear-gradient(12deg, hsl(44deg 100% 78%) 56%, hsl(43deg 99% 58%) 56%);
+    background-size: 100% 100%;
+  }
 </style>

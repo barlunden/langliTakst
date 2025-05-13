@@ -14,7 +14,7 @@ export const currentPath = "/tjenester/energi";
 <Layout currentPath={currentPath}>
 	<PageHeader pageTitle="Energi og miljø" />
 
-<section class="grid md:grid-cols-2">
+<section class="md:px-48 grid md:grid-cols-2">
   {filtrerteTjenester.map(tjeneste => (
     <Tjeneste {...tjeneste} />
   ))}

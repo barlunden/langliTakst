@@ -1,0 +1,20 @@
+---
+import { getCollection } from "astro:content";
+import TjenestePost from "../components/TjenestePost.astro";
+
+
+const tjenester = await getCollection("tjenester");
+---
+
+
+<p>Her finn du finurlege funderingar og einieståande råd på vegen til betre samspel.</p>
+<ul>
+    {
+      const filtered = tjenester.filter(tjeneste => {
+         const cat = tjeneste.data.category;
+         return Array.isArray(cat)
+         ? cat.includes(currentCategory)
+         : cat === currentCategory
+      });
+    }
+  </ul>

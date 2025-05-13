@@ -9,3 +9,26 @@
     --color-yellow-mid: hsl(47, 100%, 52%);
     --color-yellow-dark: hsl(43, 99%, 53%);
 }
+
+@layer components {
+
+    /* Buttons and form fields */
+    /* .form-input {
+        width: 100%;
+        background-color: white;
+        border-color: var(--color-gray-200);
+        border-width: 1px;
+        margin-bottom: calc(var(--spacing) * 4);
+        padding-block: calc(var(--spacing) * 1);
+        padding-left: calc(var(--spacing) * 2)
+    }
+
+    .button {
+        background-color: var(--color-blue-mid);
+        border-width: 1px;
+        border-radius: 8px;
+        border-color: var(--color-blue-dark);
+        padding-block: calc(var(--spacing) * 2);
+        color: white;
+    } */
+}
