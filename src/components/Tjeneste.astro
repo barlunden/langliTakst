@@ -1,24 +1,14 @@
 ---
-// Props: title, description, icon, image
-import husBilde from "../images/hus.jpg";
+const ikonKart = import.meta.glob('../icons/*.svg', { eager: true, import: 'default' }) as Record<string, string>;
 
-const bildeKart = {
-  verditakst: husBilde,
-};
+const { name, category, icon, Content } = Astro.props;
 
-const { tittel, avsnitt1, avsnitt2, ikon, bilde, bakgrunn, kategori } =
-  Astro.props;
-type BildeStikkord = keyof typeof bildeKart; // "verditakst" | "annaStikkord"
-
-const valgtBilde = bildeKart[kategori as BildeStikkord];
+const iconKey = icon ? Object.keys(ikonKart).find(path => path.endsWith(`/${icon}`)) : null;
+const iconSrc = iconKey ? ikonKart[iconKey] : null;
 ---
-
-<section class="service-card" style={`background:${bakgrunn}`}>
-  <div class="w-5/6 h-116 mx-auto py-8 px-6 border-1 mb-3 rounded-lg bg-white">
-    {ikon && <img src={`/icons/${ikon}.svg`} alt="" />}
-    <h3 class="text-2xl pb-4">{tittel}</h3>
-    <p class="pb-4">{avsnitt1}</p>
-    <p>{avsnitt2}</p>
-    {valgtBilde && <img src={valgtBilde.src} alt={tittel} />}
-  </div>
-</section>
+<article class="border rounded-lg w-5/6 mx-auto p-4 my-4 shadow-md">
+  {iconSrc && <img src={iconSrc} alt={`${name} ikon`} class="w-8 h-8 mb-2" />}
+  <h2 class="text-2xl font-bold mb-1">{name}</h2>
+  <p class="italic mb-4">{category}</p>
+  {Content && <Content />}
+</article>

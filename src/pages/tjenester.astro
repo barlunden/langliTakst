@@ -1,30 +1,33 @@
 ---
-import PageHeader from '../components/PageHeader.astro';
-import Prisliste from '../components/Prisliste.astro';
-import Layout from '../layouts/Layout.astro';
+import PageHeader from "../components/PageHeader.astro";
+import Layout from "../layouts/Layout.astro";
+import Tjeneste from "../components/Tjeneste.astro";
 
-export const currentPath = "/prisar";
+import { getCollection, render } from "astro:content";
 
-const items = [
-	{ name: 'Leilegheit', price: 7900 },
-	{ name: 'Leilegheit i loft eller i u.etg/kjeller', price: 8500 },
-	{ name: 'Leilegheit i Fleirmannsbustad', price: 11000 },
-	{ name: 'Einebustad/Fritidsbustad', price: 16500 },
-	{ name: 'Rekkehus/Tomannsbustad', price: 15000 },
-	{ name: 'Tillegg pr. ekstra bueining/utleigedel/hybel', price: 2000 },
-]
+const tjenester = await getCollection("tjenester");
+
+const tjenesterMedContent = await Promise.all(
+  tjenester.map(async (tjeneste) => {
+    const rendered = await render(tjeneste);
+    return { ...tjeneste, Content: rendered.Content };
+  })
+);
+
+export const currentPath = "/tjenester";
 ---
-<Layout currentPath={currentPath} >
-	<PageHeader pageTitle="Prisliste" />
-	<div class="h-72 content-center text-center">
-		<h1>Her kjem prislista til Langli Takst</h1>
-		<p>Prisane på dette skjemaet er for eksempelet si skuld og representerer ikkje prisane til Langli Takst.</p>
-		<Prisliste items={items}/>
-	</div>
-</Layout>
 
-<style>
-	p {
-		font-style: italic;
-	}
-</style>
+<Layout currentPath={currentPath}>
+  <PageHeader pageTitle="Tjenester" />
+  <div class="grid grid-cols-3 gap-4">
+    {tjenesterMedContent.map(({ data, Content }) => (
+      <Tjeneste
+        key={data.slug}
+        icon={data.icon}
+        name={data.name}
+        category={data.category}
+        Content={Content}
+      />
+    ))}
+  </div>
+</Layout>
