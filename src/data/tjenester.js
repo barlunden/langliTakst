@@ -8,7 +8,7 @@ export default [
     avsnitt2:
       "I følge avhendingsloven, som regulerer kjøp og salg av fast eiendom, kan ikke kjøper gjøre gjeldende mangler han kjente eller måtte kjenne til ved avtaleinngåelse. I ettertid kan det være vanskelig å få erstatning om man oppdager feil eller mangler med boligen som er opplyst i salgsprospektet. Våre medarbeidere har lang erfaring med å vurdere boligens tilstand, tekniske verdi og markedsverdi. Vi kan hjelpe deg med gjennomlesning av dokumenter, og gir deg konkrete tilbakemeldinger på hva som bør undersøkes nærmere, samt gode råd og tips.",
     ikon: "",
-    bilde: "",
+    bilde: "husBilde",
   },
   {
     kategori: ["taksering", "kjopOgSalg"],
