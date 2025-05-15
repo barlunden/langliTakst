@@ -1,5 +1,6 @@
 ---
 import PageHeader from '../../components/PageHeader.astro';
+import TjenesteIngress from '../../components/TjenesteIngress.astro';
 import Layout from '../../layouts/Layout.astro';
 import Tjeneste from '../../components/Tjeneste.astro';
 import tjenester from '../../data/tjenester.js';
@@ -12,9 +13,10 @@ tjeneste.kategori.includes(kategori)
 export const currentPath = "/tjenester/kjopogsalg";
 ---
 <Layout currentPath={currentPath}>
+  <TjenesteIngress />
 	<PageHeader pageTitle="Kjøp og salg av bolig" />
 
-<section class="grid md:grid-cols-2 md:gap-8 mx-4 md:mx-8">
+<section class="grid md:grid-cols-2 py-6 gap-y-2 md:gap-x-16 mx-6 md:mx-16">
   {filtrerteTjenester.map(tjeneste => (
     <Tjeneste {...tjeneste} />
   ))}
