@@ -14,7 +14,7 @@ export const currentPath = "/tjenester/byggkontroll";
 <Layout currentPath={currentPath}>
 	<PageHeader pageTitle="Byggeprosjekt og kontroll" />
 
-<section class="md:px-48 grid md:grid-cols-2">
+<section class="grid md:grid-cols-2 md:gap-8 mx-4 md:mx-8">
   {filtrerteTjenester.map(tjeneste => (
     <Tjeneste {...tjeneste} />
   ))}
