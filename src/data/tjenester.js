@@ -59,7 +59,7 @@ export default [
       "En tomtetakst er som oftest verditaksering av ubebygde tomter for bolig og næring. Teknisk verdi av en ubebygd tomt består av råtomtverdi og verdien av lokal infrastruktur.",
     avsnitt2:
       "Lokal infrastruktur sier noe om hvordan forholdene rundt tomten er organisert, om tomten ligger i regulert område, om adkomstvei er offentlig med offentlig vann- og kloakkledninger, avstander til butikker, skoler, barnehager og så videre.",
-    ikon: "",
+    ikon: "../icons/plot",
     bilde: "",
     bakgrunn: "",
   },
