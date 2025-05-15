@@ -1,26 +1,14 @@
 ---
 import PageHeader from '../components/PageHeader.astro';
-import Prisliste from '../components/Prisliste.astro';
+import TjenesteIngress from '../components/TjenesteIngress.astro';
 import Layout from '../layouts/Layout.astro';
 
-export const currentPath = "/prisar";
-
-const items = [
-	{ name: 'Leilegheit', price: 7900 },
-	{ name: 'Leilegheit i loft eller i u.etg/kjeller', price: 8500 },
-	{ name: 'Leilegheit i Fleirmannsbustad', price: 11000 },
-	{ name: 'Einebustad/Fritidsbustad', price: 16500 },
-	{ name: 'Rekkehus/Tomannsbustad', price: 15000 },
-	{ name: 'Tillegg pr. ekstra bueining/utleigedel/hybel', price: 2000 },
-]
+export const currentPath = "/tjenester";
 ---
 <Layout currentPath={currentPath} >
-	<PageHeader pageTitle="Prisliste" />
-	<div class="h-72 content-center text-center">
-		<h1>Her kjem prislista til Langli Takst</h1>
-		<p>Prisane på dette skjemaet er for eksempelet si skuld og representerer ikkje prisane til Langli Takst.</p>
-		<Prisliste items={items}/>
-	</div>
+	<TjenesteIngress />
+	<PageHeader pageTitle="Tjenester" />
+	
 </Layout>
 
 <style>

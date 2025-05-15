@@ -2,7 +2,7 @@
 const { items, category } = Astro.props; // Accept data as props
 ---
 <div class="price-list">
-  <h2 class="text-lg font-semibold pb-2">{category}</h2>
+  <h2>{category}</h2>
   <ul>
     {items.map((item: { name: unknown; price: unknown; }) => (
       <li>

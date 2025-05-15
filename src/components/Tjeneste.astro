@@ -13,12 +13,12 @@ type BildeStikkord = keyof typeof bildeKart; // "verditakst" | "annaStikkord"
 const valgtBilde = bildeKart[kategori as BildeStikkord];
 ---
 
-<section class="service-card w-full mx-auto py-8 px-6 bg-white" style={`background:${bakgrunn}`}>
-    <div class="grid grid-cols-8">
-      {ikon && <img src={`/icons/${ikon}.svg`} alt="" class="w-12 h-12" />}
-      <h3 class="text-3xl pb-4 col-span-7">{tittel}</h3>
-    </div>
-    <p class="pb-4">{avsnitt1}</p>
-    <p>{avsnitt2}</p>
-    {valgtBilde && <img src={valgtBilde.src} alt={tittel} />}
+<section class="service-card" style={`background:${bakgrunn}`}>
+  <div class="service-header">
+    {ikon && <img src={`/icons/${ikon}.svg`} alt="" class="ikon" />}
+    <h3 class="service-tittel">{tittel}</h3>
+  </div>
+  <p class="pad">{avsnitt1}</p>
+  <p>{avsnitt2}</p>
+  {valgtBilde && <img src={valgtBilde.src} alt={tittel} />}
 </section>
