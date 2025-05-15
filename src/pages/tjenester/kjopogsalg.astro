@@ -16,7 +16,7 @@ export const currentPath = "/tjenester/kjopogsalg";
   <TjenesteIngress />
 	<PageHeader pageTitle="Kjøp og salg av bolig" />
 
-<section class="grid md:grid-cols-2 py-6 gap-y-2 md:gap-x-16 mx-6 md:mx-16">
+<section class="service-section">
   {filtrerteTjenester.map(tjeneste => (
     <Tjeneste {...tjeneste} />
   ))}
