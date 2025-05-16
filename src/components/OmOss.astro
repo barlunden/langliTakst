@@ -11,9 +11,11 @@ const optimizedLogo = await getImage({ src: logo });
 export const currentPath = "/om-langli-takst";
 ---
 
-<div class="grid md:grid-cols-2">
-  <div class="m-4 border-1">
-    <Images
+<div class="minigrid">
+  <div class="marginal">
+    <div class="framer">
+
+      <Images
       mobileImgUrl={mobileImage}
       desktopImgUrl={desktopImage}
       alt="Norsk villa"
@@ -22,9 +24,10 @@ export const currentPath = "/om-langli-takst";
       desktopWidth={640}
       desktopHeight={480}
       format="jpg"
-    />
+      />
+    </div>
   </div>
-  <div class="h-fit w-7/8 mx-auto content-center text-left py-8">
+  <div class="marginal">
     <PageHeader pageTitle="Om Oss" />
     <p class="pad">
       Langli Takst AS ble opprettet av Thomas Angel Langli i 2018. Thomas er
