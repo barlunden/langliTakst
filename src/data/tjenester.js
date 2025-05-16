@@ -137,4 +137,13 @@ export default [
     bilde: "",
     bakgrunn: "hsl(140, 40%, 96%)"
   },
+  {
+    kategori: "cta",
+    tittel: "Kontakt oss",
+    avsnitt1: "Ta kontakt for en uforpliktende prat.",
+    avsnitt2: "",
+    ikon: "../icons/solar-energy",
+    bilde: "",
+    bakgrunn: "hsl(48, 100%, 90%)"
+  },
 ];
