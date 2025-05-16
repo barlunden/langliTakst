@@ -19,17 +19,17 @@
   html,
   body {
     font-family: "Open Sans Variable", sans-serif;
-    background-color: hsl(210 20% 98%);
+    background-color: hsl(210 45% 97%);
     margin: 0;
     width: 100%;
     height: 100%;
   }
   /* Index.astro */
 
-  /* section {
+  .hero-section {
     width: 100%;
     position: relative;
-  } */
+  }
   .pageheader {
     position: absolute;
     top: 0;

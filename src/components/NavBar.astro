@@ -16,12 +16,6 @@ const optimizedLogo = await getImage({ src: logo });
     <li>
       <a class={currentPath === "/priser" ? "active" : ""} href="/priser">PRISER</a>
     </li>
-    <!-- <li>
-      <a class={currentPath === "/tjenester-test" ? "active" : ""} href="/tjenester-test">Test</a>
-    </li>
-    <li>
-      <a href="/tjenester/taksering">Taksering</a>
-    </li> -->
     <li class="dropdown" id="dropdown-tjenester">
       <button
         class={`dropdown-toggle${currentPath.startsWith("/tjenester") ? " active" : ""}`}
@@ -85,7 +79,6 @@ const optimizedLogo = await getImage({ src: logo });
 <style>
 /* Navbar og logo */
 .navbar {
-  background: hsl(210, 20%, 98%);
   padding: 1rem;
   width: 100%;
   display: flex;
@@ -125,11 +118,11 @@ const optimizedLogo = await getImage({ src: logo });
 @media (max-width: 799px) {
   .navbar {
     flex-direction: column;
-    align-items: flex-start;
+    align-items: center;
   }
   .nav-list {
     flex-direction: column;
-    align-items: flex-start;
+    align-items: center;
     width: 100%;
     margin-top: 1rem;
   }
