@@ -9,6 +9,7 @@ export default [
       "I følge avhendingsloven, som regulerer kjøp og salg av fast eiendom, kan ikke kjøper gjøre gjeldende mangler han kjente eller måtte kjenne til ved avtaleinngåelse. I ettertid kan det være vanskelig å få erstatning om man oppdager feil eller mangler med boligen som er opplyst i salgsprospektet. Våre medarbeidere har lang erfaring med å vurdere boligens tilstand, tekniske verdi og markedsverdi. Vi kan hjelpe deg med gjennomlesning av dokumenter, og gir deg konkrete tilbakemeldinger på hva som bør undersøkes nærmere, samt gode råd og tips.",
     ikon: "../icons/home-modern",
     bilde: "husBilde",
+    bakgrunn: "hsl(120, 30%, 96%)"
   },
   {
     kategori: ["taksering", "kjopOgSalg"],
@@ -19,7 +20,7 @@ export default [
       "Tilstandsrapport er det som er foretrukket i forbindelse med kjøp og salg av eiendom, både av kjøper, selger og meglere.",
     ikon: "../icons/home2",
     bilde: "",
-    bakgrunn: "",
+    bakgrunn: "hsl(210, 100%, 97%)",
   },
   {
     kategori: "taksering",
@@ -29,7 +30,7 @@ export default [
     avsnitt2: "",
     ikon: "../icons/banknotes",
     bilde: "",
-    bakgrunn: ""
+    bakgrunn: "hsl(54, 100%, 96%)"
   },
   {
     kategori: "taksering",
@@ -40,7 +41,7 @@ export default [
       "Forhåndstakst av eiendom gjøres etter de samme prinsipper som ved en verditakst, men vurderingene av bygget gjøres bare på grunnlag av tegninger og teknisk beskrivelse.",
     ikon: "../icons/banknotes",
     bilde: "",
-    bakgrunn: ""
+    bakgrunn: "hsl(40, 100%, 96%)"
   },
   {
     kategori: "taksering",
@@ -50,7 +51,7 @@ export default [
     avsnitt2: "",
     ikon: "../icons/banknotes",
     bilde: "",
-    bakgrunn: "",
+    bakgrunn: "hsl(60, 80%, 96%)",
   },
   {
     kategori: "taksering",
@@ -61,7 +62,7 @@ export default [
       "Lokal infrastruktur sier noe om hvordan forholdene rundt tomten er organisert, om tomten ligger i regulert område, om adkomstvei er offentlig med offentlig vann- og kloakkledninger, avstander til butikker, skoler, barnehager og så videre.",
     ikon: "../icons/plot",
     bilde: "",
-    bakgrunn: "",
+    bakgrunn: "hsl(100, 40%, 96%)",
   },
   {
     kategori: "taksering",
@@ -72,7 +73,7 @@ export default [
       "Ved verditaksering av næringseiendom er det vanligvis leieinntektene som legges til grunn. Det utarbeides en omfattende rapport der de enkelte leiekontrakter nevnes. Områdets generelle leienivå for næringsbygg blir vurdert, samt hensyn til byggets kvalitet og beliggenhet.",
     ikon: "../icons/industry",
     bilde: "",
-    bakgrunn: ""
+    bakgrunn: "hsl(225, 40%, 96%)"
   },
   {
     kategori: "taksering",
@@ -83,7 +84,7 @@ export default [
       "I mange tilfeller er det forsikringsselskapet som tar kontakt med oss for å innhente et faglig grunnlag for senere erstatningsutmåling. I noen tilfeller, spesielt ved kompliserte skader, får takstmannen også i oppdrag å styre arbeidene med istandsetting. Langli Takst utfører også naturskadetaksering i hele landet og er godkjent i Norsk Naturskadepool.",
     ikon: "../icons/flood",
     bilde: "",
-    bakgrunn: ""
+    bakgrunn: "hsl(10, 80%, 96%)"
   },
   {
     kategori: ["taksering", "kjopOgSalg"],
@@ -94,7 +95,7 @@ export default [
       "Reklamasjonsrapporten omfatter ikke vurdering av de juridiske sidene i saken og vurderer kun de forhold som det er reklamert på. De økonomiske konsekvenser av reklamasjonen beregnes med utbedring til referansenivået dersom det konstateres et negativt avvik. Det gjøres fradrag for eventuelle forbedringer som følge av at levetid på bygningsdeler forlenges eller at tilstanden på bygningsdeler blir fornyet.",
     ikon: "../icons/gavel",
     bilde: "",
-    bakgrunn: "",
+    bakgrunn: "hsl(340, 40%, 96%)",
   },
   {
     kategori: "byggOgKontroll",
@@ -103,7 +104,7 @@ export default [
       "I byggelånsoppfølging har takstmannen i oppdrag å besiktige byggeplassen for å vurdere fremdriften og at arbeidet er i rute, samt at kontraktsmessige byggearbeider følges. Da foretas det uanmeldte befaringer under byggeprosessen for å kontrollere utførelser som senere blir innebygd og skjult. Vi vet av erfaring med uavhengig kontroll at dette kan sikre byggherre mot uheldige utførelser som senere kan bli kostbare å rette opp.",
     avsnitt2: "",
     ikon: "../icons/magnify",
-    bilde: "",
+    bakgrunn: "hsl(170, 30%, 96%)",
   },
   {
     kategori: "byggOgKontroll",
@@ -114,6 +115,7 @@ export default [
       "Tiltaksklasse 1: Her kreves det uavhengig kontroll av søknadspliktige våtrom samt lufttetthet i nybygg.",
     ikon: "../icons/tape-measure",
     bilde: "",
+    bakgrunn: "hsl(260, 30%, 96%)"
   },
   {
     kategori: "energiOgMiljo",
@@ -123,6 +125,7 @@ export default [
     avsnitt2: "",
     ikon: "../icons/home-energy",
     bilde: "",
+    bakgrunn: "hsl(100, 40%, 96%)"
   },
   {
     kategori: "energiOgMiljo",
@@ -132,5 +135,6 @@ export default [
       "Vi har energirådgiver som utfører rapporter gjennom Enova sitt rapporteringssystem.",
     ikon: "../icons/solar-energy",
     bilde: "",
+    bakgrunn: "hsl(140, 40%, 96%)"
   },
 ];
