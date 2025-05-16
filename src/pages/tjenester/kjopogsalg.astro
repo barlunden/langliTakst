@@ -1,24 +1,34 @@
 ---
-import PageHeader from '../../components/PageHeader.astro';
-import TjenesteIngress from '../../components/TjenesteIngress.astro';
-import Layout from '../../layouts/Layout.astro';
-import Tjeneste from '../../components/Tjeneste.astro';
-import tjenester from '../../data/tjenester.js';
+import PageHeader from "../../components/PageHeader.astro";
+import TjenesteIngress from "../../components/TjenesteIngress.astro";
+import Layout from "../../layouts/Layout.astro";
+import Tjeneste from "../../components/Tjeneste.astro";
+import tjenester from "../../data/tjenester.js";
 
 const kategori = "kjopOgSalg";
-const filtrerteTjenester = tjenester.filter(tjeneste =>
-tjeneste.kategori.includes(kategori)
+const filtrerteTjenester = tjenester.filter((tjeneste) =>
+  tjeneste.kategori.includes(kategori)
 );
+
+const ekstraKort = filtrerteTjenester.length % 2 !== 0;
 
 export const currentPath = "/tjenester/kjopogsalg";
 ---
+
 <Layout currentPath={currentPath}>
   <TjenesteIngress />
-	<PageHeader pageTitle="Kjøp og salg av bolig" />
+  <PageHeader pageTitle="Kjøp og salg av bolig" />
 
-<section class="service-section">
-  {filtrerteTjenester.map(tjeneste => (
-    <Tjeneste {...tjeneste} />
-  ))}
-</section>
+  <section class="service-section">
+    {filtrerteTjenester.map((tjeneste) => <Tjeneste {...tjeneste} />)}
+    {ekstraKort && 
+    (<section class="service-card cta-card">
+      <div class="service-header">
+        <img src={`/icons/question.svg`} alt="" class="ikon" />
+        <h3 class="service-tittel">Usikker på hva du trenger?</h3>
+        </div>
+      <p class="">Kontakt oss for gratis veiledning om boligkjøp, tilstandsrapport eller reklamasjonsrapport.</p>
+      <button class="button"><a href="/bestill-takst">Ta kontakt</a></button>
+    </section>)}
+  </section>
 </Layout>
