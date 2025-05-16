@@ -1,10 +1,10 @@
 ---
 import Layout from "../layouts/Layout.astro";
 import Images from "../components/Images.astro";
-import mobileImage from "../assets/Background360x640.png";
 import desktopImage from "../images/hus.jpg";
 
 import OmOss from "../components/OmOss.astro";
+import Form from "../components/Form.astro";
 
 export const currentPath = "/";
 ---
@@ -12,11 +12,8 @@ export const currentPath = "/";
 <Layout currentPath={currentPath}>
   <section>
     <Images
-      mobileImgUrl={mobileImage}
       desktopImgUrl={desktopImage}
       alt="Norsk villa"
-      mobileWidth={360}
-      mobileHeight={640}
       desktopWidth={2560}
       desktopHeight={1400}
       format="jpg"
@@ -26,29 +23,5 @@ export const currentPath = "/";
     </div>
   </section>
   <OmOss />
+  <Form />
 </Layout>
-
-<style>
-  section {
-    width: 100%;
-    position: relative;
-  }
-  .pageheader {
-    position: absolute;
-    top: 0;
-    width: 100%;
-  }
-
-  .hero-text {
-    position: absolute;
-    inset: 0;
-    margin: auto;
-    padding: 1rem 2rem;
-    width: fit-content;
-    height: fit-content;
-    backdrop-filter: blur(4px) invert(10%);
-    text-align: center;
-    border-radius: 16px;
-    border: solid 1px white;
-  }
-</style>

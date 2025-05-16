@@ -1,14 +1,9 @@
 ---
-import PageHeader from "../components/PageHeader.astro";
-import Layout from "../layouts/Layout.astro";
-
-export const currentPath = "/bestill-takst";
+import PageHeader from "./PageHeader.astro"
 ---
 
-<Layout currentPath={currentPath}>
-  <PageHeader pageTitle="Kontakt" />
-  <div class="content-center">
-    <section class="contact-section">
+<section class="contact-section">
+    <PageHeader pageTitle="Kontakt" />
       <div class="contact-intro">
         <p class="contact-description">
           Gi en beskrivelse av oppdraget, så tar vi kontakt ved første
@@ -45,5 +40,3 @@ export const currentPath = "/bestill-takst";
         <button class="button" type="submit">Send skjema</button>
       </form>
     </section>
-  </div>
-</Layout>

@@ -4,7 +4,6 @@ import PageHeader from "../components/PageHeader.astro";
 import Images from "../components/Images.astro";
 
 import desktopImage from "../images/inngang2.jpg";
-import mobileImage from "../images/inngang2.jpg";
 import logo from "../logos/bmtf100.png";
 const optimizedLogo = await getImage({ src: logo });
 
@@ -16,11 +15,8 @@ export const currentPath = "/om-langli-takst";
     <div class="framer">
 
       <Images
-      mobileImgUrl={mobileImage}
       desktopImgUrl={desktopImage}
       alt="Norsk villa"
-      mobileWidth={640}
-      mobileHeight={480}
       desktopWidth={640}
       desktopHeight={480}
       format="jpg"

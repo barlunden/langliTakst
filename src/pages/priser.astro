@@ -39,6 +39,9 @@ const andreTillegg = [
   { name: "Gjeldende pris for tilstandsrapport er for inntil tre våtrom, dvs. bad og vaskerom. Toalett regnes ikke som våtrom." },
   { name: "Alle andre tjenester etter medgått tid og etter gjeldende timerate kr 1.750,- inkl. mva." }
 ]
+
+const lysegul = "hsl(44deg 100% 97%)"
+const gul = "hsl(47deg 100% 92%)"
 ---
 
 <Layout currentPath={currentPath}>
@@ -46,10 +49,10 @@ const andreTillegg = [
     <PageHeader pageTitle="Prisliste" />
 
     <div class="prisliste-container">
-      <Prisliste category="Tilstandsrapporter ny forskrift" items={tilstand} />
-      <Prisliste category="Pristillegg for:" items={tillegg} />
-      <Prisliste category="Takster" items={takster} />
-      <Prisliste category="Diverse tillegg / merknader" items={andreTillegg} />
+      <Prisliste category="Tilstandsrapporter ny forskrift" items={tilstand} bakgrunn={lysegul} />
+      <Prisliste category="Pristillegg for:" items={tillegg} bakgrunn={gul} />
+      <Prisliste category="Takster" items={takster} bakgrunn={lysegul} />
+      <Prisliste category="Diverse tillegg / merknader" items={andreTillegg} bakgrunn={gul} />
     </div>
   </div>
 </Layout>
