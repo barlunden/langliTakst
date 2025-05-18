@@ -229,7 +229,6 @@
 
   /* Framside, service-kort */
 
-
   .fp-service-card:hover {
     transform: rotateY(180deg);
   }
@@ -244,7 +243,9 @@
   }
 
   .fp-service-tittel {
-    font-size: 1rem;
+    font-size: 1.125rem;
+    font-weight: 600;
+    padding-bottom: 0.5rem;
     margin: 0;
     text-align: center;
   }
@@ -254,7 +255,7 @@
     position: relative;
     border-radius: 8px;
     width: min(300px, 95%);
-    height: 400px;
+    height: 300px;
     transition: transform 1s;
     transform-style: preserve-3d;
     margin: 16px auto;
@@ -267,13 +268,14 @@
   .fp-service-front,
   .fp-service-back {
     position: absolute;
-  width: 100%;
-  height: 100%;
-  top: 0; left: 0;
-  backface-visibility: hidden;
-  border-radius: 8px;
-  overflow: hidden;
-  padding: 10px;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    backface-visibility: hidden;
+    border-radius: 8px;
+    overflow: hidden;
+    padding: 20px;
   }
 
   .fp-service-front {
@@ -403,10 +405,6 @@
       width: 50%; /* w-2/5 */
       margin-left: auto; /* mx-auto */
       margin-right: auto;
-    }
-    .service-cards {
-      display: grid;
-      grid-template-columns: repeat(7, minmax(0, 1fr)); /* md:grid-cols-2 */
     }
   }
 }
