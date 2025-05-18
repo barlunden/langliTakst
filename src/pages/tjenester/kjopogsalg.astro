@@ -21,14 +21,22 @@ export const currentPath = "/tjenester/kjopogsalg";
 
   <section class="service-section">
     {filtrerteTjenester.map((tjeneste) => <Tjeneste {...tjeneste} />)}
-    {ekstraKort && 
-    (<section class="service-card shadow-box">
-      <div class="service-header">
-        <img src={`/icons/question.svg`} alt="" class="ikon" />
-        <h3 class="service-tittel">Usikker på hva du trenger?</h3>
-        </div>
-      <p class="">Kontakt oss for gratis veiledning om boligkjøp, tilstandsrapport eller reklamasjonsrapport.</p>
-      <button class="button"><a href="/bestill-takst">Ta kontakt</a></button>
-    </section>)}
+    {
+      ekstraKort && (
+        <section class="service-card shadow-box">
+          <div class="service-header">
+            <img src={`/icons/question.svg`} alt="" class="ikon" />
+            <h3 class="service-tittel">Usikker på hva du trenger?</h3>
+          </div>
+          <p class="pad">
+            Kontakt oss for gratis veiledning om boligkjøp, tilstandsrapport
+            eller reklamasjonsrapport.
+          </p>
+          <button class="button">
+            <a href="/bestill-takst">Ta kontakt</a>
+          </button>
+        </section>
+      )
+    }
   </section>
 </Layout>

@@ -21,7 +21,4 @@ const valgtBilde = bildeKart[kategori as BildeStikkord];
   <p class="pad">{avsnitt1}</p>
   <p>{avsnitt2}</p>
   {valgtBilde && <img src={valgtBilde.src} alt={tittel} />}
-  {kategori === "cta" && (
-    <a href="/kontakt" class="cta-btn">Kontakt oss</a>
-)}
 </section>
