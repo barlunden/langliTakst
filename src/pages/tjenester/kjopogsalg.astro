@@ -22,7 +22,7 @@ export const currentPath = "/tjenester/kjopogsalg";
   <section class="service-section">
     {filtrerteTjenester.map((tjeneste) => <Tjeneste {...tjeneste} />)}
     {ekstraKort && 
-    (<section class="service-card cta-card">
+    (<section class="service-card shadow-box">
       <div class="service-header">
         <img src={`/icons/question.svg`} alt="" class="ikon" />
         <h3 class="service-tittel">Usikker på hva du trenger?</h3>

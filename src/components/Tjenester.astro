@@ -1,13 +1,13 @@
 ---
 import TjenesteKort from "./TjenesteKort.astro";
 
-import tjenester from "../data/tjenester.js";
+import tjenester from "../data/tjenesteOversikt.js";
 import PageHeader from "./PageHeader.astro";
 ---
 
 <div class="service-container">
   <PageHeader pageTitle="Tjenester" />
-  <section class="service-cards">
+  <section class="fp-service-section">
     {tjenester.map((tjeneste) => <TjenesteKort {...tjeneste} />)}
   </section>
 </div>

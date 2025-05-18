@@ -1,7 +1,7 @@
 ---
 const { items, category, bakgrunn } = Astro.props; // Accept data as props
 ---
-<div class="price-list" style={`background:${bakgrunn}`}>
+<div class="price-list shadow-box" style={`background:${bakgrunn}`}>
   <h2>{category}</h2>
   <ul>
     {items.map((item: { name: unknown; price: unknown; }) => (
