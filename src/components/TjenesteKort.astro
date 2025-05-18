@@ -14,8 +14,15 @@ const valgtBilde = bildeKart[kategori as BildeStikkord];
 ---
 
 <section class="fp-service-card shadow-box" style={`background:${bakgrunn}`}>
-  <div class="fp-service-header">
-    {ikon && <img src={`/icons/${ikon}.svg`} alt="" class="ikon" />}
-    <h3 class="fp-service-tittel">{tittel}</h3>
+  <div class="fp-service-card-inner shadow-box">
+    <div class="fp-service-front">
+      {ikon && <img src={`/icons/${ikon}.svg`} alt="" class="ikon" />}
+      <h3 class="fp-service-tittel">{tittel}</h3>
+      <p>{avsnitt1}</p>
+    </div>
+    <div class="fp-service-back">
+      <p>{avsnitt2}</p>
+      <a href="/tjenester/{slug}" class="les-mer-btn">Les mer om tjenesten</a>
+    </div>
   </div>
 </section>
