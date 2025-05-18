@@ -36,7 +36,7 @@ export default [
     tittel: "Energi og miljø",
     avsnitt1:
       "Reduser energikostnadene og gjør boligen mer miljøvennlig.",
-    avsnitt2: " Vi tilbyr uavhengig kontroll og byggelånsoppfølging, slik at du som byggherre får en trygg og profesjonell oppfølging gjennom hele byggeprosessen.",
+    avsnitt2: "Vi tilbyr energirådgivning og hjelper deg med å finne gode løsninger og støtteordninger, slik som Enovatilskuddet, for en mer bærekraftig bolig.",
     ikon: "../icons/solar-energy",
     bakgrunn: "hsl(140, 40%, 96%)",
   },
