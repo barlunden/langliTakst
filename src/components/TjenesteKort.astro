@@ -6,7 +6,7 @@ const bildeKart = {
   verditakst: husBilde,
 };
 
-const { tittel, avsnitt1, avsnitt2, ikon, bilde, bakgrunn, kategori } =
+const { tittel, slug, avsnitt1, avsnitt2, ikon, bilde, bakgrunn, kategori } =
   Astro.props;
 type BildeStikkord = keyof typeof bildeKart; // "verditakst" | "annaStikkord"
 
@@ -21,6 +21,6 @@ const valgtBilde = bildeKart[kategori as BildeStikkord];
   </div>
   <div class="fp-service-back">
     <p>{avsnitt2}</p>
-    <a href="/tjenester/{slug}" class="les-mer-btn">Les mer om tjenesten</a>
+    <a href={`/tjenester/${slug}`} class="les-mer-btn">Les mer om tjenesten</a>
   </div>
 </section>
