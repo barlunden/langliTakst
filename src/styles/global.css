@@ -196,6 +196,11 @@
     padding: 20px;
     width: min(600px, 95%);
     margin: 20px auto;
+    transition: transform 0.6s ease;
+  }
+
+  .price-list:hover {
+    transform: scale(1.03);
   }
 
   .price-list h2 {
