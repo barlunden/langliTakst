@@ -226,15 +226,11 @@
     gap: 0.5rem;
     padding: 2rem 4px 1rem 4px;
   }
-  .fp-service-card-inner {
-    position: relative;
-    width: 100%;
-    height: 100%;
-    transition: transform 1s;
-    transform-style: preserve-3d;
-  }
 
-  .fp-service-card:hover .fp-service-card-inner {
+  /* Framside, service-kort */
+
+
+  .fp-service-card:hover {
     transform: rotateY(180deg);
   }
   .fp-service-front {
@@ -255,9 +251,12 @@
 
   .fp-service-card {
     perspective: 1000px;
+    position: relative;
     border-radius: 8px;
     width: min(300px, 95%);
     height: 400px;
+    transition: transform 1s;
+    transform-style: preserve-3d;
     margin: 16px auto;
     padding-top: 2rem;
     padding-bottom: 2rem;
@@ -268,20 +267,21 @@
   .fp-service-front,
   .fp-service-back {
     position: absolute;
-    width: 100%;
-    height: 100%;
-    backface-visibility: hidden;
-    border-radius: 8px;
+  width: 100%;
+  height: 100%;
+  top: 0; left: 0;
+  backface-visibility: hidden;
+  border-radius: 8px;
+  overflow: hidden;
+  padding: 10px;
   }
 
   .fp-service-front {
-    background-color: white;
     color: black;
     z-index: 2;
   }
 
   .fp-service-back {
-    background-color: hsl(48, 100%, 96%); /* Lys kremgul som eksempel */
     color: black;
     transform: rotateY(180deg);
     display: flex;
