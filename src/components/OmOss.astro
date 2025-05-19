@@ -1,42 +1,34 @@
 ---
-import { getImage } from "astro:assets";
-import PageHeader from "../components/PageHeader.astro";
-import Images from "../components/Images.astro";
-
-import desktopImage from "../images/inngang2.jpg";
-import logo from "../logos/bmtf100.png";
-const optimizedLogo = await getImage({ src: logo });
-
-export const currentPath = "/om-langli-takst";
+import Form from "./Form.astro";
 ---
 
 <div class="minigrid">
-  <div class="marginal">
-    <div class="framer">
-
-      <Images
-      desktopImgUrl={desktopImage}
-      alt="Norsk villa"
-      desktopWidth={640}
-      desktopHeight={480}
-      format="jpg"
-      />
-    </div>
-  </div>
-  <div class="marginal ramme shadow-box">
-    <PageHeader pageTitle="Om Oss" />
-    <p class="pad">
-      Langli Takst AS ble opprettet av Thomas Angel Langli i 2018. Thomas er
+  <div class="marginal ramme">
+    <p class="">
+      <b>Langli Takst AS</b> ble opprettet av Thomas Angel Langli i 2018. Thomas er
       utdannet byggmester og takstmann med 27 års erfaring med bolig og bygg.
       Med seg på laget har han Mathias Angel Langli som også er godkjent
       takstmann. Vi er begge medlemmer av Byggmestrenes Takseringsforbund (BMTF)
     </p>
-    <p class="pad">
+    <p class="">
       Vi holder til på Stord på Vestlandet, og utfører taksering i områdene
       Haugesund, Sveio, Stord, Bømlo, Fitjar, Austevoll, Tysnes, Kvinnherad og
       Bjørnefjorden. Vi kan også utføre takst og kontroll i resten av landet ved
       behov. Vi utfører rapporter gjennom rapportsystemene til BMTF og Ivit.
     </p>
-    <img src={optimizedLogo.src} alt="BMTF Logo" class="mx-auto" />
+    <p><b>Ta kontakt i dag!</b></p>
+  </div>
+  <div>
+    <Form />
   </div>
 </div>
+
+<style>
+  p {
+    font-size: 20px;
+    line-height: 2.2rem;
+    padding-left: 20px;
+    padding-right: 20px;
+    padding-bottom: 20px;
+  }
+</style>

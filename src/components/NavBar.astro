@@ -74,7 +74,7 @@ const optimizedLogo = await getImage({ src: logo });
     <li>
       <a
         class={currentPath === "/bestill-takst" ? "active" : ""}
-        href="/bestill-takst">KONTAKT</a
+        href="#kontakt-skjema">KONTAKT</a
       >
     </li>
   </ul>
@@ -188,10 +188,10 @@ const optimizedLogo = await getImage({ src: logo });
     .navbar .nav-list {
       display: grid;
       grid-template-columns: repeat(2, 1fr); /* To kolonner */
-      gap: 1rem 2rem; /* Vertikal og horisontal avstand */
+      gap: 1rem 0rem; /* Vertikal og horisontal avstand */
       width: 100%;
       margin-top: 0;
-      padding: 0;
+      padding-left: 30px;
       list-style: none;
     }
     .navbar .nav-list li {

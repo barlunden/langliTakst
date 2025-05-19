@@ -1,4 +1,5 @@
 ---
+import OmOss from "../components/OmOss.astro";
 import PageHeader from "../components/PageHeader.astro";
 import Prisliste from "../components/Prisliste.astro";
 import Layout from "../layouts/Layout.astro";
@@ -56,6 +57,7 @@ const lilla = "hsl(270deg 100% 96%)"
       <Prisliste category="Takster" items={takster} bakgrunn={gul} />
       <Prisliste category="Diverse tillegg / merknader" items={andreTillegg} bakgrunn={lilla} />
     </div>
+    <OmOss />
   </div>
 </Layout>
 

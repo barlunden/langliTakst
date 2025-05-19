@@ -1,3 +1,10 @@
+---
+import { getImage } from "astro:assets";
+
+import logo from "../logos/bmtf100.png";
+const optimizedLogo = await getImage({ src: logo });
+---
+
 <footer class="tak">
   <address class="px-16 py-16 text-center md:text-right">
     <h1>Langli Takst AS</h1>
@@ -7,6 +14,7 @@
     <p class="pb-2">
       E-post: <a href="mailto:post@langlitakst.no">post@langlitakst.no</a>
     </p>
+    <img src={optimizedLogo.src} alt="BMTF Logo" class="mx-auto" />
     <p>© 2025 Langli Takst AS</p>
   </address>
 </footer>

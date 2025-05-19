@@ -1,42 +1,24 @@
----
-import PageHeader from "./PageHeader.astro"
----
+<section class="contact-section shadow-box" id="kontakt-skjema">
+  <form class="flex flex-col text-lg" method="POST" action="/api/contact">
+    <label for="name">Navn:</label>
+    <input class="form-input" type="text" id="name" name="name" required />
 
-<section class="contact-section">
-    <PageHeader pageTitle="Kontakt" />
-      <div class="contact-intro">
-        <p class="contact-description">
-          Gi en beskrivelse av oppdraget, så tar vi kontakt ved første
-          anledning.
-        </p>
-      </div>
+    <label for="email">E-post:</label>
+    <input class="form-input" type="email" id="email" name="email" required />
 
-      <form class="flex flex-col text-lg" method="POST" action="/api/contact">
-        <label for="name">Navn:</label>
-        <input class="form-input" type="text" id="name" name="name" required />
+    <label for="service">Emne:</label>
+    <input
+      class="form-input"
+      type="text"
+      id="subject"
+      name="subject"
+      required
+    />
 
-        <label for="email">E-post:</label>
-        <input
-          class="form-input"
-          type="email"
-          id="email"
-          name="email"
-          required
-        />
+    <label for="message">Melding:</label>
+    <textarea class="form-input" id="message" name="message" required
+    ></textarea>
 
-        <label for="service">Emne:</label>
-        <input
-          class="form-input"
-          type="text"
-          id="subject"
-          name="subject"
-          required
-        />
-
-        <label for="message">Melding:</label>
-        <textarea class="form-input" id="message" name="message" required
-        ></textarea>
-
-        <button class="button" type="submit">Send skjema</button>
-      </form>
-    </section>
+    <button class="button" type="submit">Send skjema</button>
+  </form>
+</section>
