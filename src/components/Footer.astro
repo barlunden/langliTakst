@@ -1,29 +1,94 @@
 ---
 import { getImage } from "astro:assets";
 
+import phone from "../icons/phone.svg";
+import mail from "../icons/mail.svg";
 import logo from "../logos/bmtf100.png";
 const optimizedLogo = await getImage({ src: logo });
+const optimizedPhone = await getImage({ src: phone });
+const optimizedMail = await getImage({ src: mail });
 ---
 
 <footer class="tak">
-  <address class="px-16 py-16 text-center md:text-right">
-    <h1>Langli Takst AS</h1>
-    <p>Langelandshaugen 12</p>
-    <p>5412 Stord</p>
-    <p class="pt-2">Telefon: <a href="tel:+4793262288">932 62 288</a></p>
-    <p class="pb-2">
-      E-post: <a href="mailto:post@langlitakst.no">post@langlitakst.no</a>
-    </p>
-    <img src={optimizedLogo.src} alt="BMTF Logo" class="mx-auto" />
-    <p>© 2025 Langli Takst AS</p>
+  <address>
+    <section class="footer">
+      <div class="footer-column">
+        <h1>Langli Takst AS</h1>
+        <p>Langelandshaugen 12</p>
+        <p>5412 Stord</p>
+      </div>
+      <div class="footer-column">
+        <p class="linje">
+          <img src={optimizedPhone.src} alt="Telefon" class="ikon" />
+          <a href="tel:+4793262288">932 62 288</a>
+        </p>
+        <p class="linje">
+          <img src={optimizedMail.src} alt="E-post" class="ikon" />
+          <a href="mailto:post@langlitakst.no">post@langlitakst.no</a>
+        </p>
+      </div>
+      <div class="footer-column">
+        <img src={optimizedLogo.src} alt="BMTF Logo" class="logo" />
+      </div>
+    </section>
+    <div class="copyright">
+      <p>© 2025 Langli Takst AS</p>
+      <p>Nettsider utviklet av Comino Web AS</p>
+    </div>
   </address>
 </footer>
 
 <style>
-  address,
-  div {
+  address {
+    backdrop-filter: blur(10px) saturate(50%);
     font-style: normal;
     color: black;
+  }
+
+  .footer {
+    display: flex;
+    justify-content: space-between;
+    gap: 2rem;
+    padding: 2rem;
+  }
+
+  .footer-column {
+    flex: 1;
+    text-align: center;
+  }
+
+  .footer-column .logo {
+    margin: auto;
+    width: 50px;
+    margin-top: 4px;
+  }
+
+  .linje {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem; /* avstand mellom ikon og tekst */
+  justify-content: center; /* sentrerer i kolonnen */
+  margin: 0.3rem 0;
+}
+
+.ikon {
+  width: 20px;
+  height: 20px;
+  object-fit: contain;
+}
+
+
+  @media (max-width: 768px) {
+    .footer {
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+    }
+    .footer-column {
+      width: 100%;
+      max-width: 400px; /* valgfritt for å begrense bredde */
+      margin-bottom: 0.5rem;
+    }
   }
 
   h1 {
@@ -31,5 +96,15 @@ const optimizedLogo = await getImage({ src: logo });
     font-weight: bold;
   }
 
-  
+  .copyright {
+    text-align: center;
+    margin-top: 8px;
+    padding-bottom: 16px;
+  }
+
+  p {
+    padding: 2px;
+    margin: 0;
+    line-height: normal;
+  }
 </style>

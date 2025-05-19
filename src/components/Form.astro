@@ -1,5 +1,11 @@
+---
+import PageHeader from "./PageHeader.astro"
+---
+
+
 <section class="contact-section shadow-box" id="kontakt-skjema">
   <form class="flex flex-col text-lg" method="POST" action="/api/contact">
+    <PageHeader pageTitle="Ta kontakt i dag!" />
     <label for="name">Navn:</label>
     <input class="form-input" type="text" id="name" name="name" required />
 
@@ -22,3 +28,9 @@
     <button class="button" type="submit">Send skjema</button>
   </form>
 </section>
+
+<style is:global>
+  html {
+    scroll-behavior: smooth;
+  }
+</style>

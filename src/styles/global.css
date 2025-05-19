@@ -56,8 +56,9 @@
 
   .hero-text {
     position: absolute;
-    inset: 0;
-    margin: auto;
+    top: 1rem;
+    right: 1rem;
+    margin: 0;
     padding: 1rem 2rem;
     width: fit-content;
     height: fit-content;
@@ -66,15 +67,28 @@
     border-radius: 16px;
     color: white;
     border: solid 1px white;
+    font-size: 1rem; /* basis fontstørrelse */
+  }
+
+  /* For store skjermer, f.eks. bredde 1200px og opp */
+  @media (min-width: 1200px) {
+    .hero-text {
+      top: 3rem; /* mer luft over */
+      right: 3rem; /* mer luft til høyre */
+      font-size: 1.5rem; /* større tekst */
+      padding: 2rem 3rem; /* litt mer padding for balanse */
+    }
   }
 
   /* Kontaktskjema */
   .contact-section {
-    width: 100%;
-    max-width: 40rem;
-    margin-left: auto;
-    margin-right: auto;
-    padding: 3rem 2rem;
+    margin: 16px auto;
+    padding-top: 2rem;
+    padding-bottom: 2rem;
+    margin-left: 1.5rem;
+    margin-right: 1.5rem;
+    padding-left: 1.5rem;
+    padding-right: 1.5rem;
   }
 
   .contact-intro > * + * {
@@ -155,8 +169,8 @@
   }
 
   .button:hover {
-  background-color: hsl(220, 60%, 40%);
-}
+    background-color: hsl(220, 60%, 40%);
+  }
   /* Tjenester */
 
   .ingress {
@@ -245,7 +259,7 @@
 
   /* Framside, service-kort */
   .fp-container {
-      perspective: 1000px;
+    perspective: 1000px;
   }
 
   .fp-service-card {
@@ -368,7 +382,6 @@
       ),
       linear-gradient(12deg, hsl(44deg 100% 78%) 56%, hsl(43deg 99% 58%) 56%);
     background-size: 100% 100%;
-    filter: blur(5px);
   }
 
   /* Fra medium skjerm (min-width: 768px) */
