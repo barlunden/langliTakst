@@ -48,22 +48,26 @@ const optimizedLogo = await getImage({ src: logo });
         <li>
           <a
             class={currentPath === "/tjenester/kjopogsalg" ? "active" : ""}
-            href="/tjenester/kjopogsalg">KJØP OG SALG AV BOLIG</a>
+            href="/tjenester/kjopogsalg">KJØP OG SALG AV BOLIG</a
+          >
         </li>
         <li>
           <a
             class={currentPath === "/tjenester/takst" ? "active" : ""}
-            href="/tjenester/takst">TAKSERING OG VERDIVURDERING</a>
+            href="/tjenester/takst">TAKSERING OG VERDIVURDERING</a
+          >
         </li>
         <li>
           <a
             class={currentPath === "/tjenester/byggkontroll" ? "active" : ""}
-            href="/tjenester/byggkontroll">BYGGEPROSJEKT OG KONTROLL</a>
+            href="/tjenester/byggkontroll">BYGGEPROSJEKT OG KONTROLL</a
+          >
         </li>
         <li>
           <a
             class={currentPath === "/tjenester/energi" ? "active" : ""}
-            href="/tjenester/energi">ENERGI OG RÅDGIVNING</a>
+            href="/tjenester/energi">ENERGI OG RÅDGIVNING</a
+          >
         </li>
       </ul>
     </li>
@@ -111,86 +115,89 @@ const optimizedLogo = await getImage({ src: logo });
 <style>
   /* Navbar og logo */
   .navbar {
-  padding: 1rem;
-  width: 100%;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  flex-wrap: wrap;
-}
-
-.navbar .logo {
-  max-height: 52px;
-  max-width: 80vw;
-  height: auto;
-  width: auto;
-}
-
-.navbar .nav-list {
-  display: flex;
-  gap: 1rem;
-  align-items: center;
-  list-style: none;
-  margin: 0;
-  padding: 0;
-  flex-wrap: wrap;
-}
-
-/* Fra 1070px og opp: logo til venstre, meny til høyre på samme linje */
-@media (min-width: 1070px) {
-  .navbar {
-    padding: 2.5rem 3rem;
-    flex-direction: row;
-    align-items: center;
+    padding: 1rem;
+    width: 100%;
+    display: flex;
     justify-content: space-between;
-  }
-  .navbar .nav-list {
-    flex-direction: row;
-    gap: 2rem;
     align-items: center;
+    flex-wrap: wrap;
+  }
+
+  .navbar .logo {
+    max-height: 52px;
+    max-width: 80vw;
+    height: auto;
     width: auto;
-    margin-top: 0;
-    justify-content: flex-end;
   }
-}
 
-/* Mellom 700px og 1069px: logo sentrert over, meny under som horisontal linje, begge sentrert */
-@media (max-width: 1069px) and (min-width: 700px) {
-  .navbar {
-    flex-direction: column;
-    align-items: center;
-  }
-  .navbar .logo {
-    margin-bottom: 1rem;
-  }
   .navbar .nav-list {
-    flex-direction: row;
-    justify-content: center;
-    gap: 1.5rem;
-    width: 100%;
-    margin-top: 0;
-  }
-}
-
-/* Under 700px: logo sentrert, meny som vertikal kolonne */
-@media (max-width: 699px) {
-  .navbar {
-    flex-direction: column;
+    display: flex;
+    gap: 1rem;
     align-items: center;
-  }
-  .navbar .logo {
-    margin-bottom: 1rem;
-  }
-  .navbar .nav-list {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr); /* To kolonner */
-    gap: 1rem 2rem; /* Vertikal og horisontal avstand */
-    width: 100%;
-    margin-top: 0;
-    padding: 0;
     list-style: none;
-  }}
+    margin: 0;
+    padding: 0;
+    flex-wrap: wrap;
+  }
 
+  /* Fra 1070px og opp: logo til venstre, meny til høyre på samme linje */
+  @media (min-width: 1070px) {
+    .navbar {
+      padding: 2.5rem 3rem;
+      flex-direction: row;
+      align-items: center;
+      justify-content: space-between;
+    }
+    .navbar .nav-list {
+      flex-direction: row;
+      gap: 2rem;
+      align-items: center;
+      width: auto;
+      margin-top: 0;
+      justify-content: flex-end;
+    }
+  }
+
+  /* Mellom 700px og 1069px: logo sentrert over, meny under som horisontal linje, begge sentrert */
+  @media (max-width: 1069px) and (min-width: 700px) {
+    .navbar {
+      flex-direction: column;
+      align-items: center;
+    }
+    .navbar .logo {
+      margin-bottom: 1rem;
+    }
+    .navbar .nav-list {
+      flex-direction: row;
+      justify-content: center;
+      gap: 1.5rem;
+      width: 100%;
+      margin-top: 0;
+    }
+  }
+
+  /* Under 700px: logo sentrert, meny som vertikal kolonne */
+  @media (max-width: 699px) {
+    .navbar {
+      flex-direction: column;
+      align-items: center;
+    }
+    .navbar .logo {
+      margin-bottom: 1rem;
+    }
+    .navbar .nav-list {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr); /* To kolonner */
+      gap: 1rem 2rem; /* Vertikal og horisontal avstand */
+      width: 100%;
+      margin-top: 0;
+      padding: 0;
+      list-style: none;
+    }
+    .navbar .nav-list li {
+      text-align: center;
+    }
+  }
 
   /* Lenker og knapper */
   a,
