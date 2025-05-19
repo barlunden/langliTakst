@@ -245,9 +245,11 @@
   }
 
   /* Framside, service-kort */
+  .fp-container {
+      perspective: 1000px;
+  }
 
   .fp-service-card {
-    perspective: 1000px;
     position: relative;
     border-radius: 8px;
     width: min(300px, 95%);
