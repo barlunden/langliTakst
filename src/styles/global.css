@@ -70,6 +70,12 @@
     font-size: 1rem; /* basis fontstørrelse */
   }
 
+
+  @media (max-width: 600px) {
+  .hero-text {
+    display: none;
+  }
+}
   /* For store skjermer, f.eks. bredde 1200px og opp */
   @media (min-width: 1200px) {
     .hero-text {
