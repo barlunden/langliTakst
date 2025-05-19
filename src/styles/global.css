@@ -24,6 +24,11 @@
     width: 100%;
     height: 100%;
   }
+
+  h1 {
+    font-size: 36px;
+    font-weight: 600;
+  }
   /* Index.astro */
 
   .shadow-box {
@@ -54,9 +59,10 @@
     padding: 1rem 2rem;
     width: fit-content;
     height: fit-content;
-    backdrop-filter: blur(4px) invert(10%);
-    text-align: center;
+    backdrop-filter: blur(6px) invert(10%);
+    text-align: left;
     border-radius: 16px;
+    color: white;
     border: solid 1px white;
   }
 
@@ -146,6 +152,9 @@
     margin-top: auto;
   }
 
+  .button:hover {
+  background-color: hsl(220, 60%, 40%);
+}
   /* Tjenester */
 
   .ingress {
@@ -237,6 +246,21 @@
 
   /* Framside, service-kort */
 
+  .fp-service-card {
+    perspective: 1000px;
+    position: relative;
+    border-radius: 8px;
+    width: min(300px, 95%);
+    height: 300px;
+    transition: transform 1s;
+    transform-style: preserve-3d;
+    margin: 16px auto;
+    padding-top: 2rem;
+    padding-bottom: 2rem;
+    padding-left: 1.5rem;
+    padding-right: 1.5rem;
+  }
+
   .fp-service-card:hover {
     transform: rotateY(180deg);
   }
@@ -256,21 +280,6 @@
     padding-bottom: 0.5rem;
     margin: 0;
     text-align: center;
-  }
-
-  .fp-service-card {
-    perspective: 1000px;
-    position: relative;
-    border-radius: 8px;
-    width: min(300px, 95%);
-    height: 300px;
-    transition: transform 1s;
-    transform-style: preserve-3d;
-    margin: 16px auto;
-    padding-top: 2rem;
-    padding-bottom: 2rem;
-    padding-left: 1.5rem;
-    padding-right: 1.5rem;
   }
 
   .fp-service-front,
@@ -300,19 +309,8 @@
     align-items: center;
   }
 
-  .les-mer-btn {
-    margin-top: 1rem;
-    padding: 0.5rem 1.2rem;
-    background: hsl(220, 60%, 96%);
-    color: #222;
-    border: none;
-    border-radius: 4px;
-    text-decoration: none;
-    font-weight: bold;
-    transition: background 0.2s;
-  }
-  .les-mer-btn:hover {
-    background: hsl(220, 60%, 90%);
+  .fp-service-back p {
+    margin-top: auto;
   }
 
   .service-header {
