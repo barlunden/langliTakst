@@ -1,5 +1,6 @@
 ---
 import Form from "./Form.astro";
+const { success, errorMessage } = Astro.props;
 ---
 
 <div class="minigrid">
@@ -18,7 +19,7 @@ import Form from "./Form.astro";
     </p>
   </div>
   <div>
-    <Form />
+    <Form success={success} errorMessage={errorMessage} />
   </div>
 </div>
 

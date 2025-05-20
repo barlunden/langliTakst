@@ -3,6 +3,60 @@ import PageHeader from '../components/PageHeader.astro';
 import TjenesteIngress from '../components/TjenesteIngress.astro';
 import Layout from '../layouts/Layout.astro';
 
+import nodemailer from "nodemailer";
+import dotenv from "dotenv";
+dotenv.config();
+
+let success = false;
+let errorMessage = "";
+
+console.log("Content-Type:", Astro.request.headers.get('content-type'));
+if (Astro.request.method === "POST") {
+
+  const formData = await Astro.request.formData();
+  const name = formData.get("name") as string;
+  const email = formData.get("email") as string;
+  const subject = formData.get("subject") as string;
+  const message = formData.get("message") as string;
+  const safeMessage =
+    typeof message === "string" ? message.replace(/\n/g, "<br>") : "";
+
+  try {
+    const transporter = nodemailer.createTransport({
+      host: process.env.SMTP_HOST, // Bruk miljøvariabel for host også!
+      port: Number(process.env.SMTP_PORT) || 587,
+      auth: {
+        user: process.env.SMTP_USER,
+        pass: process.env.SMTP_PASS,
+      },
+    });
+
+    console.log("FROM_EMAIL:", process.env.FROM_EMAIL);
+    const mailOptions = {
+
+      from: `"Kontaktskjema" <${process.env.FROM_EMAIL}>`,
+      to: process.env.TO_EMAIL,
+      replyTo: email,
+      subject: `Ny melding: ${subject}`,
+      text: `Navn: ${name}\nE-post: ${email}\nEmne: ${subject}\nMelding:\n${message}`,
+      html: `
+        <p><strong>Navn:</strong> ${name}</p>
+        <p><strong>E-post:</strong> ${email}</p>
+        <p><strong>Emne:</strong> ${subject}</p>
+        <p><strong>Melding:</strong></p>
+        <p>${safeMessage}</p>
+      `,
+    };
+
+    await transporter.sendMail(mailOptions);
+    success = true;
+  } catch (error) {
+    console.error("Feil ved sending:", error);
+    errorMessage = "Noe gikk galt. Prøv igjen senere.";
+    success = false;
+  }
+}
+
 export const currentPath = "/tjenester";
 ---
 <Layout currentPath={currentPath} >

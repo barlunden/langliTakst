@@ -1,6 +1,6 @@
 @import "tailwindcss";
 
-@theme {
+/* @theme {
   --color-blue: hsl(206, 42%, 36%);
   --color-blue-light: hsl(206, 42%, 96%);
   --color-blue-mid: hsl(206, 42%, 54%);
@@ -9,7 +9,7 @@
   --color-yellow-mid: hsl(47, 100%, 52%);
   --color-yellow-dark: hsl(43, 99%, 53%);
 }
-
+ */
 @layer components {
   /* Generell css */
   * {

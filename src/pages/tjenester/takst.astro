@@ -6,6 +6,7 @@ import tjenester from '../../data/tjenester.js';
 import TjenesteIngress from '../../components/TjenesteIngress.astro';
 import OmOss from '../../components/OmOss.astro';
 
+const { success, errorMessage } = Astro.props;
 const kategori = "taksering";
 const filtrerteTjenester = tjenester.filter(tjeneste =>
 tjeneste.kategori.includes(kategori)
@@ -22,5 +23,5 @@ export const currentPath = "/tjenester/takst";
     <Tjeneste {...tjeneste} />
   ))}
 </section>
-<OmOss />
+<OmOss success={success} errorMessage={errorMessage} />
 </Layout>

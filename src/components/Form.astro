@@ -1,36 +1,40 @@
 ---
-import PageHeader from "./PageHeader.astro"
+import PageHeader from "./PageHeader.astro";
+const { success, errorMessage } = Astro.props;
 ---
 
-
 <section class="contact-section shadow-box" id="kontakt-skjema">
-  <form class="flex flex-col text-lg" method="POST" action="/api/contact">
-    <PageHeader pageTitle="Ta kontakt i dag!" />
+  <PageHeader pageTitle="Ta kontakt i dag!" />
+  <form class="form" method="POST">
     <label for="name">Navn:</label>
     <input class="form-input" type="text" id="name" name="name" required />
 
     <label for="email">E-post:</label>
     <input class="form-input" type="email" id="email" name="email" required />
 
-    <label for="service">Emne:</label>
-    <input
-      class="form-input"
-      type="text"
-      id="subject"
-      name="subject"
-      required
-    />
+    <label for="subject">Emne:</label>
+    <input class="form-input" type="text" id="subject" name="subject" required />
 
     <label for="message">Melding:</label>
-    <textarea class="form-input" id="message" name="message" required
-    ></textarea>
+    <textarea class="form-input" id="message" name="message" required></textarea>
 
     <button class="button" type="submit">Send skjema</button>
   </form>
+  {success && (
+    <p class="success">Takk for meldingen! Vi svarer så fort vi kan.</p>
+  )}
+  {!success && errorMessage && <p class="error">{errorMessage}</p>}
 </section>
+
 
 <style is:global>
   html {
     scroll-behavior: smooth;
+  }
+
+  .form {
+    display: flex;
+    flex-direction: column;
+    font-size: 18px;
   }
 </style>
