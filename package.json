@@ -9,9 +9,10 @@
     "astro": "astro"
   },
   "dependencies": {
+    "@astrojs/netlify": "^6.3.3",
     "@fontsource-variable/open-sans": "^5.2.5",
     "@tailwindcss/vite": "^4.1.1",
-    "astro": "^5.5.6",
+    "astro": "^5.7.13",
     "astro-heroicons": "^2.1.5-1",
     "astro-navbar": "^2.3.9",
     "dotenv": "^16.5.0",
