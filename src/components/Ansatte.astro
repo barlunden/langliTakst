@@ -19,7 +19,7 @@ const ansatte = [
 ];
 ---
 
-<section class="container">
+<section class="main-container">
   <h2>Våre ansatte</h2>
   <div class="team-list">
     {
@@ -48,57 +48,49 @@ const ansatte = [
 
 <style>
   
-
-  h2 {
-    margin-bottom: 1.5rem;
-    text-align: center;
+  .main-container {
+    padding: 3rem 0 2rem 0;
   }
 
-  section > div:first-of-type {
+  @media (min-width: 700px) {
+    .main-container {
+    padding: 8rem 0 6rem 0;
+  }
+  }
+
+  h2 {
+    text-align: center;
+    padding-bottom: var(--card-padding);
+  }
+
+  .team-list {
     /* Kort-container */
     display: flex;
-    gap: 1.5rem;
+    gap: 2rem;
     margin-bottom: 1.5rem;
     flex-wrap: wrap;
     justify-content: center;
   }
 
-  section > div:first-of-type > * {
-    /* Korta inni containeren */
-    flex: 1 1 240px; /* Minst 240px, veks ved plass */
-    min-width: 220px;
-    max-width: 1fr;
-  }
-
-  section > div:last-of-type {
-    /* Tekstseksjon */
-    font-size: 1.1rem;
-    line-height: 1.6;
-    color: #333;
-  }
-
-  @media (max-width: 700px) {
-    section > div:first-of-type {
-      flex-direction: column;
-      gap: 1rem;
-    }
-    section h1 {
-      font-size: 1.4rem;
-      margin-bottom: 1rem;
-    }
-  }
-
   .team-card {
+    /* Korta inni containeren */
+    display: flex;
+    flex-direction: column;
     border-radius: var(--card-radius);
     border: solid 1px black;
     background: #fff;
-    background: #fff;
-    
-    max-width: 300px;
-    min-width: 220px;
-    display: flex;
-    flex-direction: column;
     align-items: center;
+    flex: 1 1 240px; /* Minst 240px, veks ved plass */
+    min-width: 220px;
+    max-width: 400px;
+  }
+
+  @media (max-width: 700px) {
+    .team-list {
+      flex-direction: column;
+      align-items: center;
+      gap: 1rem;
+    }
   }
 
   .image-wrapper {

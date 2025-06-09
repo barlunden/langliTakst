@@ -10,15 +10,14 @@ const optimizedLogo = await getImage({ src: logo });
     <img src={optimizedLogo.src} alt="Langli Takst AS" class="logo" />
   </a>
   <ul class="nav-list">
-    <li>
+    <li class="desktop-only">
       <a class={currentPath === "/" ? "active" : ""} href="/">HOVEDSIDE</a>
     </li>
-    <li>
+    <li class="desktop-only">
       <a class={currentPath === "/priser" ? "active" : ""} href="/priser"
-        >PRISER</a
-      >
+        >PRISER</a>
     </li>
-    <li class="dropdown" id="dropdown-tjenester">
+    <li class="desktop-only dropdown">
       <button
         class={`dropdown-toggle${currentPath.startsWith("/tjenester") ? " active" : ""}`}
         aria-haspopup="true"
@@ -28,92 +27,158 @@ const optimizedLogo = await getImage({ src: logo });
       >
         TJENESTER
         <span class="icon-wrapper" aria-hidden="true">
-          <svg
-            class="nav-roof"
-            width="20"
-            height="12"
-            viewBox="0 0 20 12"
-            fill="none"
-            xmlns="http://www.w3.org/2000/svg"
-          >
-            <polyline
+          <svg class="nav-roof" width="20" height="12" viewBox="0 0 20 12"
+            ><polyline
               points="2,10 10,2 18,10"
               stroke="currentColor"
               stroke-width="2"
-              fill="none"></polyline>
-          </svg>
+              fill="none"></polyline></svg
+          >
         </span>
       </button>
       <ul class="dropdown-menu" id="tjenester-menu">
         <li>
           <a
             class={currentPath === "/tjenester/kjopogsalg" ? "active" : ""}
-            href="/tjenester/kjopogsalg">KJØP OG SALG AV BOLIG</a
-          >
+            href="/tjenester/kjopogsalg">KJØP OG SALG AV BOLIG</a>
         </li>
         <li>
           <a
             class={currentPath === "/tjenester/takst" ? "active" : ""}
-            href="/tjenester/takst">TAKSERING OG VERDIVURDERING</a
-          >
+            href="/tjenester/takst">TAKSERING OG VERDIVURDERING</a>
         </li>
         <li>
           <a
             class={currentPath === "/tjenester/byggkontroll" ? "active" : ""}
-            href="/tjenester/byggkontroll">BYGGEPROSJEKT OG KONTROLL</a
-          >
+            href="/tjenester/byggkontroll">BYGGEPROSJEKT OG KONTROLL</a>
         </li>
         <li>
           <a
             class={currentPath === "/tjenester/energi" ? "active" : ""}
-            href="/tjenester/energi">ENERGI OG RÅDGIVNING</a
-          >
+            href="/tjenester/energi">ENERGI OG RÅDGIVNING</a>
         </li>
       </ul>
     </li>
-    <li>
+    <li class="desktop-only">
       <a
         class={currentPath === "/bestill-takst" ? "active" : ""}
-        href="#kontakt-skjema">KONTAKT</a
+        href="#kontakt-skjema">KONTAKT</a>
+    </li>
+    <li class="mobile-only">
+      <button
+        class="dropdown-toggle"
+        aria-haspopup="true"
+        aria-expanded="false"
+        type="button"
+        id="mobilmeny-btn"
       >
+        MENY
+        <span class="icon-wrapper" aria-hidden="true">
+          <svg class="nav-roof" width="20" height="12" viewBox="0 0 20 12"
+            ><polyline
+              points="2,10 10,2 18,10"
+              stroke="currentColor"
+              stroke-width="2"
+              fill="none"></polyline></svg
+          >
+        </span>
+      </button>
+      <ul class="dropdown-menu" id="mobilmeny-menu">
+        <li>
+          <a class={currentPath === "/" ? "active" : ""} href="/">HOVEDSIDE</a>
+        </li>
+        <li>
+          <a class={currentPath === "/priser" ? "active" : ""} href="/priser"
+            >PRISER</a>
+        </li>
+        <li>
+          <a
+            class={currentPath.startsWith("/tjenester") ? "active" : ""}
+            href="#">TJENESTER</a
+          >
+          <ul>
+            <li>
+              <a
+                class={currentPath === "/tjenester/kjopogsalg" ? "active" : ""}
+                href="/tjenester/kjopogsalg">KJØP OG SALG AV BOLIG</a>
+            </li>
+            <li>
+              <a
+                class={currentPath === "/tjenester/takst" ? "active" : ""}
+                href="/tjenester/takst">TAKSERING OG VERDIVURDERING</a>
+            </li>
+            <li>
+              <a
+                class={currentPath === "/tjenester/byggkontroll"
+                  ? "active"
+                  : ""}
+                href="/tjenester/byggkontroll">BYGGEPROSJEKT OG KONTROLL</a>
+            </li>
+            <li>
+              <a
+                class={currentPath === "/tjenester/energi" ? "active" : ""}
+                href="/tjenester/energi">ENERGI OG RÅDGIVNING</a>
+            </li>
+          </ul>
+        </li>
+        <li>
+          <a
+            class={currentPath === "/bestill-takst" ? "active" : ""}
+            href="#kontakt-skjema">KONTAKT</a>
+        </li>
+      </ul>
     </li>
   </ul>
 </nav>
 
 <script type="module" is:inline>
-  // Enkel JS for dropdown
+  // Desktop dropdown
   const btn = document.getElementById("tjenester-btn");
   const menu = document.getElementById("tjenester-menu");
-  const dropdown = document.getElementById("dropdown-tjenester");
-
-  function closeDropdown() {
-    menu.classList.remove("open");
-    btn.setAttribute("aria-expanded", "false");
-    btn.classList.remove("dropdown-open");
+  if (btn && menu) {
+    function closeDropdown() {
+      menu.classList.remove("open");
+      btn.setAttribute("aria-expanded", "false");
+      btn.classList.remove("dropdown-open");
+    }
+    btn.addEventListener("click", (e) => {
+      e.stopPropagation();
+      const isOpen = menu.classList.toggle("open");
+      btn.setAttribute("aria-expanded", isOpen ? "true" : "false");
+      btn.classList.toggle("dropdown-open", isOpen);
+    });
+    document.addEventListener("click", (e) => {
+      if (!btn.parentElement.contains(e.target)) closeDropdown();
+    });
+    document.addEventListener("keydown", (e) => {
+      if (e.key === "Escape") closeDropdown();
+    });
   }
-
-  btn.addEventListener("click", (e) => {
-    e.stopPropagation();
-    const isOpen = menu.classList.toggle("open");
-    btn.setAttribute("aria-expanded", isOpen ? "true" : "false");
-    btn.classList.toggle("dropdown-open", isOpen);
-  });
-
-  document.addEventListener("click", (e) => {
-    if (!dropdown.contains(e.target)) {
-      closeDropdown();
+  // Mobilmeny dropdown
+  const mobilBtn = document.getElementById("mobilmeny-btn");
+  const mobilMenu = document.getElementById("mobilmeny-menu");
+  if (mobilBtn && mobilMenu) {
+    function closeMobilDropdown() {
+      mobilMenu.classList.remove("open");
+      mobilBtn.setAttribute("aria-expanded", "false");
+      mobilBtn.classList.remove("dropdown-open");
     }
-  });
-
-  document.addEventListener("keydown", (e) => {
-    if (e.key === "Escape") {
-      closeDropdown();
-    }
-  });
+    mobilBtn.addEventListener("click", (e) => {
+      e.stopPropagation();
+      const isOpen = mobilMenu.classList.toggle("open");
+      mobilBtn.setAttribute("aria-expanded", isOpen ? "true" : "false");
+      mobilBtn.classList.toggle("dropdown-open", isOpen);
+    });
+    document.addEventListener("click", (e) => {
+      if (!mobilBtn.parentElement.contains(e.target)) closeMobilDropdown();
+    });
+    document.addEventListener("keydown", (e) => {
+      if (e.key === "Escape") closeMobilDropdown();
+    });
+  }
 </script>
 
 <style>
-  /* Navbar og logo */
   .navbar {
     padding: 1rem;
     width: 100%;
@@ -122,15 +187,13 @@ const optimizedLogo = await getImage({ src: logo });
     align-items: center;
     flex-wrap: wrap;
   }
-
-  .navbar .logo {
+  .logo {
     max-height: 52px;
     max-width: 80vw;
     height: auto;
     width: auto;
   }
-
-  .navbar .nav-list {
+  .nav-list {
     display: flex;
     gap: 1rem;
     align-items: center;
@@ -139,69 +202,41 @@ const optimizedLogo = await getImage({ src: logo });
     padding: 0;
     flex-wrap: wrap;
   }
-
-
-  
-  /* Fra 1070px og opp: logo til venstre, meny til høyre på samme linje */
-  @media (min-width: 1070px) {
-    .navbar {
-      padding: 2.5rem 3rem;
-      flex-direction: row;
-      align-items: center;
-      justify-content: space-between;
-    }
-    .navbar .nav-list {
-      flex-direction: row;
-      gap: 2rem;
-      align-items: center;
-      width: auto;
-      margin-top: 0;
-      justify-content: flex-end;
-    }
+  .desktop-only {
+    display: block;
   }
-
-  /* Mellom 700px og 1069px: logo sentrert over, meny under som horisontal linje, begge sentrert */
-  @media (max-width: 1069px) and (min-width: 700px) {
+  .mobile-only {
+    display: none;
+  }
+  @media (max-width: 957px) {
     .navbar {
       flex-direction: column;
       align-items: center;
     }
-    .navbar .logo {
+    .logo {
       margin-bottom: 1rem;
     }
-    .navbar .nav-list {
+    .nav-list {
       flex-direction: row;
       justify-content: center;
-      gap: 1.5rem;
+      gap: 0.5rem;
       width: 100%;
-      margin-top: 0;
     }
   }
-
-  /* Under 700px: logo sentrert, meny som vertikal kolonne */
-  @media (max-width: 699px) {
-    .navbar {
+  @media (max-width: 599px) {
+    .nav-list {
       flex-direction: column;
-      align-items: center;
-    }
-    .navbar .logo {
-      margin-bottom: 1rem;
-    }
-    .navbar .nav-list {
-      display: grid;
-      grid-template-columns: repeat(2, 1fr); /* To kolonner */
-      gap: 1rem 0rem; /* Vertikal og horisontal avstand */
+      gap: 0;
       width: 100%;
-      margin-top: 0;
-      padding-left: 30px;
-      list-style: none;
+      padding-left: 0;
     }
-    .navbar .nav-list li {
-      text-align: center;
+    .desktop-only {
+      display: none;
+    }
+    .mobile-only {
+      display: block;
     }
   }
-
-  /* Lenker og knapper */
   a,
   .dropdown-toggle {
     color: hsl(240, 5%, 10%);
@@ -217,7 +252,6 @@ const optimizedLogo = await getImage({ src: logo });
     align-items: center;
     gap: 0.5em;
   }
-
   a:hover,
   .dropdown-toggle:hover,
   a:focus,
@@ -234,8 +268,6 @@ const optimizedLogo = await getImage({ src: logo });
   .dropdown-toggle.dropdown-open {
     color: hsl(43, 99%, 43%);
   }
-
-  /* Dropdown */
   .dropdown {
     position: relative;
   }
@@ -253,7 +285,7 @@ const optimizedLogo = await getImage({ src: logo });
     left: 0;
     background: #fff;
     border: 1px solid #ddd;
-    min-width: 305px;
+    min-width: 220px;
     z-index: 100;
     box-shadow: 0 4px 16px 0 rgba(0, 0, 0, 0.03);
     padding: 0.5rem 0;
@@ -278,6 +310,27 @@ const optimizedLogo = await getImage({ src: logo });
   .dropdown-menu a.active {
     color: hsl(43, 99%, 33%);
     background: hsl(44, 59%, 95%);
+  }
+  .dropdown-menu ul {
+    padding-left: 1rem;
+    margin: 0;
+  }
+  @media (max-width: 599px) {
+    .dropdown-menu {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100vw;
+      min-width: 0;
+      box-shadow: none;
+      border: none;
+      padding: 2rem 0 1rem 0;
+      background: rgba(255,255,255,0.98);
+      z-index: 9999;
+    }
+    .dropdown-menu ul {
+      padding-left: 1rem;
+    }
   }
   @keyframes fadeIn {
     from {

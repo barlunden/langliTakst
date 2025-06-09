@@ -4,7 +4,7 @@ import tjenester from "../data/tjenesteOversikt.js";
 import PageHeader from "./PageHeader.astro";
 ---
 
-<section class="container">
+<section class="main-container">
   <PageHeader pageTitle="Tjenester" />
   <div class="kort-grid fire-kort">
     {tjenester.map((tjeneste) => <TjenesteKort {...tjeneste} />)}
@@ -12,6 +12,10 @@ import PageHeader from "./PageHeader.astro";
 </section>
 
 <style>
+  .main-container {
+    padding: 3rem 0 2rem 0;
+  }
+
   .kort-grid {
     display: grid;
     gap: 2rem;
@@ -37,7 +41,4 @@ import PageHeader from "./PageHeader.astro";
       grid-template-columns: 1fr 1fr 1fr 1fr;
     }
   }
-
-
-  
 </style>
