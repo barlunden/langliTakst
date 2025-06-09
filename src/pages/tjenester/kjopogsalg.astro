@@ -5,6 +5,7 @@ import Layout from "../../layouts/Layout.astro";
 import Tjeneste from "../../components/Tjeneste.astro";
 import tjenester from "../../data/tjenester.js";
 import OmOss from "../../components/OmOss.astro";
+import Ekstrakort from "../../components/Ekstrakort.astro"
 
 const { success, errorMessage } = Astro.props;
 
@@ -28,19 +29,7 @@ export const currentPath = "/tjenester/kjopogsalg";
       {filtrerteTjenester.map((tjeneste) => <Tjeneste {...tjeneste} />)}
       {
         ekstraKort && (
-          <section class="card shadow-box" style={`background:${bakgrunn}`}>
-          <div class="service-header">
-            <img src={`/icons/question.svg`} alt="" class="ikon" />
-            <h3 class="service-tittel">Usikker på hva du trenger?</h3>
-          </div>
-          <p class="my-12 md:text-xl">
-            Kontakt oss for gratis veiledning om boligkjøp, tilstandsrapport
-            eller reklamasjonsrapport.
-          </p>
-          <button class="button">
-            <a href="#kontakt-skjema">Ta kontakt</a>
-          </button>
-        </section>
+          <Ekstrakort />
       )
     }
     </div>

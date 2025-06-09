@@ -1,0 +1,150 @@
+---
+import ansatt1 from "../assets/ansatt1.jpg";
+import ansatt2 from "../assets/ansatt2.jpg";
+import ansatt3 from "../assets/ansatt3.jpg";
+
+const ansatte = [
+  {
+    navn: "Thomas Angel Langli",
+    tittel: "Takstmann",
+    bilde: ansatt1,
+    alt: "Portrett av Thomas Langli",
+  },
+  {
+    navn: "Mathias Angel Langli",
+    tittel: "Takstmann",
+    bilde: ansatt2,
+    alt: "Portrett av Mathias Langli",
+  },
+  {
+    navn: "Mathias Angel Langli",
+    tittel: "Takstmann",
+    bilde: ansatt3,
+    alt: "Portrett av Mathias Langli",
+  },
+];
+
+const bakgrunn = "hsl(48, 100%, 90%)";
+---
+
+<section class="card shadow-box karusell-kort" style={`background:${bakgrunn}`}>
+  <div id="ansatt-karusell">
+    <h4 class="card-header">Trenger du råd om bolig eller takst?</h4>
+    <p class="eksperthjelp">
+      Våre eksperter står klare til å
+      hjelpe deg - ta kontakt i dag for en hyggelig prat!
+    </p>
+    <div class="ansatt-visning">
+      <img
+        id="ansatt-bilde"
+        src={ansatte[0].bilde.src}
+        alt={ansatte[0].alt}
+        class="ansatt-bilde"
+      />
+      <h4 id="ansatt-namn">{ansatte[0].navn}</h4>
+      <p id="ansatt-tittel">{ansatte[0].tittel}</p>
+    </div>
+    <div class="karusell-knappar">
+      <button id="forrige" aria-label="Forrige ansatt">&lt;</button>
+      <button id="neste" aria-label="Neste ansatt">&gt;</button>
+    </div>
+  </div>
+</section>
+
+<script is:inline>
+  const ansatte = [
+    {
+      navn: "Thomas Angel Langli",
+      tittel: "Takstmann",
+      bilde: {
+        src: "/src/assets/ansatt1.jpg",
+        alt: "Portrett av Thomas Langli",
+      },
+    },
+    {
+      navn: "Mathias Angel Langli",
+      tittel: "Takstmann",
+      bilde: {
+        src: "/src/assets/ansatt2.jpg",
+        alt: "Portrett av Mathias Langli",
+      },
+    },
+    {
+      navn: "Mathias Angel Langli",
+      tittel: "Takstmann",
+      bilde: {
+        src: "/src/assets/ansatt3.jpg",
+        alt: "Portrett av Mathias Langli",
+      },
+    },
+  ];
+  let i = 0;
+  const bilde = document.getElementById("ansatt-bilde");
+  const namn = document.getElementById("ansatt-namn");
+  const tittel = document.getElementById("ansatt-tittel");
+  document.getElementById("forrige").onclick = () => {
+    i = (i + ansatte.length - 1) % ansatte.length;
+    bilde.src = ansatte[i].bilde.src;
+    bilde.alt = ansatte[i].bilde.alt;
+    namn.textContent = ansatte[i].navn;
+    tittel.textContent = ansatte[i].tittel;
+  };
+  document.getElementById("neste").onclick = () => {
+    i = (i + 1) % ansatte.length;
+    bilde.src = ansatte[i].bilde.src;
+    bilde.alt = ansatte[i].bilde.alt;
+    namn.textContent = ansatte[i].navn;
+    tittel.textContent = ansatte[i].tittel;
+  };
+</script>
+
+<style>
+  .karusell-kort {
+    width: 100%;
+    max-width: none;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+    justify-content: stretch;
+  }
+  .ansatt-visning {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.5rem;
+    width: 100%;
+  }
+  .ansatt-bilde {
+    width: 150px;
+    height: 150px;
+    object-fit: cover;
+    border-radius: var(--card-radius);
+    margin-bottom: 0.5rem;
+  }
+  .karusell-knappar {
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+    margin-top: 0.5rem;
+  }
+  .karusell-knappar button {
+    font-size: 1.5rem;
+    background: #eee;
+    border: none;
+    border-radius: 50%;
+    width: 2.2rem;
+    height: 2.2rem;
+    cursor: pointer;
+    transition: background 0.2s;
+  }
+  .karusell-knappar button:hover {
+    background: #ddd;
+  }
+  .eksperthjelp {
+    padding: 0.5rem 0;
+  }
+  .card-header {
+    padding-top: 0.5rem;
+  }
+</style>
