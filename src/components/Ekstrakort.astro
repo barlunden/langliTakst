@@ -7,37 +7,35 @@ const ansatte = [
   {
     navn: "Thomas Angel Langli",
     tittel: "Takstmann",
-    bilde: ansatt1,
+    bilde: ansatt1.src,
     alt: "Portrett av Thomas Langli",
   },
   {
     navn: "Mathias Angel Langli",
     tittel: "Takstmann",
-    bilde: ansatt2,
+    bilde: ansatt2.src,
     alt: "Portrett av Mathias Langli",
   },
   {
     navn: "Mathias Angel Langli",
     tittel: "Takstmann",
-    bilde: ansatt3,
+    bilde: ansatt3.src,
     alt: "Portrett av Mathias Langli",
   },
 ];
-
 const bakgrunn = "hsl(48, 100%, 90%)";
 ---
 
 <section class="card shadow-box karusell-kort" style={`background:${bakgrunn}`}>
-  <div id="ansatt-karusell">
+  <div id="ansatt-karusell" data-ansatte={JSON.stringify(ansatte)}>
     <h4 class="card-header">Trenger du råd om bolig eller takst?</h4>
     <p class="eksperthjelp">
-      Våre eksperter står klare til å
-      hjelpe deg - ta kontakt i dag for en hyggelig prat!
+      Våre eksperter står klare til å hjelpe deg – ta kontakt i dag for en hyggelig prat!
     </p>
     <div class="ansatt-visning">
       <img
         id="ansatt-bilde"
-        src={ansatte[0].bilde.src}
+        src={ansatte[0].bilde}
         alt={ansatte[0].alt}
         class="ansatt-bilde"
       />
@@ -52,47 +50,23 @@ const bakgrunn = "hsl(48, 100%, 90%)";
 </section>
 
 <script is:inline>
-  const ansatte = [
-    {
-      navn: "Thomas Angel Langli",
-      tittel: "Takstmann",
-      bilde: {
-        src: "/src/assets/ansatt1.jpg",
-        alt: "Portrett av Thomas Langli",
-      },
-    },
-    {
-      navn: "Mathias Angel Langli",
-      tittel: "Takstmann",
-      bilde: {
-        src: "/src/assets/ansatt2.jpg",
-        alt: "Portrett av Mathias Langli",
-      },
-    },
-    {
-      navn: "Mathias Angel Langli",
-      tittel: "Takstmann",
-      bilde: {
-        src: "/src/assets/ansatt3.jpg",
-        alt: "Portrett av Mathias Langli",
-      },
-    },
-  ];
+  // Hent ansatte-data frå data-attributtet
+  const ansatte = JSON.parse(document.getElementById("ansatt-karusell").dataset.ansatte);
   let i = 0;
   const bilde = document.getElementById("ansatt-bilde");
   const namn = document.getElementById("ansatt-namn");
   const tittel = document.getElementById("ansatt-tittel");
   document.getElementById("forrige").onclick = () => {
     i = (i + ansatte.length - 1) % ansatte.length;
-    bilde.src = ansatte[i].bilde.src;
-    bilde.alt = ansatte[i].bilde.alt;
+    bilde.src = ansatte[i].bilde;
+    bilde.alt = ansatte[i].alt;
     namn.textContent = ansatte[i].navn;
     tittel.textContent = ansatte[i].tittel;
   };
   document.getElementById("neste").onclick = () => {
     i = (i + 1) % ansatte.length;
-    bilde.src = ansatte[i].bilde.src;
-    bilde.alt = ansatte[i].bilde.alt;
+    bilde.src = ansatte[i].bilde;
+    bilde.alt = ansatte[i].alt;
     namn.textContent = ansatte[i].navn;
     tittel.textContent = ansatte[i].tittel;
   };
