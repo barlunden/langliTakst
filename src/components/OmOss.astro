@@ -3,23 +3,25 @@ import Form from "./Form.astro";
 const { success, errorMessage } = Astro.props;
 ---
 
-<div class="minigrid">
-  <div class="contact-section">
-    <p class="">
-      <b>Langli Takst AS</b> ble opprettet av Thomas Angel Langli i 2018. Thomas er
-      utdannet byggmester og takstmann med 27 års erfaring med bolig og bygg.
-      Med seg på laget har han Mathias Angel Langli som også er godkjent
-      takstmann. Vi er begge medlemmer av Byggmestrenes Takseringsforbund (BMTF)
-    </p>
-    <p class="">
-      Vi holder til på Stord på Vestlandet, og utfører taksering i områdene
-      Haugesund, Sveio, Stord, Bømlo, Fitjar, Austevoll, Tysnes, Kvinnherad og
-      Bjørnefjorden. Vi kan også utføre takst og kontroll i resten av landet ved
-      behov. Vi utfører rapporter gjennom rapportsystemene til BMTF og Ivit.
-    </p>
-  </div>
-  <div>
-    <Form success={success} errorMessage={errorMessage} />
+<div class="main-container">
+  <div class="card-container">
+    <div class="text-container">
+      <p class="">
+        <b>Langli Takst AS</b> ble opprettet av Thomas Angel Langli i 2018. Thomas er
+        utdannet byggmester og takstmann med 27 års erfaring med bolig og bygg.
+        Med seg på laget har han Mathias Angel Langli som også er godkjent
+        takstmann. Vi er begge medlemmer av Byggmestrenes Takseringsforbund (BMTF)
+      </p>
+      <p class="">
+        Vi holder til på Stord på Vestlandet, og utfører taksering i områdene
+        Haugesund, Sveio, Stord, Bømlo, Fitjar, Austevoll, Tysnes, Kvinnherad og
+        Bjørnefjorden. Vi kan også utføre takst og kontroll i resten av landet ved
+        behov. Vi utfører rapporter gjennom rapportsystemene til BMTF og Ivit.
+      </p>
+    </div>
+    <div>
+      <Form success={success} errorMessage={errorMessage} />
+    </div>
   </div>
 </div>
 
@@ -35,6 +37,6 @@ const { success, errorMessage } = Astro.props;
     font-size: 20px;
     line-height: 2.2rem;
     
-    padding-bottom: 30px;
+    padding: 30px 0;
   }
 </style>

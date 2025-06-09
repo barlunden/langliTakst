@@ -1,13 +1,43 @@
 ---
 import TjenesteKort from "./TjenesteKort.astro";
-
 import tjenester from "../data/tjenesteOversikt.js";
 import PageHeader from "./PageHeader.astro";
 ---
 
-<div class="service-container">
+<section class="container">
   <PageHeader pageTitle="Tjenester" />
-  <section class="fp-service-section">
+  <div class="kort-grid fire-kort">
     {tjenester.map((tjeneste) => <TjenesteKort {...tjeneste} />)}
-  </section>
-</div>
+  </div>
+</section>
+
+<style>
+  .kort-grid {
+    display: grid;
+    gap: 2rem;
+  }
+
+  .kort-grid.fire-kort {
+    grid-template-columns: 1fr;
+  }
+
+  @media (max-width: 700px) {
+    .kort-grid {
+      padding-inline: var(--outer-margin, 1rem);
+    }
+  }
+
+  @media (min-width: 700px) {
+    .kort-grid.fire-kort {
+      grid-template-columns: 1fr 1fr;
+    }
+  }
+  @media (min-width: 1000px) {
+    .kort-grid.fire-kort {
+      grid-template-columns: 1fr 1fr 1fr 1fr;
+    }
+  }
+
+
+  
+</style>

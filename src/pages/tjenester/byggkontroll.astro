@@ -1,28 +1,30 @@
 ---
-import PageHeader from '../../components/PageHeader.astro';
-import Layout from '../../layouts/Layout.astro';
-import Tjeneste from '../../components/Tjeneste.astro';
-import tjenester from '../../data/tjenester.js';
-import TjenesteIngress from '../../components/TjenesteIngress.astro';
-import OmOss from '../../components/OmOss.astro';
+import PageHeader from "../../components/PageHeader.astro";
+import Layout from "../../layouts/Layout.astro";
+import Tjeneste from "../../components/Tjeneste.astro";
+import tjenester from "../../data/tjenester.js";
+import TjenesteIngress from "../../components/TjenesteIngress.astro";
+import OmOss from "../../components/OmOss.astro";
 
 const { success, errorMessage } = Astro.props;
 
 const kategori = "byggOgKontroll";
-const filtrerteTjenester = tjenester.filter(tjeneste =>
-tjeneste.kategori.includes(kategori)
+const filtrerteTjenester = tjenester.filter((tjeneste) =>
+  tjeneste.kategori.includes(kategori)
 );
 
 export const currentPath = "/tjenester/byggkontroll";
 ---
+
 <Layout currentPath={currentPath}>
   <TjenesteIngress />
-	<PageHeader pageTitle="Byggeprosjekt og kontroll" />
+  <PageHeader pageTitle="Byggeprosjekt og kontroll" />
 
-<section class="service-section">
-  {filtrerteTjenester.map(tjeneste => (
-    <Tjeneste {...tjeneste} />
-  ))}
-</section>
-<OmOss success={success} errorMessage={errorMessage} />
+  <section class="main-container">
+    <div class="card-container">
+      {filtrerteTjenester.map((tjeneste) => <Tjeneste {...tjeneste} />)}
+    </div>
+  </section>
+  <OmOss />
 </Layout>
+

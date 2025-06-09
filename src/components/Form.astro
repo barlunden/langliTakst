@@ -7,16 +7,16 @@ const { success, errorMessage } = Astro.props;
   <PageHeader pageTitle="Ta kontakt i dag!" />
   <form class="form" action="https://formspree.io/f/xdkzaewa" method="POST">
     <label for="name">Navn:</label>
-    <input class="form-input" type="text" id="name" name="name" required />
+    <input class="form-input" type="text" id="name" name="name" placeholder="Ditt Navn" required />
 
     <label for="email">E-post:</label>
-    <input class="form-input" type="email" id="email" name="email" required />
-
+    <input class="form-input" type="email" id="email" name="email" placeholder="din@e-post.no" required />
+  
     <label for="subject">Emne:</label>
-    <input class="form-input" type="text" id="subject" name="subject" required />
+    <input class="form-input" type="text" id="subject" name="subject" placeholder="Boligtakst" required />
 
     <label for="message">Melding:</label>
-    <textarea class="form-input" id="message" name="message" required></textarea>
+    <textarea class="form-input" id="message" name="message" placeholder="Skriv hva henvendelsen gjelder." required></textarea>
 
     <button class="button" type="submit">Send skjema</button>
   </form>

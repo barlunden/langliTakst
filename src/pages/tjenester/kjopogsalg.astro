@@ -14,6 +14,7 @@ const filtrerteTjenester = tjenester.filter((tjeneste) =>
 );
 
 const ekstraKort = filtrerteTjenester.length % 2 !== 0;
+const bakgrunn = "hsl(48, 100%, 90%)";
 
 export const currentPath = "/tjenester/kjopogsalg";
 ---
@@ -21,12 +22,13 @@ export const currentPath = "/tjenester/kjopogsalg";
 <Layout currentPath={currentPath}>
   <TjenesteIngress />
   <PageHeader pageTitle="Kjøp og salg av bolig" />
-
-  <section class="service-section">
-    {filtrerteTjenester.map((tjeneste) => <Tjeneste {...tjeneste} />)}
-    {
-      ekstraKort && (
-        <section class="service-card shadow-box">
+  
+  <section class="main-container">
+    <div class="card-container">
+      {filtrerteTjenester.map((tjeneste) => <Tjeneste {...tjeneste} />)}
+      {
+        ekstraKort && (
+          <section class="card shadow-box" style={`background:${bakgrunn}`}>
           <div class="service-header">
             <img src={`/icons/question.svg`} alt="" class="ikon" />
             <h3 class="service-tittel">Usikker på hva du trenger?</h3>
@@ -36,11 +38,26 @@ export const currentPath = "/tjenester/kjopogsalg";
             eller reklamasjonsrapport.
           </p>
           <button class="button">
-            <a href="/bestill-takst">Ta kontakt</a>
+            <a href="#kontakt-skjema">Ta kontakt</a>
           </button>
         </section>
       )
     }
+    </div>
   </section>
   <OmOss success={success} errorMessage={errorMessage} />
 </Layout>
+<style>
+  .card {
+    /* Korta inni containeren */
+    flex: 1 1 240px; /* Minst 240px, veks ved plass */
+    min-width: 220px;
+    max-width: fit-content;
+    height: auto;
+    border-radius: var(--card-radius);
+    padding-top: calc(var(--card-padding) * 2);
+    padding-bottom: calc(var(--card-padding) * 2);
+    padding-left: calc(var(--card-padding) * 3);
+    padding-right: calc(var(--card-padding) * 3);
+  }
+</style>

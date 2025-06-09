@@ -19,10 +19,12 @@ export const currentPath = "/tjenester/energi";
   <TjenesteIngress />
 	<PageHeader pageTitle="Energi og miljø" />
 
-<section class="service-section">
-  {filtrerteTjenester.map(tjeneste => (
-    <Tjeneste {...tjeneste} />
-  ))}
+<section class="main-container">
+  <div class="card-container">
+    {filtrerteTjenester.map(tjeneste => (
+      <Tjeneste {...tjeneste} />
+    ))}
+    </div>
 </section>
 <OmOss success={success} errorMessage={errorMessage} />
 </Layout>

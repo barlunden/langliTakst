@@ -1,0 +1,62 @@
+<section class="test-container">
+  <h2>Overskrift</h2>
+  <div class="card-container">
+    <div class="card">
+      <h3>Kort 1</h3>
+      <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Inventore, veritatis. Nostrum quam qui rerum! Quod qui est non, deleniti ipsam reprehenderit rerum inventore autem nihil tempora dolores ducimus illum officiis.</p>
+    </div>
+    <div class="card">
+      <h3>Kort 2</h3>
+      <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Eligendi molestiae ipsam quas aliquam, aspernatur laboriosam explicabo quisquam porro mollitia! Dignissimos magnam quos incidunt nihil pariatur excepturi reprehenderit repellendus laudantium consectetur.</p>
+    </div>
+  </div>
+  <div class="text-container">Her kjem tekst om seksjonen eller korta.</div>
+</section>
+
+<style>
+  .test-container {
+    /* Yttermargin og maksimal breidde */
+    margin-inline: var(--outer-margin);
+    box-sizing: border-box;
+    margin-top: 2rem;
+    margin-bottom: 2rem;
+  }
+
+  section h3 {
+    text-align: center;
+  }
+
+  .card-container {
+    /* Kort-container */
+    display: flex;
+    gap: 2rem;
+    margin-bottom: 1.5rem;
+    flex-wrap: wrap;
+  }
+
+  .card {
+    /* Korta inni containeren */
+    flex: 1 1 240px; /* Minst 240px, veks ved plass */
+    min-width: 220px;
+    max-width: fit-content;
+    background-color: #777;
+    height: auto;
+    border-radius: var(--card-radius);
+    padding: 8px;
+  }
+
+  .text-container {
+    /* Tekstseksjon */
+    font-size: 1.1rem;
+    line-height: 1.6;
+    color: #333;
+    padding: 16px;
+  }
+
+  @media (max-width: 800px) {
+    .card-container {
+      flex-direction: column;
+      gap: 1rem;
+    }
+  }
+</style>

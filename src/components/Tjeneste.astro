@@ -13,7 +13,7 @@ type BildeStikkord = keyof typeof bildeKart; // "verditakst" | "annaStikkord"
 const valgtBilde = bildeKart[kategori as BildeStikkord];
 ---
 
-<section class="service-card shadow-box" style={`background:${bakgrunn}`}>
+<section class="card shadow-box" style={`background:${bakgrunn}`}>
   <div class="service-header">
     {ikon && <img src={`/icons/${ikon}.svg`} alt="" class="ikon" />}
     <h3 class="service-tittel">{tittel}</h3>

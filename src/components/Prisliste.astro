@@ -1,14 +1,45 @@
 ---
 const { items, category, bakgrunn } = Astro.props; // Accept data as props
 ---
+
 <div class="price-list shadow-box" style={`background:${bakgrunn}`}>
-  <h2>{category}</h2>
+  <h5>{category}</h5>
   <ul>
-    {items.map((item: { name: unknown; price: unknown; }) => (
-      <li>
-        <span>{item.name}</span>
-        <span>{item.price}</span>
-      </li>
-    ))}
+    {
+      items.map((item: { name: unknown; price: unknown }) => (
+        <li>
+          <span>{item.name}</span>
+          <span>{item.price}</span>
+        </li>
+      ))
+    }
   </ul>
 </div>
+
+<style>
+  .price-list {
+    padding: 20px;
+    width: min(600px, 95%);
+    margin: 20px auto;
+    transition: transform 0.6s ease;
+  }
+
+  .price-list:hover {
+    transform: scale(1.02);
+  }
+
+  .price-list h5 {
+    padding-bottom: 0.5rem;
+    font-weight: 600;
+  }
+
+  .price-list ul {
+    list-style: none;
+    padding: 0;
+  }
+  .price-list li {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 8px;
+  }
+</style>
