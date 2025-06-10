@@ -1,29 +1,52 @@
 ---
 import NavBar from "../components/NavBar.astro";
 import Footer from "../components/Footer.astro";
-import "@fontsource-variable/open-sans"
+import "@fontsource-variable/open-sans";
 import "../styles/global.css";
 
 const { currentPath } = Astro.props;
 ---
-<!-- Hugs å endre innhald på meta-tag properties -->
-<!doctype html>
+
+<!-- Hugs å endre innhald på meta-tag properties --><!doctype html>
 <html lang="no">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <meta name="author" content="Your name" />
-    <meta name="description" content="Brief description" />
-    <meta property="og:title" content="Langli Takst AS" />
-    <meta property="og:description" content="Nettside for Langli Takst AS, tjenester og priser" />
-    <meta property="og:image" content="/some-image.png" />
-    <meta property="og:url" content="/this-page.html" />
-    <meta property="og:site_name" content="Your Site Name" />
+    <meta name="author" content="Aage Jan Barlund" />
+    <meta
+      name="description"
+      content="Langli Takst AS tilbyr taksttjenester, tilstandsrapport og rådgivning ved boligkjøp og reklamasjon. Våre erfarne takstmenn hjelper deg trygt gjennom hele prosessen. Ta kontakt for en uforpliktende prat!"
+    />
+    <meta
+      property="og:title"
+      content="Langli Takst AS – Taksttjenester og rådgivning"
+    />
+    <meta
+      property="og:description"
+      content="Våre erfarne takstmenn hjelper deg med takst, tilstandsrapport og rådgivning. Kontakt oss for en hyggelig prat om dine behov."
+    />
+    <meta property="og:image" content="/og-image.jpg" />
+    <!-- Bytt til faktisk bilde -->
+    <meta property="og:url" content="https://dinsite.no/" />
+    <!-- Bytt til faktisk URL -->
+    <meta property="og:type" content="website" />
+
+    <!-- Twitter Card (valgfritt, men anbefalt) -->
     <meta name="twitter:card" content="summary_large_image" />
-    <meta name="twitter:image:alt" content="image description" />
-    <link rel="icon" type="image/svg+xml" href="/logo.png" />
+    <meta
+      name="twitter:title"
+      content="Langli Takst AS – Taksttjenester og rådgivning"
+    />
+    <meta
+      name="twitter:description"
+      content="Få hjelp av våre hyggelige og erfarne takstmenn. Kontakt oss for en uforpliktende prat om taksttjenester og rådgivning."
+    />
+    <meta name="twitter:image" content="/og-image.jpg" />
+
+    <!-- Canonical URL (for SEO) -->
+    <link rel="canonical" href="https://dinsite.no/" />
     <meta name="generator" content={Astro.generator} />
-    <title>Langli Takst AS</title>
+    <title>Langli Takst AS - Taksttjenester og rådgivning</title>
   </head>
   <body>
     <NavBar currentPath={currentPath} />
