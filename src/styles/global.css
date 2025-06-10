@@ -84,24 +84,33 @@
   /* Index.astro */
 
   .shadow-box {
-    border: 1px solid #ddd;
     box-shadow:
-      2px 1px rgba(0, 0, 0, 0.09),
-      0 4px 2px rgba(0, 0, 0, 0.09),
-      0 8px 4px rgba(0, 0, 0, 0.09),
-      0 16px 8px rgba(0, 0, 0, 0.09);
+      rgba(0, 0, 0, 0.19) 0px 10px 20px,
+      rgba(0, 0, 0, 0.23) 0px 6px 6px;
+      transition: box-shadow 0.4s ease-in-out;
+    border-radius: var(--card-radius);
+  }
+
+  .shadow-box:hover {
+    box-shadow:
+      rgba(0, 0, 0, 0.25) 0px 14px 28px,
+      rgba(0, 0, 0, 0.22) 0px 10px 10px;
     border-radius: var(--card-radius);
   }
 
   @media (max-width: 699px) {
     .shadow-box {
-    border: 1px solid #ddd;
-    box-shadow:
-      2px 1px rgba(0, 0, 0, 0.09),
-      0 4px 2px rgba(0, 0, 0, 0.09),
-      0 8px 4px rgba(0, 0, 0, 0.09);
-    border-radius: var(--card-radius);
-  }
+      box-shadow:
+        rgba(0, 0, 0, 0.16) 0px 3px 6px,
+        rgba(0, 0, 0, 0.23) 0px 3px 6px;
+      border-radius: var(--card-radius);
+    }
+    .shadow-box:hover {
+      box-shadow:
+        rgba(0, 0, 0, 0.19) 0px 10px 20px,
+        rgba(0, 0, 0, 0.23) 0px 6px 6px;
+      border-radius: var(--card-radius);
+    }
   }
 
   .hero-section {
@@ -260,6 +269,7 @@
     box-sizing: border-box;
     margin-top: 2rem;
     margin-bottom: 2rem;
+    padding: 3rem 0 4rem 0;
   }
 
   section h3 {
@@ -298,7 +308,7 @@
   /* Tjenestesider, styling for kort */
   .card {
     flex: 1 1 240px; /* Minst 240px, veks ved plass */
-    min-width: 220px;
+    min-width: 100%;
     max-width: fit-content;
     height: auto;
     border-radius: var(--card-radius);
