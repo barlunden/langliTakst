@@ -24,7 +24,7 @@ const valgtBilde = bildeKart[kategori as BildeStikkord];
     </div>
     <div class="fp-service-back">
       <p>{avsnitt2}</p>
-      <a href={`/tjenester/${slug}`} class="button">Les mer om tjenesten</a>
+      <a href={`/tjenester/${slug}`} class="button">Les mer</a>
     </div>
   </section>
 </div>
@@ -39,15 +39,13 @@ const valgtBilde = bildeKart[kategori as BildeStikkord];
     border-radius: var(--card-radius);
     width: 100%;         /* Fills the grid cell */
     height: 250px;
-    transition: transform 1s;
+    transition: transform 1s, box-shadow 0.4s ease-in-out;
     transform-style: preserve-3d;
     margin: 0;           /* Remove auto-centering */
-    padding-top: 2rem;
-    padding-bottom: 2rem;
-    padding-left: 1.5rem;
-    padding-right: 1.5rem;
     cursor: default;
     box-sizing: border-box;
+    will-change: transform;
+    /* Fjern padding her */
   }
 
   .fp-service-card:hover {
@@ -81,7 +79,7 @@ const valgtBilde = bildeKart[kategori as BildeStikkord];
     backface-visibility: hidden;
     border-radius: var(--card-radius);
     overflow: hidden;
-    padding: 20px;
+    padding: 20px; /* Behald padding her */
     box-sizing: border-box;
   }
 
@@ -101,5 +99,6 @@ const valgtBilde = bildeKart[kategori as BildeStikkord];
 
   .fp-service-back p {
     margin-top: auto;
+    margin-bottom: 0.5rem;
   }
 </style>

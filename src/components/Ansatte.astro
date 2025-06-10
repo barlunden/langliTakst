@@ -64,7 +64,7 @@ const ansatte = [
 
   h2 {
     text-align: center;
-    padding-bottom: var(--card-padding);
+    padding-bottom: calc(var(--card-padding) * 2);
   }
 
   .team-list {
@@ -94,7 +94,9 @@ const ansatte = [
   }
 
   .team-card:hover {
-    box-shadow: rgba(0, 0, 0, 0.25) 0px 14px 28px, rgba(0, 0, 0, 0.22) 0px 10px 10px;
+    box-shadow:
+      rgba(0, 0, 0, 0.25) 0px 14px 28px,
+      rgba(0, 0, 0, 0.22) 0px 10px 10px;
   }
 
   @media (max-width: 700px) {
@@ -119,7 +121,7 @@ const ansatte = [
 
   .caption-blur {
     position: absolute;
-    border: solid 1px black;
+    border: solid 1px hsl(216deg 59% 17%);
     left: 0;
     right: 0;
     bottom: 0;
@@ -130,7 +132,7 @@ const ansatte = [
   }
 
   .caption-text {
-    color: #fff;
+    color: hsl(216deg 89% 97%);
     text-align: left;
     font-size: 1.05rem;
     line-height: 1.2;

@@ -71,9 +71,12 @@ const bakgrunn = "hsl(48, 100%, 90%)";
     width: 200px;
     height: 200px;
     object-fit: cover;
-    border-radius: calc(var(--card-radius) / 2);
     margin-top: 0.5rem;
     margin-bottom: 0.5rem;
+    box-shadow:
+      rgba(0, 0, 0, 0.19) 0px 10px 20px,
+      rgba(0, 0, 0, 0.23) 0px 6px 6px;
+    border-radius: var(--image-radius);
   }
   .eksperthjelp {
     padding: 0.5rem 0;
