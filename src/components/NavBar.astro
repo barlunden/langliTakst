@@ -175,6 +175,12 @@ const optimizedLogo = await getImage({ src: logo });
     document.addEventListener("keydown", (e) => {
       if (e.key === "Escape") closeMobilDropdown();
     });
+    // Lukk mobilmeny ved klikk på lenke
+    mobilMenu.querySelectorAll('a').forEach(link => {
+      link.addEventListener('click', () => {
+        closeMobilDropdown();
+      });
+    });
   }
 </script>
 
