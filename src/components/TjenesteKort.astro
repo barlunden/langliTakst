@@ -16,13 +16,13 @@ const valgtBilde = bildeKart[kategori as BildeStikkord];
 ---
 
 <div class="fp-container">
-  <section class="fp-service-card shadow-box" style={`background:${bakgrunn}`}>
-    <div class="fp-service-front">
+  <section class="fp-service-card shadow-box">
+    <div class="fp-service-front" style={`background:${bakgrunn}`}>
       {ikon && <img src={`/icons/${ikon}.svg`} alt="" class="ikon" />}
       <h3 class="fp-service-tittel">{tittel}</h3>
       <p>{avsnitt1}</p>
     </div>
-    <div class="fp-service-back">
+    <div class="fp-service-back" style={`background:${bakgrunn}`}>
       <p>{avsnitt2}</p>
       <a href={`/tjenester/${slug}`} class="button">Les mer</a>
     </div>
@@ -41,16 +41,50 @@ const valgtBilde = bildeKart[kategori as BildeStikkord];
     height: 250px;
     transition: transform 1s, box-shadow 0.4s ease-in-out;
     transform-style: preserve-3d;
+    will-change: transform;
     margin: 0;           /* Remove auto-centering */
     cursor: default;
     box-sizing: border-box;
-    will-change: transform;
-    /* Fjern padding her */
   }
 
   .fp-service-card:hover {
     transform: rotateY(180deg);
   }
+  .fp-service-front,
+  .fp-service-back {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    backface-visibility: hidden;
+    border-radius: var(--card-radius);
+    box-sizing: border-box;
+    padding: 20px;
+    transition: opacity 0.2s;
+  }
+
+  .fp-service-front {
+    z-index: 2;
+    pointer-events: auto;
+  }
+
+  .fp-service-back {
+    transform: rotateY(180deg);
+    z-index: 1;
+    pointer-events: none;
+  }
+
+  .fp-service-card:hover .fp-service-front {
+    pointer-events: none;
+    opacity: 0;
+  }
+  .fp-service-card:hover .fp-service-back {
+    pointer-events: auto;
+    opacity: 1;
+    z-index: 2;
+  }
+
   .fp-service-front {
     display: flex;
     flex-direction: column;
@@ -69,28 +103,7 @@ const valgtBilde = bildeKart[kategori as BildeStikkord];
     text-align: center;
   }
 
-  .fp-service-front,
   .fp-service-back {
-    position: absolute;
-    width: 100%;
-    height: 100%;
-    top: 0;
-    left: 0;
-    backface-visibility: hidden;
-    border-radius: var(--card-radius);
-    overflow: hidden;
-    padding: 20px; /* Behald padding her */
-    box-sizing: border-box;
-  }
-
-  .fp-service-front {
-    color: black;
-    z-index: 2;
-  }
-
-  .fp-service-back {
-    color: black;
-    transform: rotateY(180deg);
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -99,6 +112,5 @@ const valgtBilde = bildeKart[kategori as BildeStikkord];
 
   .fp-service-back p {
     margin-top: auto;
-    margin-bottom: 0.5rem;
   }
 </style>
