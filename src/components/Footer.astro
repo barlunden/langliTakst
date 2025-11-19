@@ -9,97 +9,222 @@ const optimizedPhone = await getImage({ src: phone });
 const optimizedMail = await getImage({ src: mail });
 ---
 
-<footer class="tak">
-  <address>
-    <section class="footer">
-      <div class="footer-column">
-        <h3>Langli Takst AS</h3>
-        <p>Ringvegen 12</p>
-        <p>5412 Stord</p>
+<footer class="footer-wrapper">
+  <div class="footer-top">
+    <address class="footer-content">
+      <div class="footer-grid">
+        <div class="footer-section">
+          <h3 class="footer-heading">Langli Takst AS</h3>
+          <p class="footer-text">Ringvegen 12</p>
+          <p class="footer-text">5412 Stord</p>
+        </div>
+        
+        <div class="footer-section">
+          <h3 class="footer-heading">Kontakt oss</h3>
+          <div class="contact-links">
+            <a href="tel:+4793262288" class="contact-link">
+              <img src={optimizedPhone.src} alt="" class="contact-icon" />
+              <span>932 62 288</span>
+            </a>
+            <a href="mailto:post@langlitakst.no" class="contact-link">
+              <img src={optimizedMail.src} alt="" class="contact-icon" />
+              <span>post@langlitakst.no</span>
+            </a>
+          </div>
+        </div>
+        
+        <div class="footer-section footer-logo-section">
+          <h3 class="footer-heading">Medlem av</h3>
+          <img src={optimizedLogo.src} alt="BMTF Logo" class="footer-logo" />
+        </div>
       </div>
-      <div class="footer-column">
-        <p class="linje">
-          <img src={optimizedPhone.src} alt="Telefon" class="ikon" />
-          <a href="tel:+4793262288">932 62 288</a>
-        </p>
-        <p class="linje">
-          <img src={optimizedMail.src} alt="E-post" class="ikon" />
-          <a href="mailto:post@langlitakst.no">post@langlitakst.no</a>
-        </p>
-      </div>
-      <div class="footer-column">
-        <img src={optimizedLogo.src} alt="BMTF Logo" class="logo" />
-      </div>
-    </section>
-    <div class="copyright">
-      <p>© 2025 Langli Takst AS | Nettsider utviklet av <a href="https://cominoweb.no">Comino Web AS</a></p>
-    </div>
-  </address>
+    </address>
+  </div>
+  
+  <div class="footer-bottom">
+    <p class="copyright-text">
+      © 2025 Langli Takst AS
+    </p>
+    <p class="credits-text">
+      Nettsider utviklet av <a href="https://cominoweb.no" class="credits-link">Comino Web AS</a>
+    </p>
+  </div>
 </footer>
 
 <style>
+  .footer-wrapper {
+    width: 100%;
+    background: linear-gradient(135deg, 
+      hsl(47, 100%, 60%) 0%, 
+      hsl(43, 99%, 58%) 50%,
+      hsl(44, 100%, 65%) 100%);
+    color: hsl(206, 42%, 26%);
+    position: relative;
+    box-shadow: 0 -4px 20px rgba(0, 0, 0, 0.1);
+  }
+
+  .footer-top {
+    background: linear-gradient(to bottom, 
+      rgba(255, 255, 255, 0.2) 0%, 
+      rgba(255, 255, 255, 0.05) 100%);
+  }
+
   address {
-    backdrop-filter: blur(10px) saturate(50%);
     font-style: normal;
-    color: black;
   }
 
-  .footer {
+  .footer-content {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 3rem clamp(1rem, 5vw, 3rem);
+  }
+
+  .footer-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 2.5rem;
+  }
+
+  @media (min-width: 768px) {
+    .footer-grid {
+      grid-template-columns: repeat(3, 1fr);
+      gap: 3rem;
+    }
+  }
+
+  .footer-section {
     display: flex;
-    justify-content: space-between;
-    gap: 2rem;
-    padding: 2rem;
+    flex-direction: column;
+    gap: 1rem;
   }
 
-  .footer-column {
-    flex: 1;
-    text-align: center;
+  .footer-heading {
+    font-size: 1.25rem;
+    font-weight: 700;
+    margin: 0 0 0.5rem 0;
+    color: hsl(206, 42%, 26%);
+    letter-spacing: 0.3px;
+    text-shadow: 0 1px 2px rgba(255, 255, 255, 0.5);
   }
 
-  .footer-column .logo {
-    margin: auto;
-    width: 50px;
-    margin-top: 4px;
+  .footer-text {
+    margin: 0.25rem 0;
+    line-height: 1.6;
+    color: hsl(206, 42%, 20%);
+    font-weight: 500;
   }
 
-  .linje {
-  display: flex;
-  align-items: center;
-  gap: 0.5rem; /* avstand mellom ikon og tekst */
-  justify-content: center; /* sentrerer i kolonnen */
-  margin: 0.3rem 0;
-}
+  .contact-links {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+  }
 
-.ikon {
-  width: 20px;
-  height: 20px;
-  object-fit: contain;
-}
+  .contact-link {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    color: hsl(206, 42%, 26%);
+    text-decoration: none;
+    padding: 0.75rem 1rem;
+    border-radius: 12px;
+    transition: all 0.3s ease;
+    background: rgba(255, 255, 255, 0.4);
+    font-weight: 500;
+    border: 2px solid transparent;
+  }
 
+  .contact-link:hover {
+    background: rgba(255, 255, 255, 0.7);
+    transform: translateX(4px);
+    border-color: rgba(255, 255, 255, 0.8);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  }
 
-  @media (max-width: 768px) {
-    .footer {
-      flex-direction: column;
+  .contact-icon {
+    width: 24px;
+    height: 24px;
+    filter: brightness(0) saturate(100%) invert(18%) sepia(32%) saturate(1234%) hue-rotate(171deg) brightness(95%) contrast(93%);
+    transition: transform 0.3s ease;
+  }
+
+  .contact-link:hover .contact-icon {
+    transform: scale(1.1);
+  }
+
+  .footer-logo-section {
+    align-items: flex-start;
+  }
+
+  @media (min-width: 768px) {
+    .footer-logo-section {
       align-items: center;
       text-align: center;
     }
-    .footer-column {
-      width: 100%;
-      max-width: 400px; /* valgfritt for å begrense bredde */
-      margin-bottom: 0.5rem;
-    }
   }
 
+  .footer-logo {
+    width: 80px;
+    height: auto;
+    background: white;
+    padding: 0.75rem;
+    border-radius: 12px;
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.15);
+    transition: all 0.3s ease;
+    border: 2px solid rgba(255, 255, 255, 0.6);
+  }
 
-  .copyright {
+  .footer-logo:hover {
+    transform: scale(1.05) rotate(-2deg);
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.2);
+  }
+
+  .footer-bottom {
+    background: rgba(0, 0, 0, 0.15);
+    padding: 1.5rem clamp(1rem, 5vw, 3rem);
     text-align: center;
-    margin-top: 8px;
-    padding-bottom: 16px;
+    border-top: 2px solid rgba(255, 255, 255, 0.3);
   }
 
-  p {
-    padding: 2px;
+  .copyright-text {
+    margin: 0 0 0.5rem 0;
+    color: hsl(206, 42%, 20%);
+    font-size: 0.95rem;
+    font-weight: 600;
+  }
+
+  .credits-text {
     margin: 0;
-    line-height: normal;
+    color: hsl(206, 42%, 26%);
+    font-size: 0.85rem;
+    font-weight: 500;
+  }
+
+  .credits-link {
+    color: hsl(206, 42%, 26%);
+    text-decoration: none;
+    transition: all 0.3s ease;
+    font-weight: 700;
+    padding: 0 4px;
+    border-radius: 4px;
+  }
+
+  .credits-link:hover {
+    background: rgba(255, 255, 255, 0.4);
+    text-decoration: underline;
+  }
+
+  @media (max-width: 767px) {
+    .footer-content {
+      padding: 2rem 1.5rem;
+    }
+    
+    .footer-section {
+      text-align: left;
+    }
+    
+    .footer-bottom {
+      padding: 1.25rem 1.5rem;
+    }
   }
 </style>
