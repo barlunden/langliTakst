@@ -5,7 +5,15 @@ const { success, errorMessage } = Astro.props;
 
 <section class="contact-section shadow-box" id="kontakt-skjema">
   <PageHeader pageTitle="Ta kontakt i dag!" />
-  <form action="https://formspree.io/f/xdkzaewa" method="POST">
+  <form name="kontakt" method="POST" data-netlify="true" netlify-honeypot="bot-field">
+    <input type="hidden" name="form-name" value="kontakt" />
+    
+    <p class="hidden">
+      <label>
+        Ikke fyll ut dette feltet: <input name="bot-field" />
+      </label>
+    </p>
+
     <label for="name">Navn:</label>
     <input
       class="form-input"
@@ -63,5 +71,9 @@ const { success, errorMessage } = Astro.props;
     display: flex;
     flex-direction: column;
     font-size: 18px;
+  }
+
+  .hidden {
+    display: none;
   }
 </style>
