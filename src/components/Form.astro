@@ -5,7 +5,7 @@ const { success, errorMessage } = Astro.props;
 
 <section class="contact-section shadow-box" id="kontakt-skjema">
   <PageHeader pageTitle="Ta kontakt i dag!" />
-  <form name="kontakt" method="POST" data-netlify="true" netlify-honeypot="bot-field">
+  <form name="kontakt" method="POST" action="/takk" data-netlify="true" netlify-honeypot="bot-field">
     <input type="hidden" name="form-name" value="kontakt" />
     
     <p class="hidden">

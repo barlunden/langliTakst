@@ -1,0 +1,144 @@
+---
+import Layout from "../layouts/Layout.astro";
+import PageHeader from "../components/PageHeader.astro";
+
+export const currentPath = "/takk";
+---
+
+<Layout currentPath={currentPath}>
+  <div class="takk-container">
+      <PageHeader pageTitle="Takk for henvendelsen!" />
+      
+      <div class="takk-content">
+        <div class="success-icon">
+          <svg width="80" height="80" viewBox="0 0 80 80" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <circle cx="40" cy="40" r="38" stroke="#4CAF50" stroke-width="4" fill="none"/>
+            <path d="M25 40 L35 50 L55 30" stroke="#4CAF50" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+        </div>
+        
+        <h2>Din melding er mottatt!</h2>
+        
+        <p class="takk-message">
+          Vi har mottatt henvendelsen din og vil ta kontakt med deg så snart som mulig.
+        </p>
+        
+        <p class="takk-info">
+          Som regel svarer vi innen 1-2 virkedager.
+        </p>
+        
+        <div class="button-group">
+          <a href="/" class="button primary">Tilbake til forsiden</a>
+          <a href="/tjenester" class="button secondary">Se våre tjenester</a>
+        </div>
+      </div>
+    </div>
+</Layout>
+
+<style>
+  .takk-container {
+    max-width: 600px;
+    margin: 0 auto;
+    padding: 3rem clamp(1rem, 5vw, 3rem);
+    text-align: center;
+  }
+
+  .takk-content {
+    background: white;
+    border-radius: var(--card-radius);
+    padding: 3rem 2rem;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+  }
+
+  .success-icon {
+    margin: 0 auto 2rem;
+    animation: scaleIn 0.5s ease-out;
+  }
+
+  @keyframes scaleIn {
+    from {
+      transform: scale(0);
+      opacity: 0;
+    }
+    to {
+      transform: scale(1);
+      opacity: 1;
+    }
+  }
+
+  h2 {
+    color: hsl(206, 42%, 26%);
+    margin-bottom: 1.5rem;
+    font-size: 2rem;
+  }
+
+  .takk-message {
+    font-size: 1.2rem;
+    line-height: 1.6;
+    color: hsl(206, 42%, 36%);
+    margin-bottom: 1rem;
+  }
+
+  .takk-info {
+    font-size: 1rem;
+    color: hsl(206, 42%, 46%);
+    margin-bottom: 2rem;
+  }
+
+  .button-group {
+    display: flex;
+    gap: 1rem;
+    justify-content: center;
+    flex-wrap: wrap;
+    margin-top: 2rem;
+  }
+
+  .button.primary {
+    background: hsl(47, 100%, 60%);
+    color: hsl(206, 42%, 26%);
+    text-decoration: none;
+    font-weight: 600;
+  }
+
+  .button.primary:hover {
+    background: hsl(43, 99%, 58%);
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  }
+
+  .button.secondary {
+    background: white;
+    color: hsl(206, 42%, 36%);
+    text-decoration: none;
+    border: 2px solid hsl(206, 42%, 36%);
+    font-weight: 600;
+  }
+
+  .button.secondary:hover {
+    background: hsl(206, 42%, 36%);
+    color: white;
+    transform: translateY(-2px);
+  }
+
+  @media (max-width: 600px) {
+    .takk-content {
+      padding: 2rem 1.5rem;
+    }
+
+    h2 {
+      font-size: 1.5rem;
+    }
+
+    .takk-message {
+      font-size: 1rem;
+    }
+
+    .button-group {
+      flex-direction: column;
+    }
+
+    .button {
+      width: 100%;
+    }
+  }
+</style>

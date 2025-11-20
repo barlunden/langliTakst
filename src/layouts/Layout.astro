@@ -49,8 +49,23 @@ const { currentPath } = Astro.props;
     <title>Langli Takst AS - Taksttjenester og rådgivning</title>
   </head>
   <body>
-    <NavBar currentPath={currentPath} />
-    <slot />
-    <Footer />
+    <style>
+      .page-wrapper {
+        min-height: 100vh;
+        display: flex;
+        flex-direction: column;
+      }
+      
+      .main-content {
+        flex: 1;
+      }
+    </style>
+    <div class="page-wrapper">
+      <NavBar currentPath={currentPath} />
+      <main class="main-content">
+        <slot />
+      </main>
+      <Footer />
+    </div>
   </body>
 </html>
