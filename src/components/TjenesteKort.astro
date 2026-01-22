@@ -22,11 +22,12 @@ const { tittel, slug, avsnitt1, avsnitt2, ikon, bakgrunn } = Astro.props;
   .service-card {
     position: relative;
     width: 100%;
-    height: 300px;
+    /* Økt høyde fra 300px til 360px for bedre plass */
+    height: 360px;
     border-radius: var(--card-radius, 12px);
     overflow: hidden;
     background: var(--card-bg, #f4f4f4);
-    /* Hastighet senket til 0.6s med en myk kurve */
+    /* Myk Expo-Out kurve for en eksklusiv følelse */
     transition: all 0.6s cubic-bezier(0.22, 1, 0.36, 1);
     display: flex;
     flex-direction: column;
@@ -37,9 +38,8 @@ const { tittel, slug, avsnitt1, avsnitt2, ikon, bakgrunn } = Astro.props;
     cursor: pointer;
   }
 
-  /* Front-innhold */
+  /* Front-innhold (ikon og tittel) */
   .card-content-front {
-    /* 0.6s her også for å matche */
     transition: transform 0.6s cubic-bezier(0.22, 1, 0.36, 1), 
                 opacity 0.4s ease;
     display: flex;
@@ -60,11 +60,10 @@ const { tittel, slug, avsnitt1, avsnitt2, ikon, bakgrunn } = Astro.props;
   .ikon {
     width: 3.5rem;
     height: 3.5rem;
-    /* En subtil skalering av ikonet når det forsvinner */
     transition: transform 0.6s ease;
   }
 
-  /* Overlay styling */
+  /* Overlay styling (det som kommer fram ved hover) */
   .card-overlay {
     position: absolute;
     top: 0;
@@ -76,19 +75,34 @@ const { tittel, slug, avsnitt1, avsnitt2, ikon, bakgrunn } = Astro.props;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    padding: 2.5rem;
+    padding: 2rem; /* Litt mindre padding gir mer tekstplass */
     
     opacity: 0;
-    /* Starter litt lenger ned for en mer markant "glide-opp"-effekt */
     transform: translateY(30px);
     transition: all 0.6s cubic-bezier(0.22, 1, 0.36, 1);
     pointer-events: none;
   }
 
+  .overlay-inner {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+  }
+
+  .full-text {
+    font-size: 0.95rem;
+    line-height: 1.6;
+    color: #444;
+    /* Økt margin for mer luft ned til knappen */
+    margin-bottom: 2rem; 
+  }
+
   /* Hover-tilstander */
   .service-card:hover {
-    /* Subtil løft av hele kortet for dybde */
-    box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+    box-shadow: 0 15px 35px rgba(0,0,0,0.1);
   }
 
   .service-card:hover .card-content-front {
@@ -102,10 +116,10 @@ const { tittel, slug, avsnitt1, avsnitt2, ikon, bakgrunn } = Astro.props;
     pointer-events: auto;
   }
 
-  /* Knapp og tekst */
+  /* Knappen nederst i overlay */
   .button {
-    margin-top: 1rem;
-    padding: 0.75rem 1.5rem;
+    flex-shrink: 0; /* Hindrer knappen i å bli flatklemt */
+    padding: 0.75rem 1.8rem;
     background: #1a1a1a;
     color: white;
     text-decoration: none;
@@ -119,17 +133,15 @@ const { tittel, slug, avsnitt1, avsnitt2, ikon, bakgrunn } = Astro.props;
     background: #000;
   }
 
-  .full-text {
-    font-size: 1rem;
-    line-height: 1.6;
-    color: #444;
-    margin-bottom: 0.5rem;
-  }
-
+  /* Mobil-tilpasning */
   @media (max-width: 768px) {
     .service-card {
-      height: 280px;
+      height: 340px; /* God høyde også på mobil */
       padding: 1.5rem;
+    }
+    .full-text {
+      font-size: 0.9rem;
+      margin-bottom: 1.5rem;
     }
   }
 </style>

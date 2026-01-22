@@ -6,7 +6,7 @@ import PageHeader from "./PageHeader.astro";
 
 <section class="main-container">
   <PageHeader pageTitle="Tjenester" />
-  <div class="kort-grid fire-kort">
+  <div class="kort-grid fire-kort pt-10">
     {tjenester.map((tjeneste) => <TjenesteKort {...tjeneste} />)}
   </div>
 </section>
