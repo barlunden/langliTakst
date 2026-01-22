@@ -4,9 +4,13 @@ import { getImage } from "astro:assets";
 import phone from "../icons/phone.svg";
 import mail from "../icons/mail.svg";
 import logo from "../logos/bmtf100.png";
+
 const optimizedLogo = await getImage({ src: logo });
 const optimizedPhone = await getImage({ src: phone });
 const optimizedMail = await getImage({ src: mail });
+
+// Dynamisk årstall
+const currentYear = new Date().getFullYear();
 ---
 
 <footer class="footer-wrapper">
@@ -43,15 +47,39 @@ const optimizedMail = await getImage({ src: mail });
   
   <div class="footer-bottom">
     <p class="copyright-text">
-      © 2025 Langli Takst AS
+      © {currentYear} Langli Takst AS
     </p>
-    <p class="credits-text">
-      Nettsider utviklet av <a href="https://cominoweb.no" class="credits-link">Comino Web AS</a>
-    </p>
+    <div class="credits-container">
+      <p class="credits-text">
+        Nettsider utviklet av <a href="https://cominoweb.no" class="credits-link">Comino Web AS</a>
+      </p>
+      <p class="photo-credit">
+        Fremsidefoto av <a href="https://unsplash.com/@redcharlie" class="photographer-name">Charl van Rooy</a>
+      </p>
+    </div>
   </div>
 </footer>
 
 <style>
+  /* Beholder eksisterende stiler og legger til/oppdaterer disse: */
+
+  .credits-container {
+    display: flex;
+    flex-direction: column;
+    gap: 0.25rem;
+  }
+
+  .photo-credit {
+    margin: 0;
+    color: hsl(206, 42%, 30%);
+    font-size: 0.75rem;
+    font-weight: 500;
+    opacity: 0.8;
+  }
+
+  .photographer-name {
+    font-weight: 600;
+  }
   .footer-wrapper {
     width: 100%;
     background: linear-gradient(135deg, 
