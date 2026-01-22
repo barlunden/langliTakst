@@ -1,116 +1,135 @@
 ---
-// Props: title, description, icon, image
-// Blir brukt i Tjenester.astro
-
-import husBilde from "../images/hus.jpg";
-
-const bildeKart = {
-  verditakst: husBilde,
-};
-
-const { tittel, slug, avsnitt1, avsnitt2, ikon, bilde, bakgrunn, kategori } =
-  Astro.props;
-type BildeStikkord = keyof typeof bildeKart; // "verditakst" | "annaStikkord"
-
-const valgtBilde = bildeKart[kategori as BildeStikkord];
+// Props: tittel, slug, avsnitt1, avsnitt2, ikon, bakgrunn
+const { tittel, slug, avsnitt1, avsnitt2, ikon, bakgrunn } = Astro.props;
 ---
 
-<div class="fp-container">
-  <section class="fp-service-card shadow-box">
-    <div class="fp-service-front" style={`background:${bakgrunn}`}>
-      {ikon && <img src={`/icons/${ikon}.svg`} alt="" class="ikon" />}
-      <h3 class="fp-service-tittel">{tittel}</h3>
-      <p>{avsnitt1}</p>
-    </div>
-    <div class="fp-service-back" style={`background:${bakgrunn}`}>
-      <p>{avsnitt2}</p>
+<div class="service-card shadow-box" style={`--card-bg: ${bakgrunn}`}>
+  <div class="card-content-front">
+    {ikon && <img src={`/icons/${ikon}.svg`} alt="" class="ikon" />}
+    <h3 class="service-tittel">{tittel}</h3>
+    <p class="summary">{avsnitt1}</p>
+  </div>
+
+  <div class="card-overlay">
+    <div class="overlay-inner">
+      <p class="full-text">{avsnitt2}</p>
       <a href={`/tjenester/${slug}`} class="button">Les mer</a>
     </div>
-  </section>
+  </div>
 </div>
 
 <style>
-  .fp-container {
-    perspective: 1000px;
-  }
-
-  .fp-service-card {
+  .service-card {
     position: relative;
-    border-radius: var(--card-radius);
-    width: 100%;         /* Fills the grid cell */
-    height: 250px;
-    transition: transform 1s, box-shadow 0.4s ease-in-out;
-    transform-style: preserve-3d;
-    will-change: transform;
-    margin: 0;           /* Remove auto-centering */
-    cursor: default;
-    box-sizing: border-box;
-  }
-
-  .fp-service-card:hover {
-    transform: rotateY(180deg);
-  }
-  .fp-service-front,
-  .fp-service-back {
-    position: absolute;
     width: 100%;
-    height: 100%;
-    top: 0;
-    left: 0;
-    backface-visibility: hidden;
-    border-radius: var(--card-radius);
-    box-sizing: border-box;
-    padding: 20px;
-    transition: opacity 0.2s;
-  }
-
-  .fp-service-front {
-    z-index: 2;
-    pointer-events: auto;
-  }
-
-  .fp-service-back {
-    transform: rotateY(180deg);
-    z-index: 1;
-    pointer-events: none;
-  }
-
-  .fp-service-card:hover .fp-service-front {
-    pointer-events: none;
-    opacity: 0;
-  }
-  .fp-service-card:hover .fp-service-back {
-    pointer-events: auto;
-    opacity: 1;
-    z-index: 2;
-  }
-
-  .fp-service-front {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 1rem;
-  }
-  .fp-service-front .ikon {
-    width: 2rem;
-  }
-
-  .fp-service-tittel {
-    font-size: 1.125rem;
-    font-weight: 600;
-    padding-bottom: 0.5rem;
-    margin: 0;
-    text-align: center;
-  }
-
-  .fp-service-back {
+    height: 300px;
+    border-radius: var(--card-radius, 12px);
+    overflow: hidden;
+    background: var(--card-bg, #f4f4f4);
+    /* Hastighet senket til 0.6s med en myk kurve */
+    transition: all 0.6s cubic-bezier(0.22, 1, 0.36, 1);
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    padding: 2.5rem;
+    text-align: center;
+    cursor: pointer;
   }
 
-  .fp-service-back p {
-    margin-top: auto;
+  /* Front-innhold */
+  .card-content-front {
+    /* 0.6s her også for å matche */
+    transition: transform 0.6s cubic-bezier(0.22, 1, 0.36, 1), 
+                opacity 0.4s ease;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1.2rem;
+    width: 100%;
+  }
+
+  .service-tittel {
+    font-size: 1.3rem;
+    font-weight: 700;
+    margin: 0;
+    color: #1a1a1a;
+    letter-spacing: -0.01em;
+  }
+
+  .ikon {
+    width: 3.5rem;
+    height: 3.5rem;
+    /* En subtil skalering av ikonet når det forsvinner */
+    transition: transform 0.6s ease;
+  }
+
+  /* Overlay styling */
+  .card-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: var(--card-bg);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 2.5rem;
+    
+    opacity: 0;
+    /* Starter litt lenger ned for en mer markant "glide-opp"-effekt */
+    transform: translateY(30px);
+    transition: all 0.6s cubic-bezier(0.22, 1, 0.36, 1);
+    pointer-events: none;
+  }
+
+  /* Hover-tilstander */
+  .service-card:hover {
+    /* Subtil løft av hele kortet for dybde */
+    box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+  }
+
+  .service-card:hover .card-content-front {
+    opacity: 0;
+    transform: translateY(-25px) scale(0.95);
+  }
+
+  .service-card:hover .card-overlay {
+    opacity: 1;
+    transform: translateY(0);
+    pointer-events: auto;
+  }
+
+  /* Knapp og tekst */
+  .button {
+    margin-top: 1rem;
+    padding: 0.75rem 1.5rem;
+    background: #1a1a1a;
+    color: white;
+    text-decoration: none;
+    border-radius: 4px;
+    font-size: 0.9rem;
+    font-weight: 600;
+    transition: background 0.3s ease;
+  }
+
+  .button:hover {
+    background: #000;
+  }
+
+  .full-text {
+    font-size: 1rem;
+    line-height: 1.6;
+    color: #444;
+    margin-bottom: 0.5rem;
+  }
+
+  @media (max-width: 768px) {
+    .service-card {
+      height: 280px;
+      padding: 1.5rem;
+    }
   }
 </style>
