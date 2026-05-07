@@ -1,5 +1,5 @@
 ---
-const { items, category, bakgrunn } = Astro.props; // Accept data as props
+const { items, category, bakgrunn, footnote } = Astro.props; // Accept data as props
 ---
 
 <div class="price-list shadow-box" style={`background:${bakgrunn}`}>
@@ -14,6 +14,7 @@ const { items, category, bakgrunn } = Astro.props; // Accept data as props
       ))
     }
   </ul>
+  {footnote && <p class="footnote">* {footnote}</p>}
 </div>
 
 <style>
@@ -41,5 +42,9 @@ const { items, category, bakgrunn } = Astro.props; // Accept data as props
     display: flex;
     justify-content: space-between;
     margin-bottom: 8px;
+  }
+
+  .footnote {
+    @apply italic
   }
 </style>

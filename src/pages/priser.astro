@@ -7,17 +7,20 @@ import Layout from "../layouts/Layout.astro";
 export const currentPath = "/priser";
 
 const tilstand = [
-  { name: "Leilighet opp til 99 m² BRA", price: "8.500,-" },
-  { name: "Leilighet fra 100 til 200 m² BRA", price: "10.500,-" },
-  { name: "Bolig opp til 149 m² BRA", price: "13.000,-" },
-  { name: "Bolig fra 150 til 249 m² BRA", price: "14.500,-" },
-  { name: "Bolig fra 250 m² BRA", price: "17.500,-" },
+  { name: "Leilighet opp til 99 m² BRA", price: "9.000,-" },
+  { name: "Leilighet fra 100 til 200 m² BRA", price: "11.000,-" },
+  { name: "Bolig opp til 149 m² BRA", price: "14.500,-" },
+  { name: "Bolig fra 150 til 249 m² BRA", price: "16.000,-" },
+  { name: "Bolig fra 250 m² til 400 m² BRA", price: "18.500,-" },
+  { name: "Bolig over 400 m² BRA", price: "Pris etter avtale" }
 ];
 
 const tillegg = [
   { name: "Hybel/leilighet m/våtrom", price: "3.500,-" },
-  { name: "Ved mer enn 3 stk. våtrom, pris pr. våtrom", price: "1.500,-" },
-  { name: "Verditakst sammen med tilstandsrapport", price: "2.500,-" },
+  { name: "Ved mer enn 3 stk. våtrom, pris pr. våtrom", price: "2.000,-" },
+  { name: "Verditakst sammen med tilstandsrapport", price: "3.000,-" },
+  { name: "Tilstandsvurdering av helt enkle tilleggsbygg som garasje, uthus o.l. uten innlagt vann/avløp", price: "4.000,-" },
+  { name: "Tilstandsvurdering av helt enkle tilleggsbygg som garasje, uthus o.l. med innlagt vann/avløp", price: "5.000,-" },
 ];
 
 const takster = [
@@ -29,9 +32,14 @@ const takster = [
     name: "Enebolig, rekkehus, tomannsbolig, leilighet fra 250 m² BRA",
     price: "7.000,-",
   },
-  { name: "Tomt fra", price: "5.000,-" },
-  { name: "Næring fra", price: "18.000,-" },
+  { name: "Tomt fra", price: "6.000,-" },
+  { name: "Næring fra", price: "20.000,-" },
+  { name: "Skadetakst og andre taksttjenester etter medgått tid.", price: "Timesats kr 1.750,- inkl mva"},
 ];
+
+const skadeTakst = [
+  { name: "Skadetakst og andre taksttjenester etter medgått tid. Timesats kr 1.750,- inkl mva"}
+]
 
 const andreTillegg = [
   { name: "Tillegg for kjøring utenfor Stord kommune." },
@@ -52,7 +60,7 @@ const lilla = "hsl(270deg 100% 96%)"
     <PageHeader pageTitle="Prisliste" />
 
     <div class="main-container">
-      <Prisliste category="Tilstandsrapporter ny forskrift" items={tilstand} bakgrunn={blaa} />
+      <Prisliste category="Tilstandsrapporter ny forskrift" items={tilstand} bakgrunn={blaa} footnote="Oppdatering av tilstandsrapport: Koster 50% av kostnad fra opprinnelig pris. Dette forutsetter at det er samme eier." />
       <Prisliste category="Pristillegg for:" items={tillegg} bakgrunn={aprikos} />
       <Prisliste category="Takster" items={takster} bakgrunn={gul} />
       <Prisliste category="Diverse tillegg / merknader" items={andreTillegg} bakgrunn={lilla} />

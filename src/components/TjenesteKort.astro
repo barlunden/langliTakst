@@ -1,147 +1,292 @@
 ---
+
 // Props: tittel, slug, avsnitt1, avsnitt2, ikon, bakgrunn
+
 const { tittel, slug, avsnitt1, avsnitt2, ikon, bakgrunn } = Astro.props;
+
 ---
 
-<div class="service-card shadow-box" style={`--card-bg: ${bakgrunn}`}>
-  <div class="card-content-front">
-    {ikon && <img src={`/icons/${ikon}.svg`} alt="" class="ikon" />}
-    <h3 class="service-tittel">{tittel}</h3>
-    <p class="summary">{avsnitt1}</p>
-  </div>
 
-  <div class="card-overlay">
-    <div class="overlay-inner">
-      <p class="full-text">{avsnitt2}</p>
-      <a href={`/tjenester/${slug}`} class="button">Les mer</a>
-    </div>
-  </div>
+
+<div class="service-card shadow-box" style={`--card-bg: ${bakgrunn}`}>
+
+<div class="card-content-front">
+
+{ikon && <img src={`/icons/${ikon}.svg`} alt="" class="ikon" />}
+
+<h3 class="service-tittel">{tittel}</h3>
+
+<p class="summary">{avsnitt1}</p>
+
 </div>
 
+
+
+<div class="card-overlay">
+
+<div class="overlay-inner">
+
+<p class="full-text">{avsnitt2}</p>
+
+<a href={`/tjenester/${slug}`} class="button">Les mer</a>
+
+</div>
+
+</div>
+
+</div>
+
+
+
 <style>
-  .service-card {
-    position: relative;
-    width: 100%;
-    /* Økt høyde fra 300px til 360px for bedre plass */
-    height: 360px;
-    border-radius: var(--card-radius, 12px);
-    overflow: hidden;
-    background: var(--card-bg, #f4f4f4);
-    /* Myk Expo-Out kurve for en eksklusiv følelse */
-    transition: all 0.6s cubic-bezier(0.22, 1, 0.36, 1);
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    padding: 2.5rem;
-    text-align: center;
-    cursor: pointer;
-  }
 
-  /* Front-innhold (ikon og tittel) */
-  .card-content-front {
-    transition: transform 0.6s cubic-bezier(0.22, 1, 0.36, 1), 
-                opacity 0.4s ease;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 1.2rem;
-    width: 100%;
-  }
+.service-card {
 
-  .service-tittel {
-    font-size: 1.3rem;
-    font-weight: 700;
-    margin: 0;
-    color: #1a1a1a;
-    letter-spacing: -0.01em;
-  }
+position: relative;
 
-  .ikon {
-    width: 3.5rem;
-    height: 3.5rem;
-    transition: transform 0.6s ease;
-  }
+width: 100%;
 
-  /* Overlay styling (det som kommer fram ved hover) */
-  .card-overlay {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: var(--card-bg);
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    padding: 2rem; /* Litt mindre padding gir mer tekstplass */
-    
-    opacity: 0;
-    transform: translateY(30px);
-    transition: all 0.6s cubic-bezier(0.22, 1, 0.36, 1);
-    pointer-events: none;
-  }
+/* Økt høyde fra 300px til 360px for bedre plass */
 
-  .overlay-inner {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    width: 100%;
-    height: 100%;
-  }
+height: 320px;
 
-  .full-text {
-    font-size: 0.95rem;
-    line-height: 1.6;
-    color: #444;
-    /* Økt margin for mer luft ned til knappen */
-    margin-bottom: 2rem; 
-  }
+border-radius: var(--card-radius, 12px);
 
-  /* Hover-tilstander */
-  .service-card:hover {
-    box-shadow: 0 15px 35px rgba(0,0,0,0.1);
-  }
+overflow: hidden;
 
-  .service-card:hover .card-content-front {
-    opacity: 0;
-    transform: translateY(-25px) scale(0.95);
-  }
+background: var(--card-bg, #f4f4f4);
 
-  .service-card:hover .card-overlay {
-    opacity: 1;
-    transform: translateY(0);
-    pointer-events: auto;
-  }
+/* Myk Expo-Out kurve for en eksklusiv følelse */
 
-  /* Knappen nederst i overlay */
-  .button {
-    flex-shrink: 0; /* Hindrer knappen i å bli flatklemt */
-    padding: 0.75rem 1.8rem;
-    background: #1a1a1a;
-    color: white;
-    text-decoration: none;
-    border-radius: 4px;
-    font-size: 0.9rem;
-    font-weight: 600;
-    transition: background 0.3s ease;
-  }
+transition: all 0.6s cubic-bezier(0.22, 1, 0.36, 1);
 
-  .button:hover {
-    background: #000;
-  }
+display: flex;
 
-  /* Mobil-tilpasning */
-  @media (max-width: 768px) {
-    .service-card {
-      height: 340px; /* God høyde også på mobil */
-      padding: 1.5rem;
-    }
-    .full-text {
-      font-size: 0.9rem;
-      margin-bottom: 1.5rem;
-    }
-  }
+flex-direction: column;
+
+justify-content: center;
+
+align-items: center;
+
+padding: 2.5rem;
+
+text-align: center;
+
+cursor: pointer;
+
+}
+
+
+
+/* Front-innhold (ikon og tittel) */
+
+.card-content-front {
+
+transition: transform 0.6s cubic-bezier(0.22, 1, 0.36, 1),
+
+opacity 0.4s ease;
+
+display: flex;
+
+flex-direction: column;
+
+align-items: center;
+
+gap: 1.2rem;
+
+width: 100%;
+
+}
+
+
+
+.service-tittel {
+
+font-size: 1.3rem;
+
+font-weight: 700;
+
+margin: 0;
+
+color: #1a1a1a;
+
+letter-spacing: -0.01em;
+
+}
+
+
+
+.ikon {
+
+width: 3.5rem;
+
+height: 3.5rem;
+
+transition: transform 0.6s ease;
+
+}
+
+
+
+/* Overlay styling (det som kommer fram ved hover) */
+
+.card-overlay {
+
+position: absolute;
+
+top: 0;
+
+left: 0;
+
+width: 100%;
+
+height: 100%;
+
+background: var(--card-bg);
+
+display: flex;
+
+flex-direction: column;
+
+justify-content: center;
+
+align-items: center;
+
+padding: 2rem; /* Litt mindre padding gir mer tekstplass */
+
+
+opacity: 0;
+
+transform: translateY(30px);
+
+transition: all 0.6s cubic-bezier(0.22, 1, 0.36, 1);
+
+pointer-events: none;
+
+}
+
+
+
+.overlay-inner {
+
+display: flex;
+
+flex-direction: column;
+
+justify-content: center;
+
+align-items: center;
+
+width: 100%;
+
+height: 100%;
+
+}
+
+
+
+.full-text {
+
+font-size: 0.95rem;
+
+line-height: 1.6;
+
+color: #444;
+
+/* Økt margin for mer luft ned til knappen */
+
+margin-bottom: 2rem;
+
+}
+
+
+
+/* Hover-tilstander */
+
+.service-card:hover {
+
+box-shadow: 0 15px 35px rgba(0,0,0,0.1);
+
+}
+
+
+
+.service-card:hover .card-content-front {
+
+opacity: 0;
+
+transform: translateY(-25px) scale(0.95);
+
+}
+
+
+
+.service-card:hover .card-overlay {
+
+opacity: 1;
+
+transform: translateY(0);
+
+pointer-events: auto;
+
+}
+
+
+
+/* Knappen nederst i overlay */
+
+.button {
+
+flex-shrink: 0; /* Hindrer knappen i å bli flatklemt */
+
+padding: 0.75rem 1.8rem;
+
+background: #1a1a1a;
+
+color: white;
+
+text-decoration: none;
+
+border-radius: 4px;
+
+font-size: 0.9rem;
+
+font-weight: 600;
+
+transition: background 0.3s ease;
+
+}
+
+
+
+.button:hover {
+
+background: #000;
+
+}
+
+
+
+/* Mobil-tilpasning */
+
+@media (max-width: 768px) {
+
+.service-card {
+
+height: 320px; /* God høyde også på mobil */
+
+padding: 1.5rem;
+
+}
+
+.full-text {
+
+font-size: 0.9rem;
+
+margin-bottom: 1.5rem;
+
+}
+
+}
+
 </style>
