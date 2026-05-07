@@ -6,7 +6,7 @@ const { items, category, bakgrunn, footnote } = Astro.props; // Accept data as p
   <h5>{category}</h5>
   <ul>
     {
-      items.map((item: { name: unknown; price: unknown }) => (
+      items.map((item: { name: string; price?: string }) => (
         <li>
           <span>{item.name}</span>
           <span>{item.price}</span>
