@@ -34,19 +34,13 @@ const takster = [
   },
   { name: "Tomt fra", price: "6.000,-" },
   { name: "Næring fra", price: "20.000,-" },
-  { name: "Skadetakst og andre taksttjenester etter medgått tid.", price: "Timesats kr 1.750,- inkl mva"},
 ];
-
-const skadeTakst = [
-  { name: "Skadetakst og andre taksttjenester etter medgått tid. Timesats kr 1.750,- inkl mva"}
-]
 
 const andreTillegg = [
   { name: "Tillegg for kjøring utenfor Stord kommune." },
   { name: "Rapportavgift kommer alltid i tillegg.", price: "500,- pr. rapport"},
   { name: "Alle priser er inkl mva." },
   { name: "Gjeldende pris for tilstandsrapport er for inntil tre våtrom, dvs. bad og vaskerom. Toalett regnes ikke som våtrom." },
-  { name: "Alle andre tjenester etter medgått tid og etter gjeldende timerate kr 1.750,- inkl. mva." }
 ]
 
 const blaa = "hsl(220deg 60% 96%)"
@@ -62,8 +56,8 @@ const lilla = "hsl(270deg 100% 96%)"
     <div class="main-container">
       <Prisliste category="Tilstandsrapporter ny forskrift" items={tilstand} bakgrunn={blaa} footnote="Oppdatering av tilstandsrapport: Koster 50% av kostnad fra opprinnelig pris. Dette forutsetter at det er samme eier." />
       <Prisliste category="Pristillegg for:" items={tillegg} bakgrunn={aprikos} />
-      <Prisliste category="Takster" items={takster} bakgrunn={gul} />
-      <Prisliste category="Diverse tillegg / merknader" items={andreTillegg} bakgrunn={lilla} />
+      <Prisliste category="Takster" items={takster} bakgrunn={gul} extra1="Skadetakst og andre taksttjenester etter medgått tid." extra2="Timesats pr. 1.5.2026 kr 1.750,- inkl mva" />
+      <Prisliste category="Diverse tillegg / merknader" items={andreTillegg} bakgrunn={lilla} extra1="Alle andre tjenester etter medgått tid og etter gjeldende timesats." extra2="Timesats pr. 1.5.2026 kr 1.750,- inkl mva" />
     </div>
     <OmOss />
   </div>
